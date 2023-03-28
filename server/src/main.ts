@@ -5,6 +5,7 @@ const aC43Rapier = new AC43Rapier()
 console.log(aC43Rapier.getAllScrapMetal());
 
 async function getItem(itemId: number) {
+  const arr = []
   const res = await axios.get('https://crossoutdb.com/api/v1/recipe-deep/' + itemId).then(res => {
     const item = {
       name: '',
