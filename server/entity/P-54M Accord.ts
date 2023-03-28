@@ -2,8 +2,7 @@
 export class P54M_Accord {
   name: string = 'П-54М Аккорд'
   scrapMetal: number = 30
-  Copper: number = 6
-
+  copper: number = 6
 }
 
 [
