@@ -1,15 +1,54 @@
 import { ICarComponent } from '../../interfaces/carComponent.interface'
-import { B1Aviator, CarJack, FuelBarrel, R1Breese, Radio, RS1Ruby } from '../hardware/common'
-import { MediumWheelST } from '../movement/common'
-import { Avenger57mm, Lupara, P54MAccord } from './common'
+import { WWT1 } from '../cabins/common'
+import { MediumWheel, MediumWheelST, SmallWheel, SmallWheelST } from './common'
 
-export class AC43Rapier implements ICarComponent {
-  name = 'АП43 Рапира'
+export class LargeWheel implements ICarComponent {
+  name = ''
   rarity = 'rare'
   benchCost = 3
-  scrapMetal = 650
+  scrapMetal = 600
   copper = 130
-  ingredients = [new B1Aviator(), new P54MAccord()]
+  ingredients = [new SmallWheel(), new WWT1()]
+
+  getScrapMetal = () => {
+    return this.scrapMetal
+  }
+
+  getAllScrapMetal = () => {
+    let scrapMetalCount = this.getScrapMetal()
+    for (let item of this.ingredients) {
+      scrapMetalCount += item.getScrapMetal()
+    }
+    return scrapMetalCount
+  }
+}
+export class LargeWheelST implements ICarComponent {
+  name = ''
+  rarity = 'rare'
+  benchCost = 3
+  scrapMetal = 600
+  copper = 130
+  ingredients = [new MediumWheelST(), new WWT1()]
+
+  getScrapMetal = () => {
+    return this.scrapMetal
+  }
+
+  getAllScrapMetal = () => {
+    let scrapMetalCount = this.getScrapMetal()
+    for (let item of this.ingredients) {
+      scrapMetalCount += item.getScrapMetal()
+    }
+    return scrapMetalCount
+  }
+}
+export class RacingWheel implements ICarComponent {
+  name = ''
+  rarity = 'rare'
+  benchCost = 3
+  scrapMetal = 600
+  copper = 130
+  ingredients = [new MediumWheel(), new SmallWheel()]
 
   getScrapMetal = () => {
     return this.scrapMetal
@@ -24,13 +63,13 @@ export class AC43Rapier implements ICarComponent {
   }
 }
 
-export class AD12Falcon implements ICarComponent {
-  name = 'АД-12 Сокол'
+export class RacingWheelST implements ICarComponent {
+  name = ''
   rarity = 'rare'
   benchCost = 3
-  scrapMetal = 650
+  scrapMetal = 600
   copper = 130
-  ingredients = [new RS1Ruby(), new P54MAccord()]
+  ingredients = [new MediumWheelST(), new SmallWheelST()]
 
   getScrapMetal = () => {
     return this.scrapMetal
@@ -45,13 +84,13 @@ export class AD12Falcon implements ICarComponent {
   }
 }
 
-export class Borer implements ICarComponent {
-  name = 'Бур'
+export class ChainedWheel implements ICarComponent {
+  name = ''
   rarity = 'rare'
   benchCost = 3
-  scrapMetal = 650
+  scrapMetal = 600
   copper = 130
-  ingredients = [new CarJack(), new R1Breese()]
+  ingredients = [new MediumWheel(), new SmallWheel()]
 
   getScrapMetal = () => {
     return this.scrapMetal
@@ -66,13 +105,13 @@ export class Borer implements ICarComponent {
   }
 }
 
-export class Vector implements ICarComponent {
-  name = 'Вектор'
+export class ChainedWheelST implements ICarComponent {
+  name = ''
   rarity = 'rare'
   benchCost = 3
-  scrapMetal = 650
+  scrapMetal = 600
   copper = 130
-  ingredients = [new P54MAccord(), new CarJack()]
+  ingredients = [new MediumWheelST(), new SmallWheelST()]
 
   getScrapMetal = () => {
     return this.scrapMetal
@@ -87,13 +126,13 @@ export class Vector implements ICarComponent {
   }
 }
 
-export class Sledgehammer implements ICarComponent {
-  name = 'Кувалда'
+export class StuddedWheel implements ICarComponent {
+  name = ''
   rarity = 'rare'
   benchCost = 3
-  scrapMetal = 650
+  scrapMetal = 600
   copper = 130
-  ingredients = [new Lupara(), new CarJack()]
+  ingredients = [new SmallWheel(), new MediumWheel()]
 
   getScrapMetal = () => {
     return this.scrapMetal
@@ -108,13 +147,13 @@ export class Sledgehammer implements ICarComponent {
   }
 }
 
-export class LittleBoy6LB implements ICarComponent {
-  name = 'Малыш 6Ф'
+export class StuddedWheelST implements ICarComponent {
+  name = ''
   rarity = 'rare'
   benchCost = 3
-  scrapMetal = 650
+  scrapMetal = 600
   copper = 130
-  ingredients = [new Avenger57mm(), new FuelBarrel()]
+  ingredients = [new SmallWheelST(), new MediumWheelST()]
 
   getScrapMetal = () => {
     return this.scrapMetal
@@ -129,13 +168,13 @@ export class LittleBoy6LB implements ICarComponent {
   }
 }
 
-export class Wasp implements ICarComponent {
-  name = 'Оса'
+export class LandingGear implements ICarComponent {
+  name = ''
   rarity = 'rare'
   benchCost = 3
-  scrapMetal = 650
+  scrapMetal = 600
   copper = 130
-  ingredients = [new FuelBarrel(), new Avenger57mm()]
+  ingredients = [new SmallWheel(), new MediumWheel()]
 
   getScrapMetal = () => {
     return this.scrapMetal
@@ -150,13 +189,13 @@ export class Wasp implements ICarComponent {
   }
 }
 
-export class Spitfire implements ICarComponent {
-  name = 'Очаг'
+export class LandingGearST implements ICarComponent {
+  name = ''
   rarity = 'rare'
   benchCost = 3
-  scrapMetal = 650
+  scrapMetal = 600
   copper = 130
-  ingredients = [new Lupara(), new B1Aviator()]
+  ingredients = [new SmallWheelST(), new MediumWheelST()]
 
   getScrapMetal = () => {
     return this.scrapMetal
@@ -171,13 +210,13 @@ export class Spitfire implements ICarComponent {
   }
 }
 
-export class STM23Defender implements ICarComponent {
-  name = 'П-23 Защитник'
+export class BalloonTyre implements ICarComponent {
+  name = ''
   rarity = 'rare'
   benchCost = 3
-  scrapMetal = 650
+  scrapMetal = 600
   copper = 130
-  ingredients = [new P54MAccord(), new R1Breese()]
+  ingredients = [new MediumWheel()]
 
   getScrapMetal = () => {
     return this.scrapMetal
@@ -192,34 +231,13 @@ export class STM23Defender implements ICarComponent {
   }
 }
 
-export class Judge76mm implements ICarComponent {
-  name = 'П-23 Защитник'
+export class BalloonTyreST implements ICarComponent {
+  name = ''
   rarity = 'rare'
   benchCost = 3
-  scrapMetal = 650
+  scrapMetal = 600
   copper = 130
-  ingredients = [new MediumWheelST(), new Avenger57mm()]
-
-  getScrapMetal = () => {
-    return this.scrapMetal
-  }
-
-  getAllScrapMetal = () => {
-    let scrapMetalCount = this.getScrapMetal()
-    for (let item of this.ingredients) {
-      scrapMetalCount += item.getScrapMetal()
-    }
-    return scrapMetalCount
-  }
-}
-
-export class DTCobra implements ICarComponent {
-  name = 'П-23 Защитник'
-  rarity = 'rare'
-  benchCost = 3
-  scrapMetal = 650
-  copper = 130
-  ingredients = [new Lupara(), new Radio()]
+  ingredients = [new SmallWheelST()]
 
   getScrapMetal = () => {
     return this.scrapMetal

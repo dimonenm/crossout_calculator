@@ -6,34 +6,38 @@ console.log(aC43Rapier.getAllScrapMetal());
 
 async function getItem(itemIds: number[]) {
 
-  class Item {
-    name: string
-    scrapMetal: number
-    copper: number
-    ingredients: string[]
-    constructor(name: string, scrapMetal: number, copper: number, ingredients: string[]) {
-      this.name = name
-      this.scrapMetal = scrapMetal
-      this.copper = copper
-      this.ingredients = ingredients
-    }
-  }
-
-  const arr: Item[] = []
+  const arr: string[] = []
 
   for (const itemId of itemIds) {
     await axios.get('https://crossoutdb.com/api/v1/recipe/' + itemId).then(res => {
+      const str = `export class ${res.data.recipe.item.name} implements ICarComponent { name = '' rarity = 'rare' benchCost = 3 scrapMetal = ${res.data.recipe.ingredients[0].number} copper = ${res.data.recipe.ingredients[1].number} ingredients = ['${res.data.recipe.ingredients[2].item.name}', '${res.data.recipe.ingredients[3].item.name}'] getScrapMetal = () => { return this.scrapMetal} getAllScrapMetal = () => { let scrapMetalCount = this.getScrapMetal() for (let item of this.ingredients) { scrapMetalCount += item.getScrapMetal()} return scrapMetalCount}}`
+      arr.push(str)
 
-      const name = res.data.recipe.item.name
-      const scrapMetal = res.data.recipe.ingredients[0].number
-      const copper = res.data.recipe.ingredients[1].number
-      let ingredients: string[] = []
-      ingredients.push(res.data.recipe.ingredients[2].item.name)
-      ingredients.push(res.data.recipe.ingredients[3].item.name)
-      const item = new Item(name, scrapMetal, copper, ingredients)
-      arr.push(item)
+
+      console.log(`export class ${res.data.recipe.item.name} implements ICarComponent {`);
+      console.log(`name = ''`);
+      console.log(`rarity = 'rare'`);
+      console.log(`benchCost = 3`);
+      console.log(`scrapMetal = ${res.data.recipe.ingredients[0].number}`);
+      console.log(`copper = ${res.data.recipe.ingredients[1].number}`);
+      console.log(`ingredients = ['${res.data.recipe.ingredients[2].item.name}', '${res.data.recipe.ingredients[3].item.name}']`);
+      console.log(``);
+      console.log(`getScrapMetal = () => {`);
+      console.log(`return this.scrapMetal`);
+      console.log(`}`);
+      console.log(``);
+      console.log(`getAllScrapMetal = () => {`);
+      console.log(`let scrapMetalCount = this.getScrapMetal()`);
+      console.log(`for (let item of this.ingredients) {`);
+      console.log(`scrapMetalCount += item.getScrapMetal()`);
+      console.log(`}`);
+      console.log(`return scrapMetalCount`);
+      console.log(`}`);
+      console.log(`}`);
+      console.log(`}`);
     })
   }
-  console.log(arr);
+  // console.log(arr);
+
 }
-getItem([94, 34, 51, 7, 2, 61, 44, 4, 74, 70, 123])
+getItem([116, 113, 383, 379, 121, 87, 104, 59, 395, 389, 390, 388])
