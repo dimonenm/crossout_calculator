@@ -4,6 +4,8 @@ export interface ICarComponent{
   benchCost?: number
   scrapMetal: number
   copper: number
+  wires?: number
+  plastic?: number
   ingredients?: ICarComponent[]
 
   getScrapMetal: () => number
