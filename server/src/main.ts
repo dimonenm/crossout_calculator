@@ -1,8 +1,13 @@
-import { AC43Rapier } from './entity/weapons/rare';
 import axios from 'axios'
+import { writeFile, appendFile } from 'fs/promises'
 
-const aC43Rapier = new AC43Rapier()
-console.log(aC43Rapier.getAllScrapMetal());
+async function saveFile(txtContent: string) {
+  try {
+    await appendFile('./test.txt', txtContent);
+  } catch (err) {
+    console.log(err);
+  }
+}
 
 async function getItem(itemIds: number[]) {
 
@@ -34,6 +39,10 @@ async function getItem(itemIds: number[]) {
       console.log(`}`);
     })
   }
-
 }
-getItem([1060,1051,1419,1057,72,1476,457,1050,1049,1126,1371,763,373,598,475,1053,1054,1251,1065,73])
+getItem([602, 600, 384, 380, 91, 83, 483, 482, 1066, 1067, 1253, 1254])
+
+//let list2 = document.querySelectorAll('tr')
+//for(const item of list2){console.log(item.children[0].innerText)}
+//for(const item of list2){console.log(item.children[1].innerText)}
+
