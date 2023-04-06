@@ -18,7 +18,7 @@ export class Jawbreaker implements ICarComponent {
   getAllScrapMetal = () => {
     let scrapMetalCount = this.getScrapMetal()
     for (let item of this.ingredients) {
-      scrapMetalCount += item.getScrapMetal()
+      scrapMetalCount += item.getAllScrapMetal()
     }
     return scrapMetalCount
   }
@@ -38,7 +38,7 @@ export class Bat implements ICarComponent {
   getAllScrapMetal = () => {
     let scrapMetalCount = this.getScrapMetal()
     for (let item of this.ingredients) {
-      scrapMetalCount += item.getScrapMetal()
+      scrapMetalCount += item.getAllScrapMetal()
     }
     return scrapMetalCount
   }
@@ -58,7 +58,7 @@ export class Pilgrim implements ICarComponent {
   getAllScrapMetal = () => {
     let scrapMetalCount = this.getScrapMetal()
     for (let item of this.ingredients) {
-      scrapMetalCount += item.getScrapMetal()
+      scrapMetalCount += item.getAllScrapMetal()
     }
     return scrapMetalCount
   }

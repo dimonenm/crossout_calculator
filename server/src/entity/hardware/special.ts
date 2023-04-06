@@ -19,7 +19,7 @@ export class Ampere implements ICarComponent {
   getAllScrapMetal = () => {
     let scrapMetalCount = this.getScrapMetal()
     for (let item of this.ingredients) {
-      scrapMetalCount += item.getScrapMetal()
+      scrapMetalCount += item.getAllScrapMetal()
     }
     return scrapMetalCount
   }
@@ -39,7 +39,7 @@ export class Genesis implements ICarComponent {
   getAllScrapMetal = () => {
     let scrapMetalCount = this.getScrapMetal()
     for (let item of this.ingredients) {
-      scrapMetalCount += item.getScrapMetal()
+      scrapMetalCount += item.getAllScrapMetal()
     }
     return scrapMetalCount
   }
@@ -59,7 +59,7 @@ export class Hardcore implements ICarComponent {
   getAllScrapMetal = () => {
     let scrapMetalCount = this.getScrapMetal()
     for (let item of this.ingredients) {
-      scrapMetalCount += item.getScrapMetal()
+      scrapMetalCount += item.getAllScrapMetal()
     }
     return scrapMetalCount
   }
@@ -79,7 +79,7 @@ export class Iris implements ICarComponent {
   getAllScrapMetal = () => {
     let scrapMetalCount = this.getScrapMetal()
     for (let item of this.ingredients) {
-      scrapMetalCount += item.getScrapMetal()
+      scrapMetalCount += item.getAllScrapMetal()
     }
     return scrapMetalCount
   }
@@ -99,7 +99,7 @@ export class KA1Discharger implements ICarComponent {
   getAllScrapMetal = () => {
     let scrapMetalCount = this.getScrapMetal()
     for (let item of this.ingredients) {
-      scrapMetalCount += item.getScrapMetal()
+      scrapMetalCount += item.getAllScrapMetal()
     }
     return scrapMetalCount
   }
@@ -119,7 +119,7 @@ export class Maxwell implements ICarComponent {
   getAllScrapMetal = () => {
     let scrapMetalCount = this.getScrapMetal()
     for (let item of this.ingredients) {
-      scrapMetalCount += item.getScrapMetal()
+      scrapMetalCount += item.getAllScrapMetal()
     }
     return scrapMetalCount
   }
@@ -139,7 +139,7 @@ export class OculusVI implements ICarComponent {
   getAllScrapMetal = () => {
     let scrapMetalCount = this.getScrapMetal()
     for (let item of this.ingredients) {
-      scrapMetalCount += item.getScrapMetal()
+      scrapMetalCount += item.getAllScrapMetal()
     }
     return scrapMetalCount
   }
@@ -159,7 +159,7 @@ export class Razorback implements ICarComponent {
   getAllScrapMetal = () => {
     let scrapMetalCount = this.getScrapMetal()
     for (let item of this.ingredients) {
-      scrapMetalCount += item.getScrapMetal()
+      scrapMetalCount += item.getAllScrapMetal()
     }
     return scrapMetalCount
   }
@@ -179,7 +179,7 @@ export class DunHorse implements ICarComponent {
   getAllScrapMetal = () => {
     let scrapMetalCount = this.getScrapMetal()
     for (let item of this.ingredients) {
-      scrapMetalCount += item.getScrapMetal()
+      scrapMetalCount += item.getAllScrapMetal()
     }
     return scrapMetalCount
   }
@@ -199,7 +199,7 @@ export class Chameleon implements ICarComponent {
   getAllScrapMetal = () => {
     let scrapMetalCount = this.getScrapMetal()
     for (let item of this.ingredients) {
-      scrapMetalCount += item.getScrapMetal()
+      scrapMetalCount += item.getAllScrapMetal()
     }
     return scrapMetalCount
   }
@@ -219,7 +219,7 @@ export class PU1Charge implements ICarComponent {
   getAllScrapMetal = () => {
     let scrapMetalCount = this.getScrapMetal()
     for (let item of this.ingredients) {
-      scrapMetalCount += item.getScrapMetal()
+      scrapMetalCount += item.getAllScrapMetal()
     }
     return scrapMetalCount
   }
