@@ -6,6 +6,7 @@ export interface ICarComponent{
   copper: number
   wires?: number
   plastic?: number
+  batteries?: number
   ingredients?: ICarComponent[]
 
   getScrapMetal: () => number

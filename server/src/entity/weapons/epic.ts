@@ -1,14 +1,18 @@
 import { ICarComponent } from '../../interfaces/carComponent.interface'
+import { Pilgrim, Jawbreaker } from '../cabins/special'
+import { Ampere, PU1Charge, Chameleon, DunHorse, Maxwell, Hardcore, Genesis, OculusVI } from '../hardware/special'
+import { LunarIVST, LunarIV, Shiv, APCWheel, TwinWheel, APCWheelST, TwinWheelST, ShivST } from '../movement/special'
+import { Synthesis, Prosecutor76mm, T4Python, AC50Storm, Sinus0, ZS33Hulk, Mace, Goblin, Boom, Buzzsaw, Junkbow, Sidekick, AD13Hawk } from './special'
 
 export class Aurora implements ICarComponent {
-  name = ''
+  name = 'Аврора'
   rarity = 'epic'
   benchCost = 15
   scrapMetal = 100
   wires = 200
   copper = 150
   plastic = 100
-  ingredients = [new Synthesis(), new Lunar IV ST(), new Ampere()]
+  ingredients = [new Synthesis(), new LunarIVST(), new Ampere()]
   getScrapMetal = () => {
     return this.scrapMetal
   }
@@ -20,15 +24,15 @@ export class Aurora implements ICarComponent {
     return scrapMetalCount
   }
 }
-export class GL-55 Impulse implements ICarComponent {
-  name = ''
+export class GL55Impulse implements ICarComponent {
+  name = 'АГС-55 Импульс'
   rarity = 'epic'
   benchCost = 15
   scrapMetal = 100
   wires = 150
   copper = 200
   plastic = 100
-  ingredients = [new Prosecutor 76mm(), new T4 Python(), new PU - 1 Charge()]
+  ingredients = [new Prosecutor76mm(), new T4Python(), new PU1Charge()]
   getScrapMetal = () => {
     return this.scrapMetal
   }
@@ -40,15 +44,15 @@ export class GL-55 Impulse implements ICarComponent {
     return scrapMetalCount
   }
 }
-export class AC72 Whirlwind implements ICarComponent {
-  name = ''
+export class AC72Whirlwind implements ICarComponent {
+  name = 'АП72 Вихрь'
   rarity = 'epic'
   benchCost = 15
   scrapMetal = 100
   wires = 150
   copper = 200
   plastic = 100
-  ingredients = [new AC50 Storm(), new Chameleon(), new Sinus - 0()]
+  ingredients = [new AC50Storm(), new Chameleon(), new Sinus0()]
   getScrapMetal = () => {
     return this.scrapMetal
   }
@@ -60,55 +64,15 @@ export class AC72 Whirlwind implements ICarComponent {
     return scrapMetalCount
   }
 }
-export class Argument implements ICarComponent {
-  name = ''
-  rarity = 'epic'
-  benchCost = 15
-  scrapMetal = 250
-  wires = 250
-  copper = 200
-  plastic = 1
-  ingredients = [new Batteries x100(), new Plastic x100(), new Summator()]
-  getScrapMetal = () => {
-    return this.scrapMetal
-  }
-  getAllScrapMetal = () => {
-    let scrapMetalCount = this.getScrapMetal()
-    for (let item of this.ingredients) {
-      scrapMetalCount += item.getScrapMetal()
-    }
-    return scrapMetalCount
-  }
-}
-export class Barrier IX implements ICarComponent {
-  name = ''
+export class BarrierIX implements ICarComponent {
+  name = 'Барьер IX'
   rarity = 'epic'
   benchCost = 15
   scrapMetal = 100
   wires = 200
   copper = 150
   plastic = 100
-  ingredients = [new Pilgrim(), new Lunar IV(), new T4 Python()]
-  getScrapMetal = () => {
-    return this.scrapMetal
-  }
-  getAllScrapMetal = () => {
-    let scrapMetalCount = this.getScrapMetal()
-    for (let item of this.ingredients) {
-      scrapMetalCount += item.getScrapMetal()
-    }
-    return scrapMetalCount
-  }
-}
-export class Blockchain implements ICarComponent {
-  name = ''
-  rarity = 'epic'
-  benchCost = 15
-  scrapMetal = 100
-  wires = 150
-  copper = 200
-  plastic = 1
-  ingredients = [new Plastic x100(), new Summator(), new Mace()]
+  ingredients = [new Pilgrim(), new LunarIV(), new T4Python()]
   getScrapMetal = () => {
     return this.scrapMetal
   }
@@ -121,14 +85,14 @@ export class Blockchain implements ICarComponent {
   }
 }
 export class Nest implements ICarComponent {
-  name = ''
+  name = 'Гнездо'
   rarity = 'epic'
   benchCost = 15
   scrapMetal = 100
   wires = 200
   copper = 150
-  plastic = 1
-  ingredients = [new Plastic x100(), new ZS - 33 Hulk(), new PU - 1 Charge()]
+  plastic = 100
+  ingredients = [new ZS33Hulk(), new PU1Charge(), new T4Python()]
   getScrapMetal = () => {
     return this.scrapMetal
   }
@@ -141,14 +105,14 @@ export class Nest implements ICarComponent {
   }
 }
 export class Gravastar implements ICarComponent {
-  name = ''
+  name = 'Гравастар'
   rarity = 'epic'
   benchCost = 15
   scrapMetal = 100
-  wires = 200
-  copper = 150
-  plastic = 1
-  ingredients = [new Plastic x100(), new Synthesis(), new Lunar IV()]
+  wires = 100
+  copper = 100
+  plastic = 100
+  ingredients = [new Synthesis(), new LunarIV(), new Mace()]
   getScrapMetal = () => {
     return this.scrapMetal
   }
@@ -161,14 +125,15 @@ export class Gravastar implements ICarComponent {
   }
 }
 export class Gremlin implements ICarComponent {
-  name = ''
+  name = 'Гремлин'
   rarity = 'epic'
   benchCost = 15
   scrapMetal = 250
-  wires = 250
-  copper = 200
-  plastic = 1
-  ingredients = [new Batteries x100(), new Plastic x100(), new Goblin()]
+  wires = 200
+  copper = 250
+  plastic = 60
+  batteries = 100
+  ingredients = [new Goblin(), new Mace(), new Boom()]
   getScrapMetal = () => {
     return this.scrapMetal
   }
@@ -181,7 +146,7 @@ export class Gremlin implements ICarComponent {
   }
 }
 export class Thunderbolt implements ICarComponent {
-  name = ''
+  name = 'Гром'
   rarity = 'epic'
   benchCost = 15
   scrapMetal = 100
@@ -200,35 +165,16 @@ export class Thunderbolt implements ICarComponent {
     return scrapMetalCount
   }
 }
-export class Gungnir implements ICarComponent {
-  name = ''
-  rarity = 'epic'
-  benchCost = 15
-  scrapMetal = 450
-  wires = 450
-  copper = 200
-  plastic = 1
-  ingredients = [new Plastic x100(), new AC62 Therm(), new Sinus - 0()]
-  getScrapMetal = () => {
-    return this.scrapMetal
-  }
-  getAllScrapMetal = () => {
-    let scrapMetalCount = this.getScrapMetal()
-    for (let item of this.ingredients) {
-      scrapMetalCount += item.getScrapMetal()
-    }
-    return scrapMetalCount
-  }
-}
 export class Thresher implements ICarComponent {
-  name = ''
+  name = 'Дробитель'
   rarity = 'epic'
   benchCost = 15
   scrapMetal = 250
-  wires = 250
-  copper = 200
-  plastic = 1
-  ingredients = [new Batteries x100(), new Plastic x100(), new AC50 Storm()]
+  wires = 200
+  copper = 250
+  plastic = 60
+  batteries = 100
+  ingredients = [new AC50Storm(), new DunHorse(), new Maxwell()]
   getScrapMetal = () => {
     return this.scrapMetal
   }
@@ -241,7 +187,7 @@ export class Thresher implements ICarComponent {
   }
 }
 export class Fuze implements ICarComponent {
-  name = ''
+  name = 'Запал'
   rarity = 'epic'
   benchCost = 15
   scrapMetal = 100
@@ -260,15 +206,15 @@ export class Fuze implements ICarComponent {
     return scrapMetalCount
   }
 }
-export class ZS-34 Fat Man implements ICarComponent {
-  name = ''
+export class ZS34FatMan implements ICarComponent {
+  name = 'ЗИС-34 Толстяк'
   rarity = 'epic'
   benchCost = 15
   scrapMetal = 100
-  wires = 150
-  copper = 200
-  plastic = 1
-  ingredients = [new Twin wheel ST(), new ZS - 33 Hulk(), new Plastic x100()]
+  wires = 200
+  copper = 150
+  plastic = 100
+  ingredients = [new TwinWheelST(), new ZS33Hulk()]
   getScrapMetal = () => {
     return this.scrapMetal
   }
@@ -281,14 +227,14 @@ export class ZS-34 Fat Man implements ICarComponent {
   }
 }
 export class Incinerator implements ICarComponent {
-  name = ''
+  name = 'Испепелитель'
   rarity = 'epic'
   benchCost = 15
   scrapMetal = 100
   wires = 200
   copper = 150
-  plastic = 1
-  ingredients = [new Plastic x100(), new Shiv(), new Junkbow()]
+  plastic = 100
+  ingredients = [new Shiv(), new Junkbow(), new PU1Charge()]
   getScrapMetal = () => {
     return this.scrapMetal
   }
@@ -301,14 +247,14 @@ export class Incinerator implements ICarComponent {
   }
 }
 export class Caucasus implements ICarComponent {
-  name = ''
+  name = 'Кавказ'
   rarity = 'epic'
   benchCost = 15
   scrapMetal = 100
   wires = 200
   copper = 150
   plastic = 100
-  ingredients = [new Prosecutor 76mm(), new Jawbreaker(), new APC wheel()]
+  ingredients = [new Prosecutor76mm(), new Jawbreaker(), new APCWheel()]
   getScrapMetal = () => {
     return this.scrapMetal
   }
@@ -321,14 +267,14 @@ export class Caucasus implements ICarComponent {
   }
 }
 export class Quasar implements ICarComponent {
-  name = ''
+  name = 'Квазар'
   rarity = 'epic'
   benchCost = 15
   scrapMetal = 100
   wires = 200
   copper = 150
   plastic = 100
-  ingredients = [new ZS - 33 Hulk(), new Synthesis(), new Genesis()]
+  ingredients = [new ZS33Hulk(), new Synthesis(), new Genesis()]
   getScrapMetal = () => {
     return this.scrapMetal
   }
@@ -341,7 +287,7 @@ export class Quasar implements ICarComponent {
   }
 }
 export class Lancelot implements ICarComponent {
-  name = ''
+  name = 'Ланселот'
   rarity = 'epic'
   benchCost = 15
   scrapMetal = 100
@@ -360,35 +306,15 @@ export class Lancelot implements ICarComponent {
     return scrapMetalCount
   }
 }
-export class Miller implements ICarComponent {
-  name = ''
-  rarity = 'epic'
-  benchCost = 15
-  scrapMetal = 250
-  wires = 200
-  copper = 100
-  plastic = 1
-  ingredients = [new Batteries x100(), new Sinus - 0(), new Tempest()]
-  getScrapMetal = () => {
-    return this.scrapMetal
-  }
-  getAllScrapMetal = () => {
-    let scrapMetalCount = this.getScrapMetal()
-    for (let item of this.ingredients) {
-      scrapMetalCount += item.getScrapMetal()
-    }
-    return scrapMetalCount
-  }
-}
-export class M-29 Protector implements ICarComponent {
-  name = ''
+export class M29Protector implements ICarComponent {
+  name = 'П-29 Заступник'
   rarity = 'epic'
   benchCost = 15
   scrapMetal = 100
   wires = 200
   copper = 150
-  plastic = 1
-  ingredients = [new Plastic x100(), new Sinus - 0(), new Dun horse()]
+  plastic = 100
+  ingredients = [new Sinus0(), new DunHorse(), new Chameleon()]
   getScrapMetal = () => {
     return this.scrapMetal
   }
@@ -400,35 +326,35 @@ export class M-29 Protector implements ICarComponent {
     return scrapMetalCount
   }
 }
-export class M-38 Fidget implements ICarComponent {
-  name = ''
-  rarity = 'epic'
-  benchCost = 15
-  scrapMetal = 600
-  wires = 200
-  copper = 600
-  plastic = 1
-  ingredients = [new Plastic x100(), new Engraved casings x100(), new M - 37 Piercer()]
-  getScrapMetal = () => {
-    return this.scrapMetal
-  }
-  getAllScrapMetal = () => {
-    let scrapMetalCount = this.getScrapMetal()
-    for (let item of this.ingredients) {
-      scrapMetalCount += item.getScrapMetal()
-    }
-    return scrapMetalCount
-  }
-}
-export class Executioner 88mm implements ICarComponent {
-  name = ''
+// export class M38Fidget implements ICarComponent {
+//   name = 'П-38 Егоза'
+//   rarity = 'epic'
+//   benchCost = 15
+//   scrapMetal = 600
+//   wires = 200
+//   copper = 600
+//   plastic = 1
+//   ingredients = [new Plastic x100(), new Engraved casings x100(), new M - 37 Piercer()]
+//   getScrapMetal = () => {
+//     return this.scrapMetal
+//   }
+//   getAllScrapMetal = () => {
+//     let scrapMetalCount = this.getScrapMetal()
+//     for (let item of this.ingredients) {
+//       scrapMetalCount += item.getScrapMetal()
+//     }
+//     return scrapMetalCount
+//   }
+// }
+export class Executioner88mm implements ICarComponent {
+  name = 'Палач 88мм'
   rarity = 'epic'
   benchCost = 15
   scrapMetal = 100
   wires = 150
   copper = 200
   plastic = 100
-  ingredients = [new Prosecutor 76mm(), new Twin wheel(), new Oculus VI()]
+  ingredients = [new Prosecutor76mm(), new TwinWheel(), new OculusVI()]
   getScrapMetal = () => {
     return this.scrapMetal
   }
@@ -441,14 +367,14 @@ export class Executioner 88mm implements ICarComponent {
   }
 }
 export class Pyre implements ICarComponent {
-  name = ''
+  name = 'Пламя'
   rarity = 'epic'
   benchCost = 15
   scrapMetal = 100
   wires = 150
   copper = 200
   plastic = 100
-  ingredients = [new Prosecutor 76mm(), new Oculus VI(), new T4 Python()]
+  ingredients = [new Prosecutor76mm(), new OculusVI(), new T4Python()]
   getScrapMetal = () => {
     return this.scrapMetal
   }
@@ -460,55 +386,15 @@ export class Pyre implements ICarComponent {
     return scrapMetalCount
   }
 }
-export class Prometheus V implements ICarComponent {
-  name = ''
-  rarity = 'epic'
-  benchCost = 15
-  scrapMetal = 100
-  wires = 200
-  copper = 150
-  plastic = 1
-  ingredients = [new Plastic x100(), new Synthesis(), new Genesis()]
-  getScrapMetal = () => {
-    return this.scrapMetal
-  }
-  getAllScrapMetal = () => {
-    let scrapMetalCount = this.getScrapMetal()
-    for (let item of this.ingredients) {
-      scrapMetalCount += item.getScrapMetal()
-    }
-    return scrapMetalCount
-  }
-}
-export class Enlightenment implements ICarComponent {
-  name = ''
-  rarity = 'epic'
-  benchCost = 15
-  scrapMetal = 250
-  wires = 250
-  copper = 200
-  plastic = 1
-  ingredients = [new Batteries x100(), new Plastic x100(), new Tempura()]
-  getScrapMetal = () => {
-    return this.scrapMetal
-  }
-  getAllScrapMetal = () => {
-    let scrapMetalCount = this.getScrapMetal()
-    for (let item of this.ingredients) {
-      scrapMetalCount += item.getScrapMetal()
-    }
-    return scrapMetalCount
-  }
-}
-export class Clarinet TOW implements ICarComponent {
-  name = ''
+export class PrometheusV implements ICarComponent {
+  name = 'Прометей V'
   rarity = 'epic'
   benchCost = 15
   scrapMetal = 100
   wires = 200
   copper = 150
   plastic = 100
-  ingredients = [new T4 Python(), new Sidekick(), new APC wheel ST()]
+  ingredients = [new Synthesis(), new Genesis(), new Maxwell()]
   getScrapMetal = () => {
     return this.scrapMetal
   }
@@ -520,15 +406,55 @@ export class Clarinet TOW implements ICarComponent {
     return scrapMetalCount
   }
 }
-export class MG13 Equalizer implements ICarComponent {
-  name = ''
+// export class Enlightenment implements ICarComponent {
+//   name = 'Просветление'
+//   rarity = 'epic'
+//   benchCost = 15
+//   scrapMetal = 250
+//   wires = 250
+//   copper = 200
+//   plastic = 1
+//   ingredients = [new Batteries x100(), new Plastic x100(), new Tempura()]
+//   getScrapMetal = () => {
+//     return this.scrapMetal
+//   }
+//   getAllScrapMetal = () => {
+//     let scrapMetalCount = this.getScrapMetal()
+//     for (let item of this.ingredients) {
+//       scrapMetalCount += item.getScrapMetal()
+//     }
+//     return scrapMetalCount
+//   }
+// }
+export class ClarinetTOW implements ICarComponent {
+  name = 'ПТУР Кларнет-С'
+  rarity = 'epic'
+  benchCost = 15
+  scrapMetal = 100
+  wires = 200
+  copper = 150
+  plastic = 100
+  ingredients = [new T4Python(), new Sidekick(), new APCWheelST()]
+  getScrapMetal = () => {
+    return this.scrapMetal
+  }
+  getAllScrapMetal = () => {
+    let scrapMetalCount = this.getScrapMetal()
+    for (let item of this.ingredients) {
+      scrapMetalCount += item.getScrapMetal()
+    }
+    return scrapMetalCount
+  }
+}
+export class MG13Equalizer implements ICarComponent {
+  name = 'ПУ13 Уравнитель'
   rarity = 'epic'
   benchCost = 15
   scrapMetal = 100
   wires = 150
   copper = 200
   plastic = 100
-  ingredients = [new AC50 Storm(), new Sinus - 0(), new Ampere()]
+  ingredients = [new AC50Storm(), new Sinus0(), new Ampere()]
   getScrapMetal = () => {
     return this.scrapMetal
   }
@@ -540,35 +466,35 @@ export class MG13 Equalizer implements ICarComponent {
     return scrapMetalCount
   }
 }
-export class Rupture implements ICarComponent {
-  name = ''
-  rarity = 'epic'
-  benchCost = 15
-  scrapMetal = 100
-  wires = 150
-  copper = 200
-  plastic = 1
-  ingredients = [new Plastic x100(), new Goblin(), new Hardcore()]
-  getScrapMetal = () => {
-    return this.scrapMetal
-  }
-  getAllScrapMetal = () => {
-    let scrapMetalCount = this.getScrapMetal()
-    for (let item of this.ingredients) {
-      scrapMetalCount += item.getScrapMetal()
-    }
-    return scrapMetalCount
-  }
-}
-export class MD-3 Owl implements ICarComponent {
-  name = ''
+// export class Rupture implements ICarComponent {
+//   name = 'Разрыватель'
+//   rarity = 'epic'
+//   benchCost = 15
+//   scrapMetal = 100
+//   wires = 150
+//   copper = 200
+//   plastic = 1
+//   ingredients = [new Plastic x100(), new Goblin(), new Hardcore()]
+//   getScrapMetal = () => {
+//     return this.scrapMetal
+//   }
+//   getAllScrapMetal = () => {
+//     let scrapMetalCount = this.getScrapMetal()
+//     for (let item of this.ingredients) {
+//       scrapMetalCount += item.getScrapMetal()
+//     }
+//     return scrapMetalCount
+//   }
+// }
+export class MD3Owl implements ICarComponent {
+  name = 'РД-3 Филин'
   rarity = 'epic'
   benchCost = 15
   scrapMetal = 100
   wires = 150
   copper = 200
   plastic = 100
-  ingredients = [new AD - 13 Hawk(), new Ampere(), new Sinus - 0()]
+  ingredients = [new AD13Hawk(), new Ampere(), new Sinus0()]
   getScrapMetal = () => {
     return this.scrapMetal
   }
@@ -581,7 +507,7 @@ export class MD-3 Owl implements ICarComponent {
   }
 }
 export class Cricket implements ICarComponent {
-  name = ''
+  name = 'Сверчок'
   rarity = 'epic'
   benchCost = 15
   scrapMetal = 100
@@ -600,15 +526,15 @@ export class Cricket implements ICarComponent {
     return scrapMetalCount
   }
 }
-export class Spectre-2 implements ICarComponent {
-  name = ''
+export class Spectre2 implements ICarComponent {
+  name = 'Спектр-2'
   rarity = 'epic'
   benchCost = 15
   scrapMetal = 100
   wires = 150
   copper = 200
   plastic = 100
-  ingredients = [new Sinus - 0(), new AD - 13 Hawk(), new Maxwell()]
+  ingredients = [new Sinus0(), new AD13Hawk(), new Maxwell()]
   getScrapMetal = () => {
     return this.scrapMetal
   }
@@ -621,7 +547,7 @@ export class Spectre-2 implements ICarComponent {
   }
 }
 export class Mauler implements ICarComponent {
-  name = ''
+  name = 'Терзатель'
   rarity = 'epic'
   benchCost = 15
   scrapMetal = 100
@@ -640,15 +566,15 @@ export class Mauler implements ICarComponent {
     return scrapMetalCount
   }
 }
-export class RT Anaconda implements ICarComponent {
-  name = ''
+export class RTAnaconda implements ICarComponent {
+  name = 'ТР Анаконда'
   rarity = 'epic'
   benchCost = 15
   scrapMetal = 100
   wires = 150
   copper = 200
   plastic = 100
-  ingredients = [new T4 Python(), new PU - 1 Charge(), new Twin wheel ST()]
+  ingredients = [new T4Python(), new PU1Charge(), new TwinWheelST()]
   getScrapMetal = () => {
     return this.scrapMetal
   }
@@ -660,55 +586,55 @@ export class RT Anaconda implements ICarComponent {
     return scrapMetalCount
   }
 }
-export class Trigger implements ICarComponent {
-  name = ''
-  rarity = 'epic'
-  benchCost = 15
-  scrapMetal = 100
-  wires = 150
-  copper = 200
-  plastic = 2
-  ingredients = [new Plastic x100(), new Summator(), new Oculus VI()]
-  getScrapMetal = () => {
-    return this.scrapMetal
-  }
-  getAllScrapMetal = () => {
-    let scrapMetalCount = this.getScrapMetal()
-    for (let item of this.ingredients) {
-      scrapMetalCount += item.getScrapMetal()
-    }
-    return scrapMetalCount
-  }
-}
-export class Trombone implements ICarComponent {
-  name = ''
-  rarity = 'epic'
-  benchCost = 15
-  scrapMetal = 250
-  wires = 250
-  copper = 200
-  plastic = 1
-  ingredients = [new Batteries x100(), new Plastic x100(), new Sidekick()]
-  getScrapMetal = () => {
-    return this.scrapMetal
-  }
-  getAllScrapMetal = () => {
-    let scrapMetalCount = this.getScrapMetal()
-    for (let item of this.ingredients) {
-      scrapMetalCount += item.getScrapMetal()
-    }
-    return scrapMetalCount
-  }
-}
+// export class Trigger implements ICarComponent {
+//   name = 'Триггер'
+//   rarity = 'epic'
+//   benchCost = 15
+//   scrapMetal = 100
+//   wires = 150
+//   copper = 200
+//   plastic = 2
+//   ingredients = [new Plastic x100(), new Summator(), new Oculus VI()]
+//   getScrapMetal = () => {
+//     return this.scrapMetal
+//   }
+//   getAllScrapMetal = () => {
+//     let scrapMetalCount = this.getScrapMetal()
+//     for (let item of this.ingredients) {
+//       scrapMetalCount += item.getScrapMetal()
+//     }
+//     return scrapMetalCount
+//   }
+// }
+// export class Trombone implements ICarComponent {
+//   name = 'Тромбон'
+//   rarity = 'epic'
+//   benchCost = 15
+//   scrapMetal = 250
+//   wires = 250
+//   copper = 200
+//   plastic = 1
+//   ingredients = [new Batteries x100(), new Plastic x100(), new Sidekick()]
+//   getScrapMetal = () => {
+//     return this.scrapMetal
+//   }
+//   getAllScrapMetal = () => {
+//     let scrapMetalCount = this.getScrapMetal()
+//     for (let item of this.ingredients) {
+//       scrapMetalCount += item.getScrapMetal()
+//     }
+//     return scrapMetalCount
+//   }
+// }
 export class Fafnir implements ICarComponent {
-  name = ''
+  name = 'Фафнир'
   rarity = 'epic'
   benchCost = 15
   scrapMetal = 100
   wires = 200
   copper = 150
-  plastic = 1
-  ingredients = [new Plastic x100(), new Junkbow(), new ZS - 33 Hulk()]
+  plastic = 100
+  ingredients = [new Junkbow(), new ZS33Hulk()]
   getScrapMetal = () => {
     return this.scrapMetal
   }
@@ -721,7 +647,7 @@ export class Fafnir implements ICarComponent {
   }
 }
 export class Phoenix implements ICarComponent {
-  name = ''
+  name = 'Феникс'
   rarity = 'epic'
   benchCost = 15
   scrapMetal = 100
@@ -740,35 +666,35 @@ export class Phoenix implements ICarComponent {
     return scrapMetalCount
   }
 }
-export class Whirl implements ICarComponent {
-  name = ''
-  rarity = 'epic'
-  benchCost = 15
-  scrapMetal = 100
-  wires = 200
-  copper = 150
-  plastic = 1
-  ingredients = [new Plastic x100(), new AC50 Storm(), new APC wheel()]
-  getScrapMetal = () => {
-    return this.scrapMetal
-  }
-  getAllScrapMetal = () => {
-    let scrapMetalCount = this.getScrapMetal()
-    for (let item of this.ingredients) {
-      scrapMetalCount += item.getScrapMetal()
-    }
-    return scrapMetalCount
-  }
-}
+// export class Whirl implements ICarComponent {
+//   name = 'Циклон'
+//   rarity = 'epic'
+//   benchCost = 15
+//   scrapMetal = 100
+//   wires = 200
+//   copper = 150
+//   plastic = 100
+//   ingredients = [new Plastic x100(), new AC50 Storm(), new APC wheel()]
+//   getScrapMetal = () => {
+//     return this.scrapMetal
+//   }
+//   getAllScrapMetal = () => {
+//     let scrapMetalCount = this.getScrapMetal()
+//     for (let item of this.ingredients) {
+//       scrapMetalCount += item.getScrapMetal()
+//     }
+//     return scrapMetalCount
+//   }
+// }
 export class Skinner implements ICarComponent {
-  name = ''
+  name = 'Шкуродер'
   rarity = 'epic'
   benchCost = 15
   scrapMetal = 100
   wires = 200
   copper = 150
-  plastic = 1
-  ingredients = [new Plastic x100(), new Junkbow(), new Shiv ST()]
+  plastic = 100
+  ingredients = [new Junkbow(), new ShivST(), new Mace()]
   getScrapMetal = () => {
     return this.scrapMetal
   }
@@ -780,24 +706,45 @@ export class Skinner implements ICarComponent {
     return scrapMetalCount
   }
 }
-export class Yaoguai implements ICarComponent {
-  name = ''
-  rarity = 'epic'
-  benchCost = 15
-  scrapMetal = 250
-  wires = 250
-  copper = 200
-  plastic = 1
-  ingredients = [new Batteries x100(), new Plastic x100(), new Tempura()]
-  getScrapMetal = () => {
-    return this.scrapMetal
-  }
-  getAllScrapMetal = () => {
-    let scrapMetalCount = this.getScrapMetal()
-    for (let item of this.ingredients) {
-      scrapMetalCount += item.getScrapMetal()
-    }
-    return scrapMetalCount
-  }
-}
+// export class Yaoguai implements ICarComponent {
+//   name = 'Яогуай'
+//   rarity = 'epic'
+//   benchCost = 15
+//   scrapMetal = 250
+//   wires = 250
+//   copper = 200
+//   plastic = 1
+//   ingredients = [new Batteries x100(), new Plastic x100(), new Tempura()]
+//   getScrapMetal = () => {
+//     return this.scrapMetal
+//   }
+//   getAllScrapMetal = () => {
+//     let scrapMetalCount = this.getScrapMetal()
+//     for (let item of this.ingredients) {
+//       scrapMetalCount += item.getScrapMetal()
+//     }
+//     return scrapMetalCount
+//   }
+// }
+
+//Аргумент
+//Блокчейн
+//Гунгнир
+//Мельник
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
