@@ -1,42 +1,34 @@
-import { ICarComponent } from '../../interfaces/carComponent.interface'
+import { CommonVehicleComponent } from '../commonVehicleComponent'
 
-export class SmallWheel implements ICarComponent {
-  name: string = 'Колесо малое'
-  rarity = 'common'
-  scrapMetal: number = 15
-  copper: number = 3
-
-  getScrapMetal() {
-    return this.scrapMetal
+export class SmallWheel extends CommonVehicleComponent {
+  constructor() {
+    super()
+    this.name = 'Колесо малое'
+    this.scrapMetal = 15
+    this.copper = 3
   }
 }
-export class SmallWheelST implements ICarComponent {
-  name: string = 'Колесо малое (пов.)'
-  rarity = 'common'
-  scrapMetal: number = 15
-  copper: number = 3
-
-  getScrapMetal() {
-    return this.scrapMetal
+export class SmallWheelST extends CommonVehicleComponent {
+  constructor() {
+    super()
+    this.name = 'Колесо малое (пов.)'
+    this.scrapMetal = 15
+    this.copper = 3
   }
 }
-export class MediumWheel implements ICarComponent {
-  name: string = 'Колесо среднее'
-  rarity = 'common'
-  scrapMetal: number = 15
-  copper: number = 3
-
-  getScrapMetal() {
-    return this.scrapMetal
+export class MediumWheel extends CommonVehicleComponent {
+  constructor() {
+    super()
+    this.name = 'Колесо среднее'
+    this.scrapMetal = 15
+    this.copper = 3
   }
 }
-export class MediumWheelST implements ICarComponent {
-  name: string = 'Колесо среднее (пов.)'
-  rarity = 'common'
-  scrapMetal: number = 15
-  copper: number = 3
-
-  getScrapMetal() {
-    return this.scrapMetal
+export class MediumWheelST extends CommonVehicleComponent {
+  constructor() {
+    super()
+    this.name = 'Колесо среднее (пов.)'
+    this.scrapMetal = 15
+    this.copper = 3
   }
 }

@@ -1,235 +1,71 @@
-import { ICarComponent } from '../../interfaces/carComponent.interface'
+import { RareVehicleComponent } from '../rareVehicleComponent'
 import { B1Aviator, CarJack, FuelBarrel, R1Breese, Radio, RS1Ruby } from '../hardware/common'
 import { MediumWheelST } from '../movement/common'
 import { Avenger57mm, Lupara, P54MAccord } from './common'
 
-export class AC43Rapier implements ICarComponent {
+export class AC43Rapier extends RareVehicleComponent {
   name = 'АП43 Рапира'
-  rarity = 'rare'
-  benchCost = 3
   scrapMetal = 650
   copper = 130
   ingredients = [new B1Aviator(), new P54MAccord()]
-
-  getScrapMetal = () => {
-    return this.scrapMetal
-  }
-
-  getAllScrapMetal = () => {
-    let scrapMetalCount = this.getScrapMetal()
-    for (let item of this.ingredients) {
-      scrapMetalCount += item.getScrapMetal()
-    }
-    return scrapMetalCount
-  }
 }
-
-export class AD12Falcon implements ICarComponent {
+export class AD12Falcon extends RareVehicleComponent {
   name = 'АД-12 Сокол'
-  rarity = 'rare'
-  benchCost = 3
   scrapMetal = 650
   copper = 130
   ingredients = [new RS1Ruby(), new P54MAccord()]
-
-  getScrapMetal = () => {
-    return this.scrapMetal
-  }
-
-  getAllScrapMetal = () => {
-    let scrapMetalCount = this.getScrapMetal()
-    for (let item of this.ingredients) {
-      scrapMetalCount += item.getScrapMetal()
-    }
-    return scrapMetalCount
-  }
 }
-
-export class Borer implements ICarComponent {
+export class Borer extends RareVehicleComponent {
   name = 'Бур'
-  rarity = 'rare'
-  benchCost = 3
   scrapMetal = 650
   copper = 130
   ingredients = [new CarJack(), new R1Breese()]
-
-  getScrapMetal = () => {
-    return this.scrapMetal
-  }
-
-  getAllScrapMetal = () => {
-    let scrapMetalCount = this.getScrapMetal()
-    for (let item of this.ingredients) {
-      scrapMetalCount += item.getScrapMetal()
-    }
-    return scrapMetalCount
-  }
 }
-
-export class Vector implements ICarComponent {
+export class Vector extends RareVehicleComponent {
   name = 'Вектор'
-  rarity = 'rare'
-  benchCost = 3
   scrapMetal = 650
   copper = 130
   ingredients = [new P54MAccord(), new CarJack()]
-
-  getScrapMetal = () => {
-    return this.scrapMetal
-  }
-
-  getAllScrapMetal = () => {
-    let scrapMetalCount = this.getScrapMetal()
-    for (let item of this.ingredients) {
-      scrapMetalCount += item.getScrapMetal()
-    }
-    return scrapMetalCount
-  }
 }
-
-export class Sledgehammer implements ICarComponent {
+export class Sledgehammer extends RareVehicleComponent {
   name = 'Кувалда'
-  rarity = 'rare'
-  benchCost = 3
   scrapMetal = 650
   copper = 130
   ingredients = [new Lupara(), new CarJack()]
-
-  getScrapMetal = () => {
-    return this.scrapMetal
-  }
-
-  getAllScrapMetal = () => {
-    let scrapMetalCount = this.getScrapMetal()
-    for (let item of this.ingredients) {
-      scrapMetalCount += item.getScrapMetal()
-    }
-    return scrapMetalCount
-  }
 }
-
-export class LittleBoy6LB implements ICarComponent {
+export class LittleBoy6LB extends RareVehicleComponent {
   name = 'Малыш 6Ф'
-  rarity = 'rare'
-  benchCost = 3
   scrapMetal = 650
   copper = 130
   ingredients = [new Avenger57mm(), new FuelBarrel()]
-
-  getScrapMetal = () => {
-    return this.scrapMetal
-  }
-
-  getAllScrapMetal = () => {
-    let scrapMetalCount = this.getScrapMetal()
-    for (let item of this.ingredients) {
-      scrapMetalCount += item.getScrapMetal()
-    }
-    return scrapMetalCount
-  }
 }
-
-export class Wasp implements ICarComponent {
+export class Wasp extends RareVehicleComponent {
   name = 'Оса'
-  rarity = 'rare'
-  benchCost = 3
   scrapMetal = 650
   copper = 130
   ingredients = [new FuelBarrel(), new Avenger57mm()]
-
-  getScrapMetal = () => {
-    return this.scrapMetal
-  }
-
-  getAllScrapMetal = () => {
-    let scrapMetalCount = this.getScrapMetal()
-    for (let item of this.ingredients) {
-      scrapMetalCount += item.getScrapMetal()
-    }
-    return scrapMetalCount
-  }
 }
-
-export class Spitfire implements ICarComponent {
+export class Spitfire extends RareVehicleComponent {
   name = 'Очаг'
-  rarity = 'rare'
-  benchCost = 3
   scrapMetal = 650
   copper = 130
   ingredients = [new Lupara(), new B1Aviator()]
-
-  getScrapMetal = () => {
-    return this.scrapMetal
-  }
-
-  getAllScrapMetal = () => {
-    let scrapMetalCount = this.getScrapMetal()
-    for (let item of this.ingredients) {
-      scrapMetalCount += item.getScrapMetal()
-    }
-    return scrapMetalCount
-  }
 }
-
-export class STM23Defender implements ICarComponent {
+export class STM23Defender extends RareVehicleComponent {
   name = 'П-23 Защитник'
-  rarity = 'rare'
-  benchCost = 3
   scrapMetal = 650
   copper = 130
   ingredients = [new P54MAccord(), new R1Breese()]
-
-  getScrapMetal = () => {
-    return this.scrapMetal
-  }
-
-  getAllScrapMetal = () => {
-    let scrapMetalCount = this.getScrapMetal()
-    for (let item of this.ingredients) {
-      scrapMetalCount += item.getScrapMetal()
-    }
-    return scrapMetalCount
-  }
 }
-
-export class Judge76mm implements ICarComponent {
+export class Judge76mm extends RareVehicleComponent {
   name = 'П-23 Защитник'
-  rarity = 'rare'
-  benchCost = 3
   scrapMetal = 650
   copper = 130
   ingredients = [new MediumWheelST(), new Avenger57mm()]
-
-  getScrapMetal = () => {
-    return this.scrapMetal
-  }
-
-  getAllScrapMetal = () => {
-    let scrapMetalCount = this.getScrapMetal()
-    for (let item of this.ingredients) {
-      scrapMetalCount += item.getScrapMetal()
-    }
-    return scrapMetalCount
-  }
 }
-
-export class DTCobra implements ICarComponent {
+export class DTCobra extends RareVehicleComponent {
   name = 'П-23 Защитник'
-  rarity = 'rare'
-  benchCost = 3
   scrapMetal = 650
   copper = 130
   ingredients = [new Lupara(), new Radio()]
-
-  getScrapMetal = () => {
-    return this.scrapMetal
-  }
-
-  getAllScrapMetal = () => {
-    let scrapMetalCount = this.getScrapMetal()
-    for (let item of this.ingredients) {
-      scrapMetalCount += item.getScrapMetal()
-    }
-    return scrapMetalCount
-  }
 }

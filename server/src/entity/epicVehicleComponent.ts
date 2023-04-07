@@ -1,8 +1,9 @@
-import { ICarComponent } from '../interfaces/carComponent.interface';
+import { SpecialVehicleComponent } from './specialVehicleComponent'
 
-export class VehicleComponent {
+export class EpicVehicleComponent {
   name: string
   rarity: string
+  productionTime: number
   benchCost: number
   scrapMetal: number
   copper: number
@@ -10,11 +11,12 @@ export class VehicleComponent {
   plastic: number
   batteries: number
   engravedCasings: number
-  ingredients: VehicleComponent[]
+  ingredients: SpecialVehicleComponent[]
 
   constructor() {
     this.name = ''
-    this.rarity = ''
+    this.rarity = 'epic'
+    this.productionTime = 120
     this.benchCost = 0
     this.scrapMetal = 0
     this.copper = 0

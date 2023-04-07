@@ -1,56 +1,42 @@
-import { ICarComponent } from '../../interfaces/carComponent.interface'
+import { CommonVehicleComponent } from '../commonVehicleComponent'
 
-export class Docker implements ICarComponent {
-  name: string = 'Докер'
-  rarity = 'common'
-  scrapMetal: number = 75
-  copper: number = 15
-
-  getScrapMetal() {
-    return this.scrapMetal
+export class Docker extends CommonVehicleComponent {
+  constructor() {
+    super()
+    this.name = 'Докер'
+    this.scrapMetal = 75
+    this.copper = 15
   }
 }
-
-export class Sprinter implements ICarComponent {
-  name: string = 'Спринтер'
-  rarity = 'common'
-  scrapMetal: number = 75
-  copper: number = 15
-
-  getScrapMetal() {
-    return this.scrapMetal
+export class Sprinter extends CommonVehicleComponent {
+  constructor() {
+    super()
+    this.name = 'Спринтер'
+    this.scrapMetal = 75
+    this.copper = 15
   }
 }
-
-export class Huntsman implements ICarComponent {
-  name: string = 'Егерь'
-  rarity = 'common'
-  scrapMetal: number = 75
-  copper: number = 15
-
-  getScrapMetal() {
-    return this.scrapMetal
+export class Huntsman extends CommonVehicleComponent {
+  constructor() {
+    super()
+    this.name = 'Егерь'
+    this.scrapMetal = 75
+    this.copper = 15
   }
 }
-
-export class WWT1 implements ICarComponent {
-  name: string = 'WWT1'
-  rarity = 'common'
-  scrapMetal: number = 75
-  copper: number = 15
-
-  getScrapMetal() {
-    return this.scrapMetal
+export class WWT1 extends CommonVehicleComponent {
+  constructor() {
+    super()
+    this.name = 'WWT1'
+    this.scrapMetal = 75
+    this.copper = 15
   }
 }
-
-export class Duster implements ICarComponent {
-  name: string = 'Кастет'
-  rarity = 'common'
-  scrapMetal: number = 0
-  copper: number = 0
-
-  getScrapMetal() {
-    return this.scrapMetal
+export class Duster extends CommonVehicleComponent {
+  constructor() {
+    super()
+    this.name = 'Кастет'
+    this.scrapMetal = 0
+    this.copper = 0
   }
 }

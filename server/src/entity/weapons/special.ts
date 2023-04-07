@@ -1,10 +1,11 @@
 import { ICarComponent } from '../../interfaces/carComponent.interface'
+import { SpecialVehicleComponent } from '../specialVehicleComponent'
 import { Growl, Wyvern } from '../cabins/rare'
 import { AmmoPack, BigG, Blastoff, CSTaymyr, FuelTank, R2Chill, RD1Listener } from '../hardware/rare'
 import { ChainedWheelST, LargeWheelST, StuddedWheel } from '../movement/rare'
 import { AC43Rapier, AD12Falcon, Borer, DTCobra, Judge76mm, LittleBoy6LB, Sledgehammer, Spitfire, STM23Defender, Vector, Wasp } from './rare'
 
-export class AD13Hawk implements ICarComponent {
+export class AD13Hawk extends SpecialVehicleComponent {
   name = 'АД-13 Ястреб'
   rarity = 'special'
   benchCost = 6
