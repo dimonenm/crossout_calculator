@@ -1,243 +1,123 @@
-import { ICarComponent } from '../../interfaces/carComponent.interface'
+import { SpecialVehicleComponent } from '../specialVehicleComponent'
 import { StuddedWheel, ChainedWheel, StuddedWheelST, ChainedWheelST, LargeWheel, BalloonTyre, LargeWheelST, BalloonTyreST, RacingWheel, LandingGear, RacingWheelST, LandingGearST } from './rare'
 
-export class Shiv implements ICarComponent {
-  name = 'Заточка'
-  rarity = 'special'
-  benchCost = 6
-  scrapMetal = 50
-  wires = 100
-  copper = 100
-  plastic = 50
-  ingredients = [new StuddedWheel(), new ChainedWheel()]
-  getScrapMetal = () => {
-    return this.scrapMetal
-  }
-  getAllScrapMetal = () => {
-    let scrapMetalCount = this.getScrapMetal()
-    for (let item of this.ingredients) {
-      scrapMetalCount += item.getAllScrapMetal()
-    }
-    return scrapMetalCount
+export class LunarIV extends SpecialVehicleComponent {
+  constructor() {
+    super()
+    this.name = 'Лунар IV'
+    this.type = 'Колесо легкое'
+    this.scrapMetal = 50
+    this.wires = 100
+    this.copper = 100
+    this.plastic = 50
+    this.ingredients = [new RacingWheel(), new LandingGear()]
   }
 }
-export class ShivST implements ICarComponent {
-  name = 'Заточка(пов.)'
-  rarity = 'special'
-  benchCost = 6
-  scrapMetal = 50
-  wires = 100
-  copper = 100
-  plastic = 50
-  ingredients = [new StuddedWheelST(), new ChainedWheelST()]
-  getScrapMetal = () => {
-    return this.scrapMetal
-  }
-  getAllScrapMetal = () => {
-    let scrapMetalCount = this.getScrapMetal()
-    for (let item of this.ingredients) {
-      scrapMetalCount += item.getAllScrapMetal()
-    }
-    return scrapMetalCount
+export class LunarIVST extends SpecialVehicleComponent {
+  constructor() {
+    super()
+    this.name = 'Лунар IV(пов.)'
+    this.type = 'Колесо легкое'
+    this.scrapMetal = 50
+    this.wires = 100
+    this.copper = 100
+    this.plastic = 50
+    this.ingredients = [new RacingWheelST(), new LandingGearST()]
   }
 }
-export class APCWheel implements ICarComponent {
-  name = 'Колесо броневика'
-  rarity = 'special'
-  benchCost = 6
-  scrapMetal = 50
-  wires = 100
-  copper = 100
-  plastic = 50
-  ingredients = [new LargeWheel(), new BalloonTyre()]
-  getScrapMetal = () => {
-    return this.scrapMetal
-  }
-  getAllScrapMetal = () => {
-    let scrapMetalCount = this.getScrapMetal()
-    for (let item of this.ingredients) {
-      scrapMetalCount += item.getAllScrapMetal()
-    }
-    return scrapMetalCount
+export class Camber extends SpecialVehicleComponent {
+  constructor() {
+    super()
+    this.name = 'Развал'
+    this.type = 'Колесо легкое'
+    this.scrapMetal = 200
+    this.wires = 200
+    this.copper = 100
+    this.plastic = 30
+    this.ingredients = [new RacingWheel(), new BalloonTyre()]
   }
 }
-export class APCWheelST implements ICarComponent {
-  name = 'Колесо броневика(пов.)'
-  rarity = 'special'
-  benchCost = 6
-  scrapMetal = 50
-  wires = 100
-  copper = 100
-  plastic = 50
-  ingredients = [new LargeWheelST(), new BalloonTyreST()]
-  getScrapMetal = () => {
-    return this.scrapMetal
-  }
-  getAllScrapMetal = () => {
-    let scrapMetalCount = this.getScrapMetal()
-    for (let item of this.ingredients) {
-      scrapMetalCount += item.getAllScrapMetal()
-    }
-    return scrapMetalCount
+export class CamberST extends SpecialVehicleComponent {
+  constructor() {
+    super()
+    this.name = 'Развал(пов.)'
+    this.type = 'Колесо легкое'
+    this.scrapMetal = 200
+    this.wires = 200
+    this.copper = 100
+    this.plastic = 30
+    this.ingredients = [new RacingWheelST(), new BalloonTyreST()]
   }
 }
-export class TwinWheel implements ICarComponent {
-  name = 'Колесо двойное'
-  rarity = 'special'
-  benchCost = 6
-  scrapMetal = 50
-  wires = 100
-  copper = 100
-  plastic = 50
-  ingredients = [new LargeWheel(), new BalloonTyre()]
-  getScrapMetal = () => {
-    return this.scrapMetal
-  }
-  getAllScrapMetal = () => {
-    let scrapMetalCount = this.getScrapMetal()
-    for (let item of this.ingredients) {
-      scrapMetalCount += item.getAllScrapMetal()
-    }
-    return scrapMetalCount
+export class Shiv extends SpecialVehicleComponent {
+  constructor() {
+    super()
+    this.name = 'Заточка'
+    this.type = 'Колесо среднее'
+    this.scrapMetal = 50
+    this.wires = 100
+    this.copper = 100
+    this.plastic = 50
+    this.ingredients = [new StuddedWheel(), new ChainedWheel()]
   }
 }
-export class TwinWheelST implements ICarComponent {
-  name = 'Колесо двойное(пов.)'
-  rarity = 'special'
-  benchCost = 6
-  scrapMetal = 50
-  wires = 100
-  copper = 100
-  plastic = 50
-  ingredients = [new LargeWheelST(), new BalloonTyreST()]
-  getScrapMetal = () => {
-    return this.scrapMetal
-  }
-  getAllScrapMetal = () => {
-    let scrapMetalCount = this.getScrapMetal()
-    for (let item of this.ingredients) {
-      scrapMetalCount += item.getAllScrapMetal()
-    }
-    return scrapMetalCount
+export class ShivST extends SpecialVehicleComponent {
+  constructor() {
+    super()
+    this.name = 'Заточка(пов.)'
+    this.type = 'Колесо среднее'
+    this.scrapMetal = 50
+    this.wires = 100
+    this.copper = 100
+    this.plastic = 50
+    this.ingredients = [new StuddedWheelST(), new ChainedWheelST()]
   }
 }
-export class LunarIV implements ICarComponent {
-  name = 'Лунар IV'
-  rarity = 'special'
-  benchCost = 6
-  scrapMetal = 50
-  wires = 100
-  copper = 100
-  plastic = 50
-  ingredients = [new RacingWheel(), new LandingGear()]
-  getScrapMetal = () => {
-    return this.scrapMetal
-  }
-  getAllScrapMetal = () => {
-    let scrapMetalCount = this.getScrapMetal()
-    for (let item of this.ingredients) {
-      scrapMetalCount += item.getAllScrapMetal()
-    }
-    return scrapMetalCount
+export class APCWheel extends SpecialVehicleComponent {
+  constructor() {
+    super()
+    this.name = 'Колесо броневика'
+    this.type = 'Колесо тяжелое'
+    this.scrapMetal = 50
+    this.wires = 100
+    this.copper = 100
+    this.plastic = 50
+    this.ingredients = [new LargeWheel(), new BalloonTyre()]
   }
 }
-export class LunarIVST implements ICarComponent {
-  name = 'Лунар IV(пов.)'
-  rarity = 'special'
-  benchCost = 6
-  scrapMetal = 50
-  wires = 100
-  copper = 100
-  plastic = 50
-  ingredients = [new RacingWheelST(), new LandingGearST()]
-  getScrapMetal = () => {
-    return this.scrapMetal
-  }
-  getAllScrapMetal = () => {
-    let scrapMetalCount = this.getScrapMetal()
-    for (let item of this.ingredients) {
-      scrapMetalCount += item.getAllScrapMetal()
-    }
-    return scrapMetalCount
+export class APCWheelST extends SpecialVehicleComponent {
+  constructor() {
+    super()
+    this.name = 'Колесо броневика(пов.)'
+    this.type = 'Колесо тяжелое'
+    this.scrapMetal = 50
+    this.wires = 100
+    this.copper = 100
+    this.plastic = 50
+    this.ingredients = [new LargeWheelST(), new BalloonTyreST()]
   }
 }
-export class Array implements ICarComponent {
-  name = 'Массив'
-  rarity = 'special'
-  benchCost = 6
-  scrapMetal = 50
-  wires = 100
-  copper = 100
-  plastic = 50
-  ingredients = [new ChainedWheel(), new StuddedWheel()]
-  getScrapMetal = () => {
-    return this.scrapMetal
-  }
-  getAllScrapMetal = () => {
-    let scrapMetalCount = this.getScrapMetal()
-    for (let item of this.ingredients) {
-      scrapMetalCount += item.getAllScrapMetal()
-    }
-    return scrapMetalCount
+export class TwinWheel extends SpecialVehicleComponent {
+  constructor() {
+    super()
+    this.name = 'Колесо двойное'
+    this.type = 'Колесо тяжелое'
+    this.scrapMetal = 50
+    this.wires = 100
+    this.copper = 100
+    this.plastic = 50
+    this.ingredients = [new LargeWheel(), new BalloonTyre()]
   }
 }
-export class ArrayST implements ICarComponent {
-  name = 'Массив(пов.)'
-  rarity = 'special'
-  benchCost = 6
-  scrapMetal = 50
-  wires = 100
-  copper = 100
-  plastic = 50
-  ingredients = [new ChainedWheelST(), new StuddedWheelST()]
-  getScrapMetal = () => {
-    return this.scrapMetal
-  }
-  getAllScrapMetal = () => {
-    let scrapMetalCount = this.getScrapMetal()
-    for (let item of this.ingredients) {
-      scrapMetalCount += item.getAllScrapMetal()
-    }
-    return scrapMetalCount
-  }
-}
-export class Camber implements ICarComponent {
-  name = 'Развал'
-  rarity = 'special'
-  benchCost = 6
-  scrapMetal = 200
-  wires = 200
-  copper = 100
-  plastic = 30
-  ingredients = [new RacingWheel(), new BalloonTyre()]
-  getScrapMetal = () => {
-    return this.scrapMetal
-  }
-  getAllScrapMetal = () => {
-    let scrapMetalCount = this.getScrapMetal()
-    for (let item of this.ingredients) {
-      scrapMetalCount += item.getAllScrapMetal()
-    }
-    return scrapMetalCount
-  }
-}
-export class CamberST implements ICarComponent {
-  name = 'Развал(пов.)'
-  rarity = 'special'
-  benchCost = 6
-  scrapMetal = 200
-  wires = 200
-  copper = 100
-  plastic = 30
-  ingredients = [new RacingWheelST(), new BalloonTyreST()]
-  getScrapMetal = () => {
-    return this.scrapMetal
-  }
-  getAllScrapMetal = () => {
-    let scrapMetalCount = this.getScrapMetal()
-    for (let item of this.ingredients) {
-      scrapMetalCount += item.getAllScrapMetal()
-    }
-    return scrapMetalCount
+export class TwinWheelST extends SpecialVehicleComponent {
+  constructor() {
+    super()
+    this.name = 'Колесо двойное(пов.)'
+    this.type = 'Колесо тяжелое'
+    this.scrapMetal = 50
+    this.wires = 100
+    this.copper = 100
+    this.plastic = 50
+    this.ingredients = [new LargeWheelST(), new BalloonTyreST()]
   }
 }

@@ -2,6 +2,7 @@ import { CommonVehicleComponent } from './commonVehicleComponent'
 
 export class RareVehicleComponent {
   name: string
+  type: string
   rarity: string
   productionTime: number
   benchCost: number
@@ -11,6 +12,7 @@ export class RareVehicleComponent {
 
   constructor() {
     this.name = ''
+    this.type = ''
     this.rarity = 'rare'
     this.productionTime = 15
     this.benchCost = 3

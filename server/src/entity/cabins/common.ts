@@ -1,17 +1,10 @@
 import { CommonVehicleComponent } from '../commonVehicleComponent'
 
-export class Docker extends CommonVehicleComponent {
-  constructor() {
-    super()
-    this.name = 'Докер'
-    this.scrapMetal = 75
-    this.copper = 15
-  }
-}
 export class Sprinter extends CommonVehicleComponent {
   constructor() {
     super()
     this.name = 'Спринтер'
+    this.type = 'Легкая кабина'
     this.scrapMetal = 75
     this.copper = 15
   }
@@ -20,6 +13,7 @@ export class Huntsman extends CommonVehicleComponent {
   constructor() {
     super()
     this.name = 'Егерь'
+    this.type = 'Средняя кабина'
     this.scrapMetal = 75
     this.copper = 15
   }
@@ -28,15 +22,17 @@ export class WWT1 extends CommonVehicleComponent {
   constructor() {
     super()
     this.name = 'WWT1'
+    this.type = 'Средняя кабина'
     this.scrapMetal = 75
     this.copper = 15
   }
 }
-export class Duster extends CommonVehicleComponent {
+export class Docker extends CommonVehicleComponent {
   constructor() {
     super()
-    this.name = 'Кастет'
-    this.scrapMetal = 0
-    this.copper = 0
+    this.name = 'Докер'
+    this.type = 'Тяжелая кабина'
+    this.scrapMetal = 75
+    this.copper = 15
   }
 }

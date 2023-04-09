@@ -3,69 +3,113 @@ import { B1Aviator, CarJack, FuelBarrel, R1Breese, Radio, RS1Ruby } from '../har
 import { MediumWheelST } from '../movement/common'
 import { Avenger57mm, Lupara, P54MAccord } from './common'
 
-export class AC43Rapier extends RareVehicleComponent {
-  name = 'АП43 Рапира'
-  scrapMetal = 650
-  copper = 130
-  ingredients = [new B1Aviator(), new P54MAccord()]
-}
-export class AD12Falcon extends RareVehicleComponent {
-  name = 'АД-12 Сокол'
-  scrapMetal = 650
-  copper = 130
-  ingredients = [new RS1Ruby(), new P54MAccord()]
-}
-export class Borer extends RareVehicleComponent {
-  name = 'Бур'
-  scrapMetal = 650
-  copper = 130
-  ingredients = [new CarJack(), new R1Breese()]
+export class STM23Defender extends RareVehicleComponent {
+  constructor() {
+    super()
+    this.name = 'П-23 Защитник'
+    this.type = 'Пулемет'
+    this.scrapMetal = 650
+    this.copper = 130
+    this.ingredients = [new P54MAccord(), new R1Breese()]
+  }
 }
 export class Vector extends RareVehicleComponent {
-  name = 'Вектор'
-  scrapMetal = 650
-  copper = 130
-  ingredients = [new P54MAccord(), new CarJack()]
+  constructor() {
+    super()
+    this.name = 'Вектор'
+    this.type = 'Пулемет'
+    this.scrapMetal = 650
+    this.copper = 130
+    this.ingredients = [new P54MAccord(), new CarJack()]
+  }
 }
 export class Sledgehammer extends RareVehicleComponent {
-  name = 'Кувалда'
-  scrapMetal = 650
-  copper = 130
-  ingredients = [new Lupara(), new CarJack()]
-}
-export class LittleBoy6LB extends RareVehicleComponent {
-  name = 'Малыш 6Ф'
-  scrapMetal = 650
-  copper = 130
-  ingredients = [new Avenger57mm(), new FuelBarrel()]
-}
-export class Wasp extends RareVehicleComponent {
-  name = 'Оса'
-  scrapMetal = 650
-  copper = 130
-  ingredients = [new FuelBarrel(), new Avenger57mm()]
+  constructor() {
+    super()
+    this.name = 'Кувалда'
+    this.type = 'Дробовик'
+    this.scrapMetal = 650
+    this.copper = 130
+    this.ingredients = [new Lupara(), new CarJack()]
+  }
 }
 export class Spitfire extends RareVehicleComponent {
-  name = 'Очаг'
-  scrapMetal = 650
-  copper = 130
-  ingredients = [new Lupara(), new B1Aviator()]
+  constructor() {
+    super()
+    this.name = 'Очаг'
+    this.type = 'Дробовик'
+    this.scrapMetal = 650
+    this.copper = 130
+    this.ingredients = [new Lupara(), new B1Aviator()]
+  }
 }
-export class STM23Defender extends RareVehicleComponent {
-  name = 'П-23 Защитник'
-  scrapMetal = 650
-  copper = 130
-  ingredients = [new P54MAccord(), new R1Breese()]
+export class AC43Rapier extends RareVehicleComponent {
+  constructor() {
+    super()
+    this.name = 'АП43 Рапира'
+    this.type = 'Автопушка'
+    this.scrapMetal = 650
+    this.copper = 130
+    this.ingredients = [new B1Aviator(), new P54MAccord()]
+  }  
+}
+export class LittleBoy6LB extends RareVehicleComponent {
+  constructor() {
+    super()
+    this.name = 'Малыш 6Ф'
+    this.type = 'Пушка'
+    this.scrapMetal = 650
+    this.copper = 130
+    this.ingredients = [new Avenger57mm(), new FuelBarrel()]
+  } 
 }
 export class Judge76mm extends RareVehicleComponent {
-  name = 'П-23 Защитник'
-  scrapMetal = 650
-  copper = 130
-  ingredients = [new MediumWheelST(), new Avenger57mm()]
+  constructor() {
+    super()
+    this.name = 'Судья 76мм'
+    this.type = 'Пушка'
+    this.scrapMetal = 650
+    this.copper = 130
+    this.ingredients = [new Avenger57mm(), new MediumWheelST()]
+  }
+}
+export class Wasp extends RareVehicleComponent {
+  constructor() {
+    super()
+    this.name = 'Оса'
+    this.type = 'Ракетница'
+    this.scrapMetal = 650
+    this.copper = 130
+    this.ingredients = [new Avenger57mm(), new FuelBarrel()]
+  }
+}
+export class Borer extends RareVehicleComponent {
+  constructor() {
+    super()
+    this.name = 'Бур'
+    this.type = 'Контактное оружие'
+    this.scrapMetal = 650
+    this.copper = 130
+    this.ingredients = [new CarJack(), new R1Breese()]
+  }
+}
+export class AD12Falcon extends RareVehicleComponent {
+  constructor() {
+    super()
+    this.name = 'АД-12 Сокол'
+    this.type = 'Дрон'
+    this.scrapMetal = 650
+    this.copper = 130
+    this.ingredients = [new P54MAccord(), new RS1Ruby()]
+  }
 }
 export class DTCobra extends RareVehicleComponent {
-  name = 'П-23 Защитник'
-  scrapMetal = 650
-  copper = 130
-  ingredients = [new Lupara(), new Radio()]
+  constructor() {
+    super()
+    this.name = 'Т3 Кобра'
+    this.type = 'Дрон'
+    this.scrapMetal = 650
+    this.copper = 130
+    this.ingredients = [new Radio(), new Lupara()]
+  }
 }
