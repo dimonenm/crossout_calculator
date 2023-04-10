@@ -16,8 +16,8 @@ export class RareVehicleComponent {
     this.rarity = 'rare'
     this.productionTime = 15
     this.benchCost = 3
-    this.scrapMetal = 0
-    this.copper = 0
+    this.scrapMetal = 650
+    this.copper = 130
     this.ingredients = []
   }
 

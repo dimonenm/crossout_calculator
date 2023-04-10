@@ -2,6 +2,7 @@ import { SpecialVehicleComponent } from './specialVehicleComponent'
 
 export class EpicVehicleComponent {
   name: string
+  type: string
   rarity: string
   productionTime: number
   benchCost: number
@@ -15,13 +16,14 @@ export class EpicVehicleComponent {
 
   constructor() {
     this.name = ''
+    this.type = ''
     this.rarity = 'epic'
     this.productionTime = 120
-    this.benchCost = 0
-    this.scrapMetal = 0
-    this.copper = 0
-    this.wires = 0
-    this.plastic = 0
+    this.benchCost = 15
+    this.scrapMetal = 100
+    this.copper = 150
+    this.wires = 200
+    this.plastic = 100
     this.batteries = 0
     this.engravedCasings = 0
     this.ingredients = []

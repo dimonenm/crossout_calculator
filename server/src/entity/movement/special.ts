@@ -6,10 +6,6 @@ export class LunarIV extends SpecialVehicleComponent {
     super()
     this.name = 'Лунар IV'
     this.type = 'Колесо легкое'
-    this.scrapMetal = 50
-    this.wires = 100
-    this.copper = 100
-    this.plastic = 50
     this.ingredients = [new RacingWheel(), new LandingGear()]
   }
 }
@@ -18,10 +14,6 @@ export class LunarIVST extends SpecialVehicleComponent {
     super()
     this.name = 'Лунар IV(пов.)'
     this.type = 'Колесо легкое'
-    this.scrapMetal = 50
-    this.wires = 100
-    this.copper = 100
-    this.plastic = 50
     this.ingredients = [new RacingWheelST(), new LandingGearST()]
   }
 }
@@ -32,7 +24,6 @@ export class Camber extends SpecialVehicleComponent {
     this.type = 'Колесо легкое'
     this.scrapMetal = 200
     this.wires = 200
-    this.copper = 100
     this.plastic = 30
     this.ingredients = [new RacingWheel(), new BalloonTyre()]
   }
@@ -44,7 +35,6 @@ export class CamberST extends SpecialVehicleComponent {
     this.type = 'Колесо легкое'
     this.scrapMetal = 200
     this.wires = 200
-    this.copper = 100
     this.plastic = 30
     this.ingredients = [new RacingWheelST(), new BalloonTyreST()]
   }
@@ -54,10 +44,6 @@ export class Shiv extends SpecialVehicleComponent {
     super()
     this.name = 'Заточка'
     this.type = 'Колесо среднее'
-    this.scrapMetal = 50
-    this.wires = 100
-    this.copper = 100
-    this.plastic = 50
     this.ingredients = [new StuddedWheel(), new ChainedWheel()]
   }
 }
@@ -66,10 +52,6 @@ export class ShivST extends SpecialVehicleComponent {
     super()
     this.name = 'Заточка(пов.)'
     this.type = 'Колесо среднее'
-    this.scrapMetal = 50
-    this.wires = 100
-    this.copper = 100
-    this.plastic = 50
     this.ingredients = [new StuddedWheelST(), new ChainedWheelST()]
   }
 }
@@ -78,10 +60,6 @@ export class APCWheel extends SpecialVehicleComponent {
     super()
     this.name = 'Колесо броневика'
     this.type = 'Колесо тяжелое'
-    this.scrapMetal = 50
-    this.wires = 100
-    this.copper = 100
-    this.plastic = 50
     this.ingredients = [new LargeWheel(), new BalloonTyre()]
   }
 }
@@ -90,10 +68,6 @@ export class APCWheelST extends SpecialVehicleComponent {
     super()
     this.name = 'Колесо броневика(пов.)'
     this.type = 'Колесо тяжелое'
-    this.scrapMetal = 50
-    this.wires = 100
-    this.copper = 100
-    this.plastic = 50
     this.ingredients = [new LargeWheelST(), new BalloonTyreST()]
   }
 }
@@ -102,10 +76,6 @@ export class TwinWheel extends SpecialVehicleComponent {
     super()
     this.name = 'Колесо двойное'
     this.type = 'Колесо тяжелое'
-    this.scrapMetal = 50
-    this.wires = 100
-    this.copper = 100
-    this.plastic = 50
     this.ingredients = [new LargeWheel(), new BalloonTyre()]
   }
 }
@@ -114,10 +84,6 @@ export class TwinWheelST extends SpecialVehicleComponent {
     super()
     this.name = 'Колесо двойное(пов.)'
     this.type = 'Колесо тяжелое'
-    this.scrapMetal = 50
-    this.wires = 100
-    this.copper = 100
-    this.plastic = 50
     this.ingredients = [new LargeWheelST(), new BalloonTyreST()]
   }
 }

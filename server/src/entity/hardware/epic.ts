@@ -1,369 +1,131 @@
-import { ICarComponent } from '../../interfaces/carComponent.interface'
+import { EpicVehicleComponent } from '../epicVehicleComponent'
 import { Bat } from '../cabins/special'
-import { APCWheelST, Array, LunarIV, Shiv, ShivST, TwinWheel, TwinWheelST } from '../movement/special'
-import { Prosecutor76mm, Buzzsaw, Goblin, Boom, Junkbow, Mace, Sidekick, AC50Storm, ZS33Hulk, M25Guardian, AD13Hawk } from '../weapons/special'
+import { LunarIV, ShivST, TwinWheel, TwinWheelST } from '../movement/special'
+import { Prosecutor76mm, Buzzsaw, Goblin, Boom, Junkbow, Mace, AC50Storm, ZS33Hulk, AD13Hawk } from '../weapons/special'
 import { Ampere, Chameleon, DunHorse, Genesis, Hardcore, KA1Discharger, Maxwell, OculusVI, PU1Charge, Razorback } from './special'
 
-export class ExpandedAmmoPack implements ICarComponent {
-  name = 'Боезапас увеличенный'
-  rarity = 'epic'
-  benchCost = 15
-  scrapMetal = 100
-  wires = 150
-  copper = 200
-  plastic = 100
-  ingredients = [new OculusVI(), new PU1Charge(), new Prosecutor76mm()]
-  getScrapMetal = () => {
-    return this.scrapMetal
-  }
-  getAllScrapMetal = () => {
-    let scrapMetalCount = this.getScrapMetal()
-    for (let item of this.ingredients) {
-      scrapMetalCount += item.getAllScrapMetal()
-    }
-    return scrapMetalCount
+export class ExpandedAmmoPack extends EpicVehicleComponent {
+  constructor() {
+    super()
+    this.name = 'Боезапас увеличенный'
+    this.type = ''
+    this.ingredients = [new OculusVI(), new PU1Charge(), new Prosecutor76mm()]
   }
 }
-export class Bootstrap implements ICarComponent {
-  name = 'Бутстрэп'
-  rarity = 'epic'
-  benchCost = 15
-  scrapMetal = 250
-  wires = 200
-  copper = 250
-  plastic = 60
-  batteries = 100
-  ingredients = [new PU1Charge(), new Hardcore(), new Array()]
-  getScrapMetal = () => {
-    return this.scrapMetal
-  }
-  getAllScrapMetal = () => {
-    let scrapMetalCount = this.getScrapMetal()
-    for (let item of this.ingredients) {
-      scrapMetalCount += item.getAllScrapMetal()
-    }
-    return scrapMetalCount
+export class Gasgen extends EpicVehicleComponent {
+  constructor() {
+    super()
+    this.name = 'Газген'
+    this.type = ''
+    this.ingredients = [new Buzzsaw(), new Goblin(), new Boom()]
   }
 }
-export class Verifier implements ICarComponent {
-  name = 'Верификатор'
-  rarity = 'epic'
-  benchCost = 15
-  scrapMetal = 100
-  wires = 200
-  copper = 150
-  plastic = 100
-  ingredients = [new Array(), new OculusVI(), new Sidekick()]
-  getScrapMetal = () => {
-    return this.scrapMetal
-  }
-  getAllScrapMetal = () => {
-    let scrapMetalCount = this.getScrapMetal()
-    for (let item of this.ingredients) {
-      scrapMetalCount += item.getAllScrapMetal()
-    }
-    return scrapMetalCount
+export class Cheetah extends EpicVehicleComponent {
+  constructor() {
+    super()
+    this.name = 'Гепард'
+    this.type = ''
+    this.ingredients = [new DunHorse(), new Chameleon(), new AC50Storm()]
   }
 }
-export class Gasgen implements ICarComponent {
-  name = 'Газген'
-  rarity = 'epic'
-  benchCost = 15
-  scrapMetal = 100
-  wires = 150
-  copper = 200
-  plastic = 100
-  ingredients = [new Buzzsaw(), new Goblin(), new Boom()]
-  getScrapMetal = () => {
-    return this.scrapMetal
-  }
-  getAllScrapMetal = () => {
-    let scrapMetalCount = this.getScrapMetal()
-    for (let item of this.ingredients) {
-      scrapMetalCount += item.getAllScrapMetal()
-    }
-    return scrapMetalCount
+export class Hermes extends EpicVehicleComponent {
+  constructor() {
+    super()
+    this.name = 'Гермес'
+    this.type = ''
+    this.ingredients = [new Hardcore(), new Boom(), new Buzzsaw()]
   }
 }
-export class Cheetah implements ICarComponent {
-  name = 'Гепард'
-  rarity = 'epic'
-  benchCost = 15
-  scrapMetal = 100
-  wires = 150
-  copper = 200
-  plastic = 100
-  ingredients = [new DunHorse(), new Chameleon(), new AC50Storm()]
-  getScrapMetal = () => {
-    return this.scrapMetal
-  }
-  getAllScrapMetal = () => {
-    let scrapMetalCount = this.getScrapMetal()
-    for (let item of this.ingredients) {
-      scrapMetalCount += item.getAllScrapMetal()
-    }
-    return scrapMetalCount
+export class Oppressor extends EpicVehicleComponent {
+  constructor() {
+    super()
+    this.name = 'Гонитель'
+    this.type = ''
+    this.ingredients = [new Bat(), new ShivST(), new Hardcore()]
   }
 }
-export class Hermes implements ICarComponent {
-  name = 'Гермес'
-  rarity = 'epic'
-  benchCost = 15
-  scrapMetal = 100
-  wires = 150
-  copper = 200
-  plastic = 100
-  ingredients = [new Hardcore(), new Boom(), new Buzzsaw()]
-  getScrapMetal = () => {
-    return this.scrapMetal
-  }
-  getAllScrapMetal = () => {
-    let scrapMetalCount = this.getScrapMetal()
-    for (let item of this.ingredients) {
-      scrapMetalCount += item.getAllScrapMetal()
-    }
-    return scrapMetalCount
+export class Doppler extends EpicVehicleComponent {
+  constructor() {
+    super()
+    this.name = 'Доплер'
+    this.type = ''
+    this.ingredients = [new Maxwell(), new Chameleon()]
   }
 }
-export class Oppressor implements ICarComponent {
-  name = 'Гонитель'
-  rarity = 'epic'
-  benchCost = 15
-  scrapMetal = 100
-  wires = 200
-  copper = 150
-  plastic = 100
-  ingredients = [new Bat(), new ShivST(), new Hardcore()]
-  getScrapMetal = () => {
-    return this.scrapMetal
-  }
-  getAllScrapMetal = () => {
-    let scrapMetalCount = this.getScrapMetal()
-    for (let item of this.ingredients) {
-      scrapMetalCount += item.getAllScrapMetal()
-    }
-    return scrapMetalCount
+export class Colossus extends EpicVehicleComponent {
+  constructor() {
+    super()
+    this.name = 'Исполин'
+    this.type = ''
+    this.ingredients = [new Razorback(), new TwinWheel(), new ZS33Hulk()]
   }
 }
-export class Doppler implements ICarComponent {
-  name = 'Доплер'
-  rarity = 'epic'
-  benchCost = 15
-  scrapMetal = 100
-  wires = 200
-  copper = 150
-  plastic = 100
-  ingredients = [new Maxwell(), new Chameleon()]
-  getScrapMetal = () => {
-    return this.scrapMetal
-  }
-  getAllScrapMetal = () => {
-    let scrapMetalCount = this.getScrapMetal()
-    for (let item of this.ingredients) {
-      scrapMetalCount += item.getAllScrapMetal()
-    }
-    return scrapMetalCount
+export class KA2Flywheel extends EpicVehicleComponent {
+  constructor() {
+    super()
+    this.name = 'КА-2 Маховик'
+    this.type = ''
+    this.scrapMetal = 250
+    this.wires = 200
+    this.copper = 250
+    this.plastic = 60
+    this.batteries = 100
+    this.ingredients = [new KA1Discharger(), new Razorback(), new OculusVI()]
   }
 }
-export class Colossus implements ICarComponent {
-  name = 'Исполин'
-  rarity = 'epic'
-  benchCost = 15
-  scrapMetal = 100
-  wires = 150
-  copper = 200
-  plastic = 100
-  ingredients = [new Razorback(), new TwinWheel(), new ZS33Hulk()]
-  getScrapMetal = () => {
-    return this.scrapMetal
-  }
-  getAllScrapMetal = () => {
-    let scrapMetalCount = this.getScrapMetal()
-    for (let item of this.ingredients) {
-      scrapMetalCount += item.getAllScrapMetal()
-    }
-    return scrapMetalCount
+export class Tormentor extends EpicVehicleComponent {
+  constructor() {
+    super()
+    this.name = 'Мучитель'
+    this.type = ''
+    this.ingredients = [new Bat(), new Junkbow(), new AD13Hawk()]
   }
 }
-export class KA2Flywheel implements ICarComponent {
-  name = 'КА-2 Маховик'
-  rarity = 'epic'
-  benchCost = 15
-  scrapMetal = 250
-  wires = 200
-    copper = 250
-  plastic = 60
-  batteries = 100
-  ingredients = [new KA1Discharger(), new Razorback(), new OculusVI()]
-  getScrapMetal = () => {
-    return this.scrapMetal
-  }
-  getAllScrapMetal = () => {
-    let scrapMetalCount = this.getScrapMetal()
-    for (let item of this.ingredients) {
-      scrapMetalCount += item.getAllScrapMetal()
-    }
-    return scrapMetalCount
+export class Neutrino extends EpicVehicleComponent {
+  constructor() {
+    super()
+    this.name = 'Нейтрино'
+    this.type = ''
+    this.ingredients = [new LunarIV(), new Genesis(), new TwinWheelST()]
   }
 }
-export class Tormentor implements ICarComponent {
-  name = 'Мучитель'
-  rarity = 'epic'
-  benchCost = 15
-  scrapMetal = 100
-  wires = 200
-  copper = 150
-  plastic = 100
-  ingredients = [new Bat(), new Junkbow(), new AD13Hawk()]
-  getScrapMetal = () => {
-    return this.scrapMetal
-  }
-  getAllScrapMetal = () => {
-    let scrapMetalCount = this.getScrapMetal()
-    for (let item of this.ingredients) {
-      scrapMetalCount += item.getAllScrapMetal()
-    }
-    return scrapMetalCount
+export class Shiver extends EpicVehicleComponent {
+  constructor() {
+    super()
+    this.name = 'Озноб'
+    this.type = ''
+    this.ingredients = [new Buzzsaw(), new Mace(), new Hardcore()]
   }
 }
-export class Neutrino implements ICarComponent {
-  name = 'Нейтрино'
-  rarity = 'epic'
-  benchCost = 15
-  scrapMetal = 100
-  wires = 200
-  copper = 150
-  plastic = 100
-  ingredients = [new LunarIV(), new Genesis(), new TwinWheelST()]
-  getScrapMetal = () => {
-    return this.scrapMetal
-  }
-  getAllScrapMetal = () => {
-    let scrapMetalCount = this.getScrapMetal()
-    for (let item of this.ingredients) {
-      scrapMetalCount += item.getAllScrapMetal()
-    }
-    return scrapMetalCount
+export class RD2Keen extends EpicVehicleComponent {
+  constructor() {
+    super()
+    this.name = 'РЛС-2 Чуткий'
+    this.type = ''
+    this.ingredients = [new OculusVI(), new TwinWheel(), new PU1Charge()]
   }
 }
-export class Averter implements ICarComponent {
-  name = 'Оберег'
-  rarity = 'epic'
-  benchCost = 15
-  scrapMetal = 250
-  wires = 200
-  copper = 250
-  plastic = 60
-  batteries = 100
-  ingredients = [new Chameleon(), new M25Guardian(), new APCWheelST()]
-  getScrapMetal = () => {
-    return this.scrapMetal
-  }
-  getAllScrapMetal = () => {
-    let scrapMetalCount = this.getScrapMetal()
-    for (let item of this.ingredients) {
-      scrapMetalCount += item.getAllScrapMetal()
-    }
-    return scrapMetalCount
+export class RNSeal extends EpicVehicleComponent {
+  constructor() {
+    super()
+    this.name = 'РС Нерпа'
+    this.type = ''
+    this.ingredients = [new Maxwell(), new Ampere(), new DunHorse()]
   }
 }
-export class Shiver implements ICarComponent {
-  name = 'Озноб'
-  rarity = 'epic'
-  benchCost = 15
-  scrapMetal = 100
-  wires = 150
-  copper = 200
-  plastic = 100
-  ingredients = [new Buzzsaw(), new Mace(), new Hardcore()]
-  getScrapMetal = () => {
-    return this.scrapMetal
-  }
-  getAllScrapMetal = () => {
-    let scrapMetalCount = this.getScrapMetal()
-    for (let item of this.ingredients) {
-      scrapMetalCount += item.getAllScrapMetal()
-    }
-    return scrapMetalCount
+export class ChameleonMk2 extends EpicVehicleComponent {
+  constructor() {
+    super()
+    this.name = 'Хамелеон Mk2'
+    this.type = ''
+    this.ingredients = [new Maxwell(), new AC50Storm(), new Chameleon()]
   }
 }
-export class RD2Keen implements ICarComponent {
-  name = 'РЛС-2 Чуткий'
-  rarity = 'epic'
-  benchCost = 15
-  scrapMetal = 100
-  wires = 150
-  copper = 200
-  plastic = 100
-  ingredients = [new OculusVI(), new TwinWheel(), new PU1Charge()]
-  getScrapMetal = () => {
-    return this.scrapMetal
-  }
-  getAllScrapMetal = () => {
-    let scrapMetalCount = this.getScrapMetal()
-    for (let item of this.ingredients) {
-      scrapMetalCount += item.getAllScrapMetal()
-    }
-    return scrapMetalCount
-  }
-}
-export class RNSeal implements ICarComponent {
-  name = 'РС Нерпа'
-  rarity = 'epic'
-  benchCost = 15
-  scrapMetal = 100
-  wires = 150
-  copper = 200
-  plastic = 100
-  ingredients = [new Maxwell(), new Ampere(), new DunHorse()]
-  getScrapMetal = () => {
-    return this.scrapMetal
-  }
-  getAllScrapMetal = () => {
-    let scrapMetalCount = this.getScrapMetal()
-    for (let item of this.ingredients) {
-      scrapMetalCount += item.getAllScrapMetal()
-    }
-    return scrapMetalCount
-  }
-}
-export class ChameleonMk2 implements ICarComponent {
-  name = 'Хамелеон Mk2'
-  rarity = 'epic'
-  benchCost = 15
-  scrapMetal = 100
-  wires = 150
-  copper = 200
-  plastic = 100
-  ingredients = [new Maxwell(), new AC50Storm(), new Chameleon()]
-  getScrapMetal = () => {
-    return this.scrapMetal
-  }
-  getAllScrapMetal = () => {
-    let scrapMetalCount = this.getScrapMetal()
-    for (let item of this.ingredients) {
-      scrapMetalCount += item.getAllScrapMetal()
-    }
-    return scrapMetalCount
-  }
-}
-export class HotRed implements ICarComponent {
-  name = 'Четкий'
-  rarity = 'epic'
-  benchCost = 15
-  scrapMetal = 100
-  wires = 150
-  copper = 200
-  plastic = 100
-  ingredients = [new Hardcore(), new Goblin(), new Mace()]
-  getScrapMetal = () => {
-    return this.scrapMetal
-  }
-  getAllScrapMetal = () => {
-    let scrapMetalCount = this.getScrapMetal()
-    for (let item of this.ingredients) {
-      scrapMetalCount += item.getAllScrapMetal()
-    }
-    return scrapMetalCount
+export class HotRed extends EpicVehicleComponent {
+  constructor() {
+    super()
+    this.name = 'Четкий'
+    this.type = ''
+    this.ingredients = [new Hardcore(), new Goblin(), new Mace()]
   }
 }

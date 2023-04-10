@@ -8,8 +8,6 @@ export class STM23Defender extends RareVehicleComponent {
     super()
     this.name = 'П-23 Защитник'
     this.type = 'Пулемет'
-    this.scrapMetal = 650
-    this.copper = 130
     this.ingredients = [new P54MAccord(), new R1Breese()]
   }
 }
@@ -18,8 +16,6 @@ export class Vector extends RareVehicleComponent {
     super()
     this.name = 'Вектор'
     this.type = 'Пулемет'
-    this.scrapMetal = 650
-    this.copper = 130
     this.ingredients = [new P54MAccord(), new CarJack()]
   }
 }
@@ -28,8 +24,6 @@ export class Sledgehammer extends RareVehicleComponent {
     super()
     this.name = 'Кувалда'
     this.type = 'Дробовик'
-    this.scrapMetal = 650
-    this.copper = 130
     this.ingredients = [new Lupara(), new CarJack()]
   }
 }
@@ -38,8 +32,6 @@ export class Spitfire extends RareVehicleComponent {
     super()
     this.name = 'Очаг'
     this.type = 'Дробовик'
-    this.scrapMetal = 650
-    this.copper = 130
     this.ingredients = [new Lupara(), new B1Aviator()]
   }
 }
@@ -48,8 +40,6 @@ export class AC43Rapier extends RareVehicleComponent {
     super()
     this.name = 'АП43 Рапира'
     this.type = 'Автопушка'
-    this.scrapMetal = 650
-    this.copper = 130
     this.ingredients = [new B1Aviator(), new P54MAccord()]
   }  
 }
@@ -58,8 +48,6 @@ export class LittleBoy6LB extends RareVehicleComponent {
     super()
     this.name = 'Малыш 6Ф'
     this.type = 'Пушка'
-    this.scrapMetal = 650
-    this.copper = 130
     this.ingredients = [new Avenger57mm(), new FuelBarrel()]
   } 
 }
@@ -68,8 +56,6 @@ export class Judge76mm extends RareVehicleComponent {
     super()
     this.name = 'Судья 76мм'
     this.type = 'Пушка'
-    this.scrapMetal = 650
-    this.copper = 130
     this.ingredients = [new Avenger57mm(), new MediumWheelST()]
   }
 }
@@ -78,8 +64,6 @@ export class Wasp extends RareVehicleComponent {
     super()
     this.name = 'Оса'
     this.type = 'Ракетница'
-    this.scrapMetal = 650
-    this.copper = 130
     this.ingredients = [new Avenger57mm(), new FuelBarrel()]
   }
 }
@@ -88,8 +72,6 @@ export class Borer extends RareVehicleComponent {
     super()
     this.name = 'Бур'
     this.type = 'Контактное оружие'
-    this.scrapMetal = 650
-    this.copper = 130
     this.ingredients = [new CarJack(), new R1Breese()]
   }
 }
@@ -98,8 +80,6 @@ export class AD12Falcon extends RareVehicleComponent {
     super()
     this.name = 'АД-12 Сокол'
     this.type = 'Дрон'
-    this.scrapMetal = 650
-    this.copper = 130
     this.ingredients = [new P54MAccord(), new RS1Ruby()]
   }
 }
@@ -108,8 +88,6 @@ export class DTCobra extends RareVehicleComponent {
     super()
     this.name = 'Т3 Кобра'
     this.type = 'Дрон'
-    this.scrapMetal = 650
-    this.copper = 130
     this.ingredients = [new Radio(), new Lupara()]
   }
 }

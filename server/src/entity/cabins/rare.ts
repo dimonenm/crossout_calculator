@@ -9,7 +9,6 @@ export class Growl extends RareVehicleComponent {
     this.name = 'Рык'
     this.type = 'Легкая кабина'
     this.scrapMetal = 700
-    this.copper = 130
     this.ingredients = [new Sprinter(), new Lupara()]
   }
 }
@@ -19,7 +18,6 @@ export class Wyvern extends RareVehicleComponent {
     this.name = 'Виверна'
     this.type = 'Средняя кабина'
     this.scrapMetal = 700
-    this.copper = 130
     this.ingredients = [new Huntsman(), new RS1Ruby()]
   }
 }
@@ -29,7 +27,6 @@ export class Trucker extends RareVehicleComponent {
     this.name = 'Дальнобой'
     this.type = 'Тяжелая кабина'
     this.scrapMetal = 700
-    this.copper = 130
     this.ingredients = [new Sprinter(), new Docker()]
   }
 }

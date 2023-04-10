@@ -19,10 +19,10 @@ export class SpecialVehicleComponent {
     this.rarity = 'special'
     this.productionTime = 120
     this.benchCost = 6
-    this.scrapMetal = 0
-    this.copper = 0
-    this.wires = 0
-    this.plastic = 0
+    this.scrapMetal = 50
+    this.copper = 100
+    this.wires = 100
+    this.plastic = 50
     this.engravedCasings = 0
     this.ingredients = []
   }
