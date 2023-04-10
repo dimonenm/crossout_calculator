@@ -18,7 +18,7 @@ export class EpicVehicleComponent {
     this.name = ''
     this.type = ''
     this.rarity = 'epic'
-    this.productionTime = 120
+    this.productionTime = 360
     this.benchCost = 15
     this.scrapMetal = 100
     this.copper = 150
