@@ -27,10 +27,14 @@ export class SpecialVehicleComponent {
     this.ingredients = []
   }
 
-  getScrapMetal = (): number => { return this.scrapMetal }
+  getScrapMetal = (): number => {
+    return this.scrapMetal
+  }
   getCopper = (): number => { return this.copper }
   getWires = (): number => { return this.wires }
   getPlastic = (): number => { return this.plastic }
+  getEngravedCasings = (): number => { return this.engravedCasings }
+  getBenchCost = (): number => { return this.benchCost }
   getAllScrapMetal = (): number => {
     let scrapMetalCount = this.getScrapMetal()
     for (let item of this.ingredients) {
@@ -44,5 +48,12 @@ export class SpecialVehicleComponent {
       copperCount += item.getAllCopper()
     }
     return copperCount
+  }
+  getAllBenchCost = (): number => {
+    let benchCost = this.getBenchCost()
+    for (let item of this.ingredients) {
+      benchCost += item.getBenchCost()
+    }
+    return benchCost
   }
 }

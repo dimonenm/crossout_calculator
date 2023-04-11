@@ -23,6 +23,7 @@ export class RareVehicleComponent {
 
   getScrapMetal = (): number => { return this.scrapMetal }
   getCopper = (): number => { return this.copper }
+  getBenchCost = (): number => { return this.benchCost }
   getAllScrapMetal = (): number => {
     let scrapMetalCount = this.getScrapMetal()
     for (let item of this.ingredients) {

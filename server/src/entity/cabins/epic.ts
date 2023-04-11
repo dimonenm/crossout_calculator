@@ -5,90 +5,76 @@ import { Goblin, Buzzsaw, Synthesis, Sinus0, Tempura, AD13Hawk } from '../weapon
 import { Jawbreaker, Bat, Pilgrim } from './special'
 
 export class Jannabi extends EpicVehicleComponent {
-  name = 'Джаннаби'
-  rarity = 'epic'
-  benchCost = 15
-  scrapMetal = 250
-  wires = 200
-  copper = 250
-  plastic = 60
-  batteries = 100
-  ingredients = [new Bat(), new Tempura(), new Razorback()]
+  constructor() {
+    super()
+    this.name = 'Джаннаби'
+    this.type = 'Легкая кабина'
+    this.scrapMetal = 250
+    this.wires = 200
+    this.copper = 250
+    this.plastic = 60
+    this.batteries = 100
+    this.ingredients = [new Bat(), new Tempura(), new Razorback()]
+  }
 }
 export class Harpy extends EpicVehicleComponent {
-  name = 'Гарпия'
-  rarity = 'epic'
-  benchCost = 15
-  scrapMetal = 100
-  wires = 200
-  copper = 150
-  plastic = 100
-  ingredients = [new Bat(), new Shiv(), new Sinus0()]
+  constructor() {
+    super()
+    this.name = 'Гарпия'
+    this.type = 'Легкая кабина'
+    this.ingredients = [new Bat(), new Shiv(), new Sinus0()]
+  }
 }
 export class Werewolf extends EpicVehicleComponent {
-  name = 'Оборотень'
-  rarity = 'epic'
-  benchCost = 15
-  scrapMetal = 100
-  wires = 200
-  copper = 150
-  plastic = 1
-  ingredients = [new Bat(), new ShivST(), new Ampere()]
+  constructor() {
+    super()
+    this.name = 'Оборотень'
+    this.type = 'Легкая кабина'
+    this.ingredients = [new Bat(), new ShivST(), new Ampere()]
+  }
 }
 export class Aggressor extends EpicVehicleComponent {
-  name = 'Агрессор'
-  rarity = 'epic'
-  benchCost = 15
-  scrapMetal = 250
-  wires = 200
-  copper = 250
-  plastic = 60
-  batteries = 100
-  ingredients = [new Hardcore(), new Goblin(), new Buzzsaw()]
+  constructor() {
+    super()
+    this.name = 'Агрессор'
+    this.type = 'Легкая кабина'
+    this.scrapMetal = 250
+    this.wires = 200
+    this.copper = 250
+    this.plastic = 60
+    this.batteries = 100
+    this.ingredients = [new Hardcore(), new Goblin(), new Buzzsaw()]
+  }
 }
-
-
-
 export class Quantum extends EpicVehicleComponent {
-  name = 'Квант'
-  rarity = 'epic'
-  benchCost = 15
-  scrapMetal = 100
-  wires = 200
-  copper = 150
-  plastic = 100
-  ingredients = [new Pilgrim(), new Genesis(), new AD13Hawk()]
+  constructor() {
+    super()
+    this.name = 'Квант'
+    this.type = 'Средняя кабина'
+    this.ingredients = [new Pilgrim(), new Genesis(), new AD13Hawk()]
+  }
 }
 export class Photon extends EpicVehicleComponent {
-  name = 'Фотон'
-  rarity = 'epic'
-  benchCost = 15
-  scrapMetal = 100
-  wires = 200
-  copper = 150
-  plastic = 100
-  ingredients = [new Pilgrim(), new Synthesis(), new AD13Hawk()]
+  constructor() {
+    super()
+    this.name = 'Фотон'
+    this.type = 'Средняя кабина'
+    this.ingredients = [new Pilgrim(), new Synthesis(), new AD13Hawk()]
+  }
 }
-
-
-
 export class Humpback extends EpicVehicleComponent {
-  name = 'Горбун'
-  rarity = 'epic'
-  benchCost = 15
-  scrapMetal = 100
-  wires = 200
-  copper = 150
-  plastic = 100
-  ingredients = [new Jawbreaker(), new APCWheel(), new Razorback()]
+  constructor() {
+    super()
+    this.name = 'Горбун'
+    this.type = 'Тяжелая кабина'
+    this.ingredients = [new Jawbreaker(), new APCWheel(), new Razorback()]
+  }
 }
 export class Bastion extends EpicVehicleComponent {
-  name = 'Бастион'
-  rarity = 'epic'
-  benchCost = 15
-  scrapMetal = 100
-  wires = 200
-  copper = 150
-  plastic = 100
-  ingredients = [new Jawbreaker(), new APCWheelST(), new PU1Charge()]
+  constructor() {
+    super()
+    this.name = 'Бастион'
+    this.type = 'Тяжелая кабина'
+    this.ingredients = [new Jawbreaker(), new APCWheelST(), new PU1Charge()]
+  }
 }
