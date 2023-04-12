@@ -1,5 +1,6 @@
 import { MG14Arbiter } from './entity/weapons/legendary';
 
+
 const arbiter = new MG14Arbiter()
 console.log('scrapMetal - ', arbiter.getAllScrapMetal());
 console.log('copper - ', arbiter.getAllCopper());
