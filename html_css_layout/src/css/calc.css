@@ -1,7 +1,10 @@
-@charset "UTF-8";
 @font-face {
   font-family: "Roboto";
   src: url("../fonts/Roboto-Regular.ttf");
+}
+html,body{
+  height: 100%;
+  width: 100%;
 }
 * {
   box-sizing: border-box;
@@ -81,7 +84,6 @@
 .header {
   display: grid;
   grid-template-columns: 1fr;
-  width: 100%;
   height: 50px;
   background-color: #343a40;
 }
@@ -99,15 +101,12 @@
 
 .main {
   display: grid;
-  grid-template-columns: 200px 4fr 1fr;
+  grid-template-columns: 200px 1fr;
   grid-template-rows: 1fr;
   width: 100%;
   height: 100%;
   background-color: #1e1e1e;
   gap: 40px;
-  padding: 40px;
-  justify-items: center;
-  align-items: center;
 }
 
 .components {
@@ -115,19 +114,17 @@
   grid-template-rows: 50px 1fr;
   justify-items: center;
   gap: 30px;
-  width: 200px;
-  height: 950px;
+
+  margin: 40px 0 40px 40px;
+
   border: 1px solid #334562;
   border-radius: 10px;
 }
 
 .components-title {
   display: grid;
-  grid-template-columns: 1fr;
   justify-content: center;
   align-items: center;
-  width: 200px;
-  width: 100%;
   font-family: "Roboto";
   font-size: 20px;
   text-align: center;
@@ -136,11 +133,11 @@
 
 .components-wrapper {
   display: grid;
-  grid-template-rows: repeat(7, 1fr);
-  gap: 30px;
+  grid-template-rows: repeat(auto-fill, 96px);
   justify-items: center;
   width: 100%;
-  overflow-y: scroll;
+  height: calc(100vh - 50px - 40px - 50px - 30px - 40px - 2px);
+  overflow-y: auto;
 }
 
 .components-wrapper::-webkit-scrollbar {
