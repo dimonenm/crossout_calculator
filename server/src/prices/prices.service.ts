@@ -1,30 +1,20 @@
 import { Injectable } from '@nestjs/common';
 import axios from 'axios';
+import { getFromDbItemById, IdsArr } from '../helpers/db/helpers'
+import { IResourcePrices, ICabinPrices } from './prices.interface'
 
-interface IPrices {
-  name: string
-  buyPrice: number
-  sellPrice: number
-}
-interface IResourcePrices {
-  scrapMetal: IPrices
-  copper: IPrices
-  wires: IPrices
-  plastic: IPrices
-  batteries: IPrices
-  electronics: IPrices
-  engravedCasings: IPrices
-}
+
 
 @Injectable()
 export class PricesService {
   private intervalId: NodeJS.Timer
   resourcePrices: IResourcePrices
+  cabinPrices: ICabinPrices
 
   constructor() {
     this.resourcePrices = {
       scrapMetal: {
-        name:'',
+        name: '',
         buyPrice: 0,
         sellPrice: 0
       },
@@ -59,56 +49,106 @@ export class PricesService {
         sellPrice: 0
       }
     }
+    this.cabinPrices = {
+      Sprinter: {
+        name: '',
+        buyPrice: 0,
+        sellPrice: 0
+      },
+      Huntsman: {
+        name: '',
+        buyPrice: 0,
+        sellPrice: 0
+      },
+      WWT1: {
+        name: '',
+        buyPrice: 0,
+        sellPrice: 0
+      },
+      Docker: {
+        name: '',
+        buyPrice: 0,
+        sellPrice: 0
+      }
+    }
   }
 
   getResourcePrices(): string {
     return JSON.stringify(this.resourcePrices)
   }
+  getCabinPrices(): string {
+    return JSON.stringify(this.cabinPrices)
+  }
 
   startGettingPrices(): string {
     this.intervalId = setInterval(async () => {
+      for (const item of IdsArr()) {
+        const dbItem = await getFromDbItemById(item)
+        switch (item) {
+          //resources
+          case '53':
+            this.resourcePrices.scrapMetal.name = dbItem.name
+            this.resourcePrices.scrapMetal.buyPrice = dbItem.buyPrice
+            this.resourcePrices.scrapMetal.sellPrice = dbItem.sellPrice
+            break;
+          case '43':
+            this.resourcePrices.copper.name = dbItem.name
+            this.resourcePrices.copper.buyPrice = dbItem.buyPrice
+            this.resourcePrices.copper.sellPrice = dbItem.sellPrice
+            break;
+          case '85':
+            this.resourcePrices.wires.name = dbItem.name
+            this.resourcePrices.wires.buyPrice = dbItem.buyPrice
+            this.resourcePrices.wires.sellPrice = dbItem.sellPrice
+            break;
+          case '785':
+            this.resourcePrices.plastic.name = dbItem.name
+            this.resourcePrices.plastic.buyPrice = dbItem.buyPrice
+            this.resourcePrices.plastic.sellPrice = dbItem.sellPrice
+            break;
+          case '783':
+            this.resourcePrices.batteries.name = dbItem.name
+            this.resourcePrices.batteries.buyPrice = dbItem.buyPrice
+            this.resourcePrices.batteries.sellPrice = dbItem.sellPrice
+            break;
+          case '201':
+            this.resourcePrices.electronics.name = dbItem.name
+            this.resourcePrices.electronics.buyPrice = dbItem.buyPrice
+            this.resourcePrices.electronics.sellPrice = dbItem.sellPrice
+            break;
+          case '919':
+            this.resourcePrices.engravedCasings.name = dbItem.name
+            this.resourcePrices.engravedCasings.buyPrice = dbItem.buyPrice
+            this.resourcePrices.engravedCasings.sellPrice = dbItem.sellPrice
+            break;
+          //cabins
+          case '960':
+            this.cabinPrices.Sprinter.name = dbItem.name
+            this.cabinPrices.Sprinter.buyPrice = dbItem.buyPrice
+            this.cabinPrices.Sprinter.sellPrice = dbItem.sellPrice
+            break;
+          case '120':
+            this.cabinPrices.Huntsman.name = dbItem.name
+            this.cabinPrices.Huntsman.buyPrice = dbItem.buyPrice
+            this.cabinPrices.Huntsman.sellPrice = dbItem.sellPrice
+            break;
+          case '88':
+            this.cabinPrices.WWT1.name = dbItem.name
+            this.cabinPrices.WWT1.buyPrice = dbItem.buyPrice
+            this.cabinPrices.WWT1.sellPrice = dbItem.sellPrice
+            break;
+          case '96':
+            this.cabinPrices.Docker.name = dbItem.name
+            this.cabinPrices.Docker.buyPrice = dbItem.buyPrice
+            this.cabinPrices.Docker.sellPrice = dbItem.sellPrice
+            break;
 
-      await axios.get('https://crossoutdb.com/api/v1/item/53').then(res => {
-        this.resourcePrices.scrapMetal.name = res.data[0].name
-        this.resourcePrices.scrapMetal.buyPrice = Number(res.data[0].formatBuyPrice)
-        this.resourcePrices.scrapMetal.sellPrice = Number(res.data[0].formatSellPrice)
-      })
 
-      await axios.get('https://crossoutdb.com/api/v1/item/43').then(res => {
-        this.resourcePrices.copper.name = res.data[0].name
-        this.resourcePrices.copper.buyPrice = Number(res.data[0].formatBuyPrice)
-        this.resourcePrices.copper.sellPrice = Number(res.data[0].formatSellPrice)
-      })
 
-      await axios.get('https://crossoutdb.com/api/v1/item/85').then(res => {
-        this.resourcePrices.wires.name = res.data[0].name
-        this.resourcePrices.wires.buyPrice = Number(res.data[0].formatBuyPrice)
-        this.resourcePrices.wires.sellPrice = Number(res.data[0].formatSellPrice)
-      })
-
-      await axios.get('https://crossoutdb.com/api/v1/item/785').then(res => {
-        this.resourcePrices.plastic.name = res.data[0].name
-        this.resourcePrices.plastic.buyPrice = Number(res.data[0].formatBuyPrice)
-        this.resourcePrices.plastic.sellPrice = Number(res.data[0].formatSellPrice)
-      })
-
-      await axios.get('https://crossoutdb.com/api/v1/item/783').then(res => {
-        this.resourcePrices.batteries.name = res.data[0].name
-        this.resourcePrices.batteries.buyPrice = Number(res.data[0].formatBuyPrice)
-        this.resourcePrices.batteries.sellPrice = Number(res.data[0].formatSellPrice)
-      })
-
-      await axios.get('https://crossoutdb.com/api/v1/item/201').then(res => {
-        this.resourcePrices.electronics.name = res.data[0].name
-        this.resourcePrices.electronics.buyPrice = Number(res.data[0].formatBuyPrice)
-        this.resourcePrices.electronics.sellPrice = Number(res.data[0].formatSellPrice)
-      })
-
-      await axios.get('https://crossoutdb.com/api/v1/item/919').then(res => {
-        this.resourcePrices.engravedCasings.name = res.data[0].name
-        this.resourcePrices.engravedCasings.buyPrice = Number(res.data[0].formatBuyPrice)
-        this.resourcePrices.engravedCasings.sellPrice = Number(res.data[0].formatSellPrice)
-      })
+          default:
+            break;
+        }
+      }
     }, 5000)
     return 'start getting prices';
   }

@@ -18,4 +18,8 @@ export class PricesController {
   getResourcePrices(): string {
     return this.pricesService.getResourcePrices();
   }
+  @Get('cabinPrices')
+  getCabinPrices(): string {
+    return this.pricesService.getCabinPrices();
+  }
 }
