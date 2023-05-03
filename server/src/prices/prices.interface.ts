@@ -17,4 +17,21 @@ export interface ICabinPrices {
   Huntsman: IPrices
   WWT1: IPrices
   Docker: IPrices
+
+  Growl: IPrices
+  Wyvern: IPrices
+  Trucker: IPrices
+  
+  Bat: IPrices
+  Pilgrim: IPrices
+  Jawbreaker: IPrices
+  
+  Jannabi: IPrices
+  Harpy: IPrices
+  Werewolf: IPrices
+  Aggressor: IPrices
+  Quantum: IPrices
+  Photon: IPrices
+  Humpback: IPrices
+  Bastion: IPrices
 }

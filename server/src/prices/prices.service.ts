@@ -1,13 +1,13 @@
 import { Injectable } from '@nestjs/common';
 import axios from 'axios';
-import { getFromDbItemById, IdsArr } from '../helpers/db/helpers'
+import { getResourcePricesFromDbById, getCabinPricesFromDbById, resourceIdsArr, cabinIdsArr } from '../helpers/db/helpers'
 import { IResourcePrices, ICabinPrices } from './prices.interface'
 
 
 
 @Injectable()
 export class PricesService {
-  private intervalId: NodeJS.Timer
+  // private intervalId: NodeJS.Timer
   resourcePrices: IResourcePrices
   cabinPrices: ICabinPrices
 
@@ -69,7 +69,77 @@ export class PricesService {
         name: '',
         buyPrice: 0,
         sellPrice: 0
-      }
+      },
+      Growl: {
+        name: '',
+        buyPrice: 0,
+        sellPrice: 0
+      },
+      Wyvern: {
+        name: '',
+        buyPrice: 0,
+        sellPrice: 0
+      },
+      Trucker: {
+        name: '',
+        buyPrice: 0,
+        sellPrice: 0
+      },
+      Bat: {
+        name: '',
+        buyPrice: 0,
+        sellPrice: 0
+      },
+      Pilgrim: {
+        name: '',
+        buyPrice: 0,
+        sellPrice: 0
+      },
+      Jawbreaker: {
+        name: '',
+        buyPrice: 0,
+        sellPrice: 0
+      },
+      Jannabi: {
+        name: '',
+        buyPrice: 0,
+        sellPrice: 0
+      },
+      Harpy: {
+        name: '',
+        buyPrice: 0,
+        sellPrice: 0
+      },
+      Werewolf: {
+        name: '',
+        buyPrice: 0,
+        sellPrice: 0
+      },
+      Aggressor: {
+        name: '',
+        buyPrice: 0,
+        sellPrice: 0
+      },
+      Quantum: {
+        name: '',
+        buyPrice: 0,
+        sellPrice: 0
+      },
+      Photon: {
+        name: '',
+        buyPrice: 0,
+        sellPrice: 0
+      },
+      Humpback: {
+        name: '',
+        buyPrice: 0,
+        sellPrice: 0
+      },
+      Bastion: {
+        name: '',
+        buyPrice: 0,
+        sellPrice: 0
+      },
     }
   }
 
@@ -80,80 +150,22 @@ export class PricesService {
     return JSON.stringify(this.cabinPrices)
   }
 
-  startGettingPrices(): string {
-    this.intervalId = setInterval(async () => {
-      for (const item of IdsArr()) {
-        const dbItem = await getFromDbItemById(item)
-        switch (item) {
-          //resources
-          case '53':
-            this.resourcePrices.scrapMetal.name = dbItem.name
-            this.resourcePrices.scrapMetal.buyPrice = dbItem.buyPrice
-            this.resourcePrices.scrapMetal.sellPrice = dbItem.sellPrice
-            break;
-          case '43':
-            this.resourcePrices.copper.name = dbItem.name
-            this.resourcePrices.copper.buyPrice = dbItem.buyPrice
-            this.resourcePrices.copper.sellPrice = dbItem.sellPrice
-            break;
-          case '85':
-            this.resourcePrices.wires.name = dbItem.name
-            this.resourcePrices.wires.buyPrice = dbItem.buyPrice
-            this.resourcePrices.wires.sellPrice = dbItem.sellPrice
-            break;
-          case '785':
-            this.resourcePrices.plastic.name = dbItem.name
-            this.resourcePrices.plastic.buyPrice = dbItem.buyPrice
-            this.resourcePrices.plastic.sellPrice = dbItem.sellPrice
-            break;
-          case '783':
-            this.resourcePrices.batteries.name = dbItem.name
-            this.resourcePrices.batteries.buyPrice = dbItem.buyPrice
-            this.resourcePrices.batteries.sellPrice = dbItem.sellPrice
-            break;
-          case '201':
-            this.resourcePrices.electronics.name = dbItem.name
-            this.resourcePrices.electronics.buyPrice = dbItem.buyPrice
-            this.resourcePrices.electronics.sellPrice = dbItem.sellPrice
-            break;
-          case '919':
-            this.resourcePrices.engravedCasings.name = dbItem.name
-            this.resourcePrices.engravedCasings.buyPrice = dbItem.buyPrice
-            this.resourcePrices.engravedCasings.sellPrice = dbItem.sellPrice
-            break;
-          //cabins
-          case '960':
-            this.cabinPrices.Sprinter.name = dbItem.name
-            this.cabinPrices.Sprinter.buyPrice = dbItem.buyPrice
-            this.cabinPrices.Sprinter.sellPrice = dbItem.sellPrice
-            break;
-          case '120':
-            this.cabinPrices.Huntsman.name = dbItem.name
-            this.cabinPrices.Huntsman.buyPrice = dbItem.buyPrice
-            this.cabinPrices.Huntsman.sellPrice = dbItem.sellPrice
-            break;
-          case '88':
-            this.cabinPrices.WWT1.name = dbItem.name
-            this.cabinPrices.WWT1.buyPrice = dbItem.buyPrice
-            this.cabinPrices.WWT1.sellPrice = dbItem.sellPrice
-            break;
-          case '96':
-            this.cabinPrices.Docker.name = dbItem.name
-            this.cabinPrices.Docker.buyPrice = dbItem.buyPrice
-            this.cabinPrices.Docker.sellPrice = dbItem.sellPrice
-            break;
+  startGettingPrices(): void {
 
+    for (const item of resourceIdsArr()) {
+      getResourcePricesFromDbById(item, this.resourcePrices)
+    }
+    for (const item of cabinIdsArr()) {
+      getCabinPricesFromDbById(item, this.cabinPrices)
+    }
 
+    // this.intervalId = setInterval(async () => {
+    
+    // }, 300000)
 
-          default:
-            break;
-        }
-      }
-    }, 5000)
-    return 'start getting prices';
   }
   stopGettingPrices(): string {
-    clearInterval(this.intervalId)
+    // clearInterval(this.intervalId)
     return 'stop getting prices';
   }
 }

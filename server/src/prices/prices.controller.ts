@@ -8,7 +8,8 @@ export class PricesController {
 
   @Get('start')
   startGettingPrices(): string {
-    return this.pricesService.startGettingPrices();
+    this.pricesService.startGettingPrices();
+    return 'Start Getting Prices'
   }
   @Get('stop')
   stopGettingPrices(): string {
