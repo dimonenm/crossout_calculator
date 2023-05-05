@@ -23,4 +23,8 @@ export class PricesController {
   getCabinPrices(): string {
     return this.pricesService.getCabinPrices();
   }
+  // @Get('weaponPrices')
+  // getCabinPrices(): string {
+  //   return this.pricesService.getCabinPrices();
+  // }
 }
