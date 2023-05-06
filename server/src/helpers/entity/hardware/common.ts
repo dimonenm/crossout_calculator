@@ -55,4 +55,3 @@ export class R1Breese extends CommonVehicleComponent {
     this.copper = 4
   }
 }
-

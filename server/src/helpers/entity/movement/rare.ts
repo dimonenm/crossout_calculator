@@ -113,11 +113,3 @@ export class LargeWheelST extends RareVehicleComponent {
     this.ingredients = [new MediumWheelST(), new WWT1()]
   }
 }
-
-
-
-
-
-
-
-
