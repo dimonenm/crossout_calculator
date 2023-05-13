@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import axios from 'axios';
-import { getResourcePricesFromDbById, getCabinPricesFromDbById, resourceIdsArr, cabinIdsArr } from '../helpers/db/helpers'
+import { getResourcePricesFromDbById, getCabinPricesFromDbById, resourceIdsArr, cabinIdsArr, getPricesFromDb } from '../helpers/db/helpers'
 import { IResourcePrices, ICabinPrices } from './prices.interface'
 
 
@@ -152,15 +152,17 @@ export class PricesService {
 
   startGettingPrices(): void {
 
-    for (const item of resourceIdsArr()) {
-      getResourcePricesFromDbById(item, this.resourcePrices)
-    }
-    for (const item of cabinIdsArr()) {
-      getCabinPricesFromDbById(item, this.cabinPrices)
-    }
+    getPricesFromDb(this.resourcePrices)
+
+    // for (const item of resourceIdsArr()) {
+    //   getResourcePricesFromDbById(item, this.resourcePrices)
+    // }
+    // for (const item of cabinIdsArr()) {
+    //   getCabinPricesFromDbById(item, this.cabinPrices)
+    // }
 
     // this.intervalId = setInterval(async () => {
-    
+
     // }, 300000)
 
   }

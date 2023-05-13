@@ -480,6 +480,53 @@ export function getWeaponPricesFromDbById(id: string, weaponPrices: IWeaponPrice
     }
   })
 }
+export function getPricesFromDb(resourcePrices: IResourcePrices): void {
+  axios.get('https://crossoutdb.com/api/v1/items').then(res => {
+    const items: any = res.data
+    for (const item of items) {
+      switch (item['id']) {
+        case 53:
+          resourcePrices.scrapMetal.name = item['name']
+          resourcePrices.scrapMetal.buyPrice = item['formatBuyPrice']
+          resourcePrices.scrapMetal.sellPrice = item['formatSellPrice']
+          break;
+        case 43:
+          resourcePrices.copper.name = item['name']
+          resourcePrices.copper.buyPrice = item['formatBuyPrice']
+          resourcePrices.copper.sellPrice = item['formatSellPrice']
+          break;
+        case 85:
+          resourcePrices.wires.name = item['name']
+          resourcePrices.wires.buyPrice = item['formatBuyPrice']
+          resourcePrices.wires.sellPrice = item['formatSellPrice']
+          break;
+        case 785:
+          resourcePrices.plastic.name = item['name']
+          resourcePrices.plastic.buyPrice = item['formatBuyPrice']
+          resourcePrices.plastic.sellPrice = item['formatSellPrice']
+          break;
+        case 783:
+          resourcePrices.batteries.name = item['name']
+          resourcePrices.batteries.buyPrice = item['formatBuyPrice']
+          resourcePrices.batteries.sellPrice = item['formatSellPrice']
+          break;
+        case 201:
+          resourcePrices.electronics.name = item['name']
+          resourcePrices.electronics.buyPrice = item['formatBuyPrice']
+          resourcePrices.electronics.sellPrice = item['formatSellPrice']
+          break;
+        case 919:
+          resourcePrices.engravedCasings.name = item['name']
+          resourcePrices.engravedCasings.buyPrice = item['formatBuyPrice']
+          resourcePrices.engravedCasings.sellPrice = item['formatSellPrice']
+          break;
+        default:
+          break;
+      }
+    }
+    console.log(resourcePrices);
+  })
+}
 
 export function resourceIdsArr(): string[] {
   return [
