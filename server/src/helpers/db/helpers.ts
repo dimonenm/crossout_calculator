@@ -1,56 +1,56 @@
 import axios from 'axios';
-import { ICabinPrices, IResourcePrices, IWeaponPrices } from 'src/prices/prices.interface';
+import { ICabinPrices, IPrices, IResourcePrices, IWeaponPrices } from 'src/prices/prices.interface';
 
-export function getResourcePricesFromDbById(id: string, resourcePrices: IResourcePrices): void {
-  axios.get('https://crossoutdb.com/api/v1/item/' + id).then(res => {
-    switch (id) {
-      case '53':
-        resourcePrices.scrapMetal.name = res.data[0].name
-        resourcePrices.scrapMetal.buyPrice = res.data[0].formatBuyPrice
-        resourcePrices.scrapMetal.sellPrice = res.data[0].formatSellPrice
-        console.log(`resource 1/7`);
-        break;
-      case '43':
-        resourcePrices.copper.name = res.data[0].name
-        resourcePrices.copper.buyPrice = res.data[0].formatBuyPrice
-        resourcePrices.copper.sellPrice = res.data[0].formatSellPrice
-        console.log(`resource 2/7`);
-        break;
-      case '85':
-        resourcePrices.wires.name = res.data[0].name
-        resourcePrices.wires.buyPrice = res.data[0].formatBuyPrice
-        resourcePrices.wires.sellPrice = res.data[0].formatSellPrice
-        console.log(`resource 3/7`);
-        break;
-      case '785':
-        resourcePrices.plastic.name = res.data[0].name
-        resourcePrices.plastic.buyPrice = res.data[0].formatBuyPrice
-        resourcePrices.plastic.sellPrice = res.data[0].formatSellPrice
-        console.log(`resource 4/7`);
-        break;
-      case '783':
-        resourcePrices.batteries.name = res.data[0].name
-        resourcePrices.batteries.buyPrice = res.data[0].formatBuyPrice
-        resourcePrices.batteries.sellPrice = res.data[0].formatSellPrice
-        console.log(`resource 5/7`);
-        break;
-      case '201':
-        resourcePrices.electronics.name = res.data[0].name
-        resourcePrices.electronics.buyPrice = res.data[0].formatBuyPrice
-        resourcePrices.electronics.sellPrice = res.data[0].formatSellPrice
-        console.log(`resource 6/7`);
-        break;
-      case '919':
-        resourcePrices.engravedCasings.name = res.data[0].name
-        resourcePrices.engravedCasings.buyPrice = res.data[0].formatBuyPrice
-        resourcePrices.engravedCasings.sellPrice = res.data[0].formatSellPrice
-        console.log(`resource 7/7`);
-        break;
-      default:
-        break;
-    }
-  })
-}
+// export function getResourcePricesFromDbById(id: string, resourcePrices: IResourcePrices): void {
+//   axios.get('https://crossoutdb.com/api/v1/item/' + id).then(res => {
+//     switch (id) {
+//       case '53':
+//         resourcePrices.scrapMetal.name = res.data[0].name
+//         resourcePrices.scrapMetal.buyPrice = res.data[0].formatBuyPrice
+//         resourcePrices.scrapMetal.sellPrice = res.data[0].formatSellPrice
+//         console.log(`resource 1/7`);
+//         break;
+//       case '43':
+//         resourcePrices.copper.name = res.data[0].name
+//         resourcePrices.copper.buyPrice = res.data[0].formatBuyPrice
+//         resourcePrices.copper.sellPrice = res.data[0].formatSellPrice
+//         console.log(`resource 2/7`);
+//         break;
+//       case '85':
+//         resourcePrices.wires.name = res.data[0].name
+//         resourcePrices.wires.buyPrice = res.data[0].formatBuyPrice
+//         resourcePrices.wires.sellPrice = res.data[0].formatSellPrice
+//         console.log(`resource 3/7`);
+//         break;
+//       case '785':
+//         resourcePrices.plastic.name = res.data[0].name
+//         resourcePrices.plastic.buyPrice = res.data[0].formatBuyPrice
+//         resourcePrices.plastic.sellPrice = res.data[0].formatSellPrice
+//         console.log(`resource 4/7`);
+//         break;
+//       case '783':
+//         resourcePrices.batteries.name = res.data[0].name
+//         resourcePrices.batteries.buyPrice = res.data[0].formatBuyPrice
+//         resourcePrices.batteries.sellPrice = res.data[0].formatSellPrice
+//         console.log(`resource 5/7`);
+//         break;
+//       case '201':
+//         resourcePrices.electronics.name = res.data[0].name
+//         resourcePrices.electronics.buyPrice = res.data[0].formatBuyPrice
+//         resourcePrices.electronics.sellPrice = res.data[0].formatSellPrice
+//         console.log(`resource 6/7`);
+//         break;
+//       case '919':
+//         resourcePrices.engravedCasings.name = res.data[0].name
+//         resourcePrices.engravedCasings.buyPrice = res.data[0].formatBuyPrice
+//         resourcePrices.engravedCasings.sellPrice = res.data[0].formatSellPrice
+//         console.log(`resource 7/7`);
+//         break;
+//       default:
+//         break;
+//     }
+//   })
+// }
 export function getCabinPricesFromDbById(id: string, cabinPrices: ICabinPrices): void {
   axios.get('https://crossoutdb.com/api/v1/item/' + id).then(res => {
     switch (id) {
@@ -480,49 +480,57 @@ export function getWeaponPricesFromDbById(id: string, weaponPrices: IWeaponPrice
     }
   })
 }
-export function getPricesFromDb(resourcePrices: IResourcePrices): void {
-  axios.get('https://crossoutdb.com/api/v1/items').then(res => {
+export async function getPricesFromDbAPI(resourcePrices: IResourcePrices): Promise<void> {
+  await axios.get('https://crossoutdb.com/api/v1/items').then(res => {
     const items: any = res.data
-    for (const item of items) {
-      switch (item['id']) {
-        case 53:
-          resourcePrices.scrapMetal.name = item['name']
-          resourcePrices.scrapMetal.buyPrice = item['formatBuyPrice']
-          resourcePrices.scrapMetal.sellPrice = item['formatSellPrice']
-          break;
-        case 43:
-          resourcePrices.copper.name = item['name']
-          resourcePrices.copper.buyPrice = item['formatBuyPrice']
-          resourcePrices.copper.sellPrice = item['formatSellPrice']
-          break;
-        case 85:
-          resourcePrices.wires.name = item['name']
-          resourcePrices.wires.buyPrice = item['formatBuyPrice']
-          resourcePrices.wires.sellPrice = item['formatSellPrice']
-          break;
-        case 785:
-          resourcePrices.plastic.name = item['name']
-          resourcePrices.plastic.buyPrice = item['formatBuyPrice']
-          resourcePrices.plastic.sellPrice = item['formatSellPrice']
-          break;
-        case 783:
-          resourcePrices.batteries.name = item['name']
-          resourcePrices.batteries.buyPrice = item['formatBuyPrice']
-          resourcePrices.batteries.sellPrice = item['formatSellPrice']
-          break;
-        case 201:
-          resourcePrices.electronics.name = item['name']
-          resourcePrices.electronics.buyPrice = item['formatBuyPrice']
-          resourcePrices.electronics.sellPrice = item['formatSellPrice']
-          break;
-        case 919:
-          resourcePrices.engravedCasings.name = item['name']
-          resourcePrices.engravedCasings.buyPrice = item['formatBuyPrice']
-          resourcePrices.engravedCasings.sellPrice = item['formatSellPrice']
-          break;
-        default:
-          break;
+    for (const dbItem of items) {
+      for (const item of resourcePrices.resources) {
+        if (dbItem['id'] === item.dbId) {
+          item.dbName = dbItem['name']
+          item.buyPrice = dbItem['formatBuyPrice']
+          item.sellPrice = dbItem['formatSellPrice']
+        }
       }
+
+      // switch (item['id']) {
+      //   case 53:
+      //     resourcePrices.scrapMetal.name = item['name']
+      //     resourcePrices.scrapMetal.buyPrice = item['formatBuyPrice']
+      //     resourcePrices.scrapMetal.sellPrice = item['formatSellPrice']
+      //     break;
+      //   case 43:
+      //     resourcePrices.copper.name = item['name']
+      //     resourcePrices.copper.buyPrice = item['formatBuyPrice']
+      //     resourcePrices.copper.sellPrice = item['formatSellPrice']
+      //     break;
+      //   case 85:
+      //     resourcePrices.wires.name = item['name']
+      //     resourcePrices.wires.buyPrice = item['formatBuyPrice']
+      //     resourcePrices.wires.sellPrice = item['formatSellPrice']
+      //     break;
+      //   case 785:
+      //     resourcePrices.plastic.name = item['name']
+      //     resourcePrices.plastic.buyPrice = item['formatBuyPrice']
+      //     resourcePrices.plastic.sellPrice = item['formatSellPrice']
+      //     break;
+      //   case 783:
+      //     resourcePrices.batteries.name = item['name']
+      //     resourcePrices.batteries.buyPrice = item['formatBuyPrice']
+      //     resourcePrices.batteries.sellPrice = item['formatSellPrice']
+      //     break;
+      //   case 201:
+      //     resourcePrices.electronics.name = item['name']
+      //     resourcePrices.electronics.buyPrice = item['formatBuyPrice']
+      //     resourcePrices.electronics.sellPrice = item['formatSellPrice']
+      //     break;
+      //   case 919:
+      //     resourcePrices.engravedCasings.name = item['name']
+      //     resourcePrices.engravedCasings.buyPrice = item['formatBuyPrice']
+      //     resourcePrices.engravedCasings.sellPrice = item['formatSellPrice']
+      //     break;
+      //   default:
+      //     break;
+      // }
     }
     console.log(resourcePrices);
   })

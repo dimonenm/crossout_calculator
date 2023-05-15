@@ -1,16 +1,21 @@
-interface IPrices {
+export interface IPrices {
+  dbId: number
   name: string
+  dbName: string
   buyPrice: number
   sellPrice: number
 }
 export interface IResourcePrices {
-  scrapMetal: IPrices
-  copper: IPrices
-  wires: IPrices
-  plastic: IPrices
-  batteries: IPrices
-  electronics: IPrices
-  engravedCasings: IPrices
+  resources: [
+    scrapMetal: IPrices,
+    copper: IPrices,
+    wires: IPrices,
+    plastic: IPrices,
+    batteries: IPrices,
+    electronics: IPrices,
+    engravedCasings: IPrices,
+  ]
+
 }
 export interface ICabinPrices {
   Sprinter: IPrices

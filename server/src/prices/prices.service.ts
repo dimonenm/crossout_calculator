@@ -1,146 +1,200 @@
 import { Injectable } from '@nestjs/common';
 import axios from 'axios';
-import { getResourcePricesFromDbById, getCabinPricesFromDbById, resourceIdsArr, cabinIdsArr, getPricesFromDb } from '../helpers/db/helpers'
-import { IResourcePrices, ICabinPrices } from './prices.interface'
+import { getCabinPricesFromDbById, resourceIdsArr, cabinIdsArr, getPricesFromDbAPI } from '../helpers/db/helpers'
+import { IResourcePrices, ICabinPrices, IPrices } from './prices.interface'
 
 
 
 @Injectable()
 export class PricesService {
   // private intervalId: NodeJS.Timer
+  // resourcePrices: IResourcePrices
   resourcePrices: IResourcePrices
-  cabinPrices: ICabinPrices
+  cabinPrices: IPrices[]
 
   constructor() {
     this.resourcePrices = {
-      scrapMetal: {
-        name: '',
+      resources:
+      [
+        {
+          dbId: 53,
+          name: 'scrapMetal',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 43,
+          name: 'copper',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 85,
+          name: 'wires',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 785,
+          name: 'plastic',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 783,
+          name: 'batteries',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 201,
+          name: 'electronics',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 919,
+          name: 'engravedCasings',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        }
+      ]
+    }
+    this.cabinPrices = [
+      {
+        dbId: 960,
+        name: 'Sprinter',
+        dbName: '',
         buyPrice: 0,
         sellPrice: 0
       },
-      copper: {
-        name: '',
+      {
+        dbId: 120,
+        name: 'Huntsman',
+          dbName: '',
         buyPrice: 0,
         sellPrice: 0
       },
-      wires: {
-        name: '',
+      {
+        dbId: 88,
+        name: 'WWT1',
+        dbName: '',
         buyPrice: 0,
         sellPrice: 0
       },
-      plastic: {
-        name: '',
+      {
+        dbId: 96,
+        name: 'Docker',
+        dbName: '',
         buyPrice: 0,
         sellPrice: 0
       },
-      batteries: {
-        name: '',
+      {
+        dbId: 60,
+        name: 'Growl',
+        dbName: '',
         buyPrice: 0,
         sellPrice: 0
       },
-      electronics: {
-        name: '',
+      {
+        dbId: 64,
+        name: 'Wyvern',
+        dbName: '',
         buyPrice: 0,
         sellPrice: 0
       },
-      engravedCasings: {
-        name: '',
+      {
+        dbId: 39,
+        name: 'Trucker',
+        dbName: '',
+        buyPrice: 0,
+        sellPrice: 0
+      },
+      {
+        dbId: 599,
+        name: 'Bat',
+        dbName: '',
+        buyPrice: 0,
+        sellPrice: 0
+      },
+      {
+        dbId: 506,
+        name: 'Pilgrim',
+        dbName: '',
+        buyPrice: 0,
+        sellPrice: 0
+      },
+      {
+        dbId: 371,
+        name: 'Jawbreaker',
+        dbName: '',
+        buyPrice: 0,
+        sellPrice: 0
+      },
+      {
+        dbId: 1237,
+        name: 'Jannabi',
+        dbName: '',
+        buyPrice: 0,
+        sellPrice: 0
+      },
+      {
+        dbId: 927,
+        name: 'Harpy',
+        dbName: '',
+        buyPrice: 0,
+        sellPrice: 0
+      },
+      {
+        dbId: 613,
+        name: 'Werewolf',
+        dbName: '',
+        buyPrice: 0,
+        sellPrice: 0
+      },
+      {
+        dbId: 1307,
+        name: 'Aggressor',
+        dbName: '',
+        buyPrice: 0,
+        sellPrice: 0
+      },
+      {
+        dbId: 505,
+        name: 'Quantum',
+        dbName: '',
+        buyPrice: 0,
+        sellPrice: 0
+      },
+      {
+        dbId: 926,
+        name: 'Photon',
+        dbName: '',
+        buyPrice: 0,
+        sellPrice: 0
+      },
+      {
+        dbId: 372,
+        name: 'Humpback',
+        dbName: '',
+        buyPrice: 0,
+        sellPrice: 0
+      },
+      {
+        dbId: 925,
+        name: 'Bastion',
+        dbName: '',
         buyPrice: 0,
         sellPrice: 0
       }
-    }
-    this.cabinPrices = {
-      Sprinter: {
-        name: '',
-        buyPrice: 0,
-        sellPrice: 0
-      },
-      Huntsman: {
-        name: '',
-        buyPrice: 0,
-        sellPrice: 0
-      },
-      WWT1: {
-        name: '',
-        buyPrice: 0,
-        sellPrice: 0
-      },
-      Docker: {
-        name: '',
-        buyPrice: 0,
-        sellPrice: 0
-      },
-      Growl: {
-        name: '',
-        buyPrice: 0,
-        sellPrice: 0
-      },
-      Wyvern: {
-        name: '',
-        buyPrice: 0,
-        sellPrice: 0
-      },
-      Trucker: {
-        name: '',
-        buyPrice: 0,
-        sellPrice: 0
-      },
-      Bat: {
-        name: '',
-        buyPrice: 0,
-        sellPrice: 0
-      },
-      Pilgrim: {
-        name: '',
-        buyPrice: 0,
-        sellPrice: 0
-      },
-      Jawbreaker: {
-        name: '',
-        buyPrice: 0,
-        sellPrice: 0
-      },
-      Jannabi: {
-        name: '',
-        buyPrice: 0,
-        sellPrice: 0
-      },
-      Harpy: {
-        name: '',
-        buyPrice: 0,
-        sellPrice: 0
-      },
-      Werewolf: {
-        name: '',
-        buyPrice: 0,
-        sellPrice: 0
-      },
-      Aggressor: {
-        name: '',
-        buyPrice: 0,
-        sellPrice: 0
-      },
-      Quantum: {
-        name: '',
-        buyPrice: 0,
-        sellPrice: 0
-      },
-      Photon: {
-        name: '',
-        buyPrice: 0,
-        sellPrice: 0
-      },
-      Humpback: {
-        name: '',
-        buyPrice: 0,
-        sellPrice: 0
-      },
-      Bastion: {
-        name: '',
-        buyPrice: 0,
-        sellPrice: 0
-      },
-    }
+    ]
   }
 
   getResourcePrices(): string {
@@ -151,8 +205,7 @@ export class PricesService {
   }
 
   startGettingPrices(): void {
-
-    getPricesFromDb(this.resourcePrices)
+    getPricesFromDbAPI(this.resourcePrices)
 
     // for (const item of resourceIdsArr()) {
     //   getResourcePricesFromDbById(item, this.resourcePrices)
