@@ -19,6 +19,7 @@ export class PricesService {
     this.resourcePrices = {
       resources: [
         {
+          id: 1,
           dbId: 53,
           name: 'scrapMetal',
           dbName: '',
@@ -26,6 +27,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 2,
           dbId: 43,
           name: 'copper',
           dbName: '',
@@ -33,6 +35,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 3,
           dbId: 85,
           name: 'wires',
           dbName: '',
@@ -40,6 +43,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 4,
           dbId: 785,
           name: 'plastic',
           dbName: '',
@@ -47,6 +51,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 5,
           dbId: 783,
           name: 'batteries',
           dbName: '',
@@ -54,6 +59,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 6,
           dbId: 201,
           name: 'electronics',
           dbName: '',
@@ -61,6 +67,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 7,
           dbId: 919,
           name: 'engravedCasings',
           dbName: '',
@@ -72,6 +79,7 @@ export class PricesService {
     this.cabinPrices = {
       cabins: [
         {
+          id: 101,
           dbId: 960,
           name: 'Sprinter',
           dbName: '',
@@ -79,6 +87,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 102,
           dbId: 120,
           name: 'Huntsman',
           dbName: '',
@@ -86,6 +95,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 103,
           dbId: 88,
           name: 'WWT1',
           dbName: '',
@@ -93,6 +103,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 104,
           dbId: 96,
           name: 'Docker',
           dbName: '',
@@ -100,6 +111,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 105,
           dbId: 60,
           name: 'Growl',
           dbName: '',
@@ -107,6 +119,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 106,
           dbId: 64,
           name: 'Wyvern',
           dbName: '',
@@ -114,6 +127,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 107,
           dbId: 39,
           name: 'Trucker',
           dbName: '',
@@ -121,6 +135,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 108,
           dbId: 599,
           name: 'Bat',
           dbName: '',
@@ -128,6 +143,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 109,
           dbId: 506,
           name: 'Pilgrim',
           dbName: '',
@@ -135,6 +151,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 110,
           dbId: 371,
           name: 'Jawbreaker',
           dbName: '',
@@ -142,6 +159,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 111,
           dbId: 1237,
           name: 'Jannabi',
           dbName: '',
@@ -149,6 +167,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 112,
           dbId: 927,
           name: 'Harpy',
           dbName: '',
@@ -156,6 +175,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 113,
           dbId: 613,
           name: 'Werewolf',
           dbName: '',
@@ -163,6 +183,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 114,
           dbId: 1307,
           name: 'Aggressor',
           dbName: '',
@@ -170,6 +191,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 115,
           dbId: 505,
           name: 'Quantum',
           dbName: '',
@@ -177,6 +199,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 116,
           dbId: 926,
           name: 'Photon',
           dbName: '',
@@ -184,6 +207,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 117,
           dbId: 372,
           name: 'Humpback',
           dbName: '',
@@ -191,6 +215,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 118,
           dbId: 925,
           name: 'Bastion',
           dbName: '',
@@ -202,6 +227,7 @@ export class PricesService {
     this.weaponPrices = {
       weapons: [
         {
+          id: 201,
           dbId: 93,
           name: 'P54MAccord',
           dbName: '',
@@ -209,6 +235,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 202,
           dbId: 5,
           name: 'Lupara',
           dbName: '',
@@ -216,6 +243,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 203,
           dbId: 99,
           name: 'Avenger57mm',
           dbName: '',
@@ -223,6 +251,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 204,
           dbId: 74,
           name: 'STM23Defender',
           dbName: '',
@@ -230,6 +259,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 205,
           dbId: 7,
           name: 'Vector',
           dbName: '',
@@ -237,6 +267,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 206,
           dbId: 2,
           name: 'Sledgehammer',
           dbName: '',
@@ -244,6 +275,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 207,
           dbId: 4,
           name: 'Spitfire',
           dbName: '',
@@ -251,6 +283,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 208,
           dbId: 34,
           name: 'AC43Rapier',
           dbName: '',
@@ -258,6 +291,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 209,
           dbId: 61,
           name: 'LittleBoy6LB',
           dbName: '',
@@ -265,6 +299,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 210,
           dbId: 70,
           name: 'Judge76mm',
           dbName: '',
@@ -272,6 +307,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 211,
           dbId: 44,
           name: 'Wasp',
           dbName: '',
@@ -279,6 +315,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 212,
           dbId: 51,
           name: 'Borer',
           dbName: '',
@@ -286,6 +323,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 213,
           dbId: 94,
           name: 'AD12Falcon',
           dbName: '',
@@ -293,6 +331,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 214,
           dbId: 123,
           name: 'DTCobra',
           dbName: '',
@@ -300,6 +339,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 215,
           dbId: 763,
           name: 'M37Piercer',
           dbName: '',
@@ -307,6 +347,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 216,
           dbId: 1053,
           name: 'Sinus0',
           dbName: '',
@@ -314,6 +355,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 217,
           dbId: 457,
           name: 'Goblin',
           dbName: '',
@@ -321,6 +363,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 218,
           dbId: 598,
           name: 'Junkbow',
           dbName: '',
@@ -328,6 +371,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 219,
           dbId: 1057,
           name: 'Mace',
           dbName: '',
@@ -335,6 +379,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 220,
           dbId: 1051,
           name: 'AC50Storm',
           dbName: '',
@@ -342,6 +387,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 221,
           dbId: 1050,
           name: 'ZS33Hulk',
           dbName: '',
@@ -349,6 +395,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 222,
           dbId: 1049,
           name: 'Prosecutor76mm',
           dbName: '',
@@ -356,6 +403,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 223,
           dbId: 475,
           name: 'Synthesis',
           dbName: '',
@@ -363,6 +411,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 224,
           dbId: 72,
           name: 'Boom',
           dbName: '',
@@ -370,6 +419,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 225,
           dbId: 1251,
           name: 'Tempura',
           dbName: '',
@@ -377,6 +427,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 226,
           dbId: 73,
           name: 'Buzzsaw',
           dbName: '',
@@ -384,6 +435,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 227,
           dbId: 1060,
           name: 'AD13Hawk',
           dbName: '',
@@ -391,6 +443,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 228,
           dbId: 373,
           name: 'Sidekick',
           dbName: '',
@@ -398,6 +451,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 229,
           dbId: 1065,
           name: 'T3Python',
           dbName: '',
@@ -405,6 +459,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 230,
           dbId: 928,
           name: 'M29Protector',
           dbName: '',
@@ -412,6 +467,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 231,
           dbId: 865,
           name: 'M38Fidget',
           dbName: '',
@@ -419,6 +475,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 232,
           dbId: 40,
           name: 'Spectre2',
           dbName: '',
@@ -426,6 +483,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 233,
           dbId: 31,
           name: 'MG13Equalizer',
           dbName: '',
@@ -433,6 +491,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 234,
           dbId: 375,
           name: 'Caucasus',
           dbName: '',
@@ -440,6 +499,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 235,
           dbId: 1316,
           name: 'Gremlin',
           dbName: '',
@@ -447,6 +507,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 236,
           dbId: 765,
           name: 'Fafnir',
           dbName: '',
@@ -454,6 +515,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 237,
           dbId: 1,
           name: 'Thunderbolt',
           dbName: '',
@@ -461,6 +523,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 238,
           dbId: 1012,
           name: 'Rupture',
           dbName: '',
@@ -468,6 +531,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 239,
           dbId: 32,
           name: 'AC72Whirlwind',
           dbName: '',
@@ -475,6 +539,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 240,
           dbId: 8,
           name: 'ZS34FatMan',
           dbName: '',
@@ -482,6 +547,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 241,
           dbId: 45,
           name: 'Executioner88mm',
           dbName: '',
@@ -489,6 +555,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 242,
           dbId: 38,
           name: 'Cricket',
           dbName: '',
@@ -496,6 +563,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 243,
           dbId: 6,
           name: 'Pyre',
           dbName: '',
@@ -503,6 +571,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 244,
           dbId: 374,
           name: 'ClarinetTOW',
           dbName: '',
@@ -510,6 +579,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 245,
           dbId: 1314,
           name: 'Thresher',
           dbName: '',
@@ -517,6 +587,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 246,
           dbId: 30,
           name: 'GL55Impulse',
           dbName: '',
@@ -524,6 +595,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 247,
           dbId: 498,
           name: 'Aurora',
           dbName: '',
@@ -531,6 +603,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 248,
           dbId: 490,
           name: 'Quasar',
           dbName: '',
@@ -538,6 +611,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 249,
           dbId: 764,
           name: 'PrometheusV',
           dbName: '',
@@ -545,6 +619,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 250,
           dbId: 609,
           name: 'Phoenix',
           dbName: '',
@@ -552,6 +627,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 251,
           dbId: 84,
           name: 'Lancelot',
           dbName: '',
@@ -559,6 +635,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 252,
           dbId: 92,
           name: 'Mauler',
           dbName: '',
@@ -566,6 +643,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 253,
           dbId: 618,
           name: 'Incinerator',
           dbName: '',
@@ -573,6 +651,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 254,
           dbId: 79,
           name: 'MD3Owl',
           dbName: '',
@@ -580,6 +659,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 255,
           dbId: 455,
           name: 'Fuze',
           dbName: '',
@@ -587,6 +667,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 256,
           dbId: 124,
           name: 'RTAnaconda',
           dbName: '',
@@ -594,6 +675,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 257,
           dbId: 508,
           name: 'BarrierIX',
           dbName: '',
@@ -601,6 +683,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 258,
           dbId: 1248,
           name: 'Yaoguai',
           dbName: '',
@@ -608,6 +691,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 259,
           dbId: 594,
           name: 'Skinner',
           dbName: '',
@@ -619,6 +703,7 @@ export class PricesService {
     this.hardwarePrices = {
       hardwares: [
         {
+          id: 301,
           dbId: 139,
           name: 'FuelBarrel',
           dbName: '',
@@ -626,6 +711,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 302,
           dbId: 165,
           name: 'CarJack',
           dbName: '',
@@ -633,6 +719,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 303,
           dbId: 172,
           name: 'Radio',
           dbName: '',
@@ -640,6 +727,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 304,
           dbId: 173,
           name: 'RS1Ruby',
           dbName: '',
@@ -647,6 +735,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 305,
           dbId: 107,
           name: 'B1Aviator',
           dbName: '',
@@ -654,6 +743,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 306,
           dbId: 109,
           name: 'R1Breese',
           dbName: '',
@@ -661,6 +751,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 307,
           dbId: 433,
           name: 'FuelTank',
           dbName: '',
@@ -668,6 +759,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 308,
           dbId: 152,
           name: 'RD1Listener',
           dbName: '',
@@ -675,6 +767,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 309,
           dbId: 69,
           name: 'TS1Horizon',
           dbName: '',
@@ -682,6 +775,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 310,
           dbId: 77,
           name: 'BigG',
           dbName: '',
@@ -689,6 +783,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 311,
           dbId: 129,
           name: 'Blastoff',
           dbName: '',
@@ -696,6 +791,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 312,
           dbId: 108,
           name: 'R2Chill',
           dbName: '',
@@ -703,6 +799,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 313,
           dbId: 78,
           name: 'CSTaymyr',
           dbName: '',
@@ -710,6 +807,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 314,
           dbId: 68,
           name: 'AmmoPack',
           dbName: '',
@@ -717,6 +815,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 315,
           dbId: 100,
           name: 'Chameleon',
           dbName: '',
@@ -724,6 +823,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 316,
           dbId: 1312,
           name: 'KA1Discharger',
           dbName: '',
@@ -731,6 +831,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 317,
           dbId: 830,
           name: 'OculusVI',
           dbName: '',
@@ -738,6 +839,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 318,
           dbId: 142,
           name: 'Maxwell',
           dbName: '',
@@ -745,6 +847,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 319,
           dbId: 41,
           name: 'PU1Charge',
           dbName: '',
@@ -752,6 +855,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 320,
           dbId: 52,
           name: 'Ampere',
           dbName: '',
@@ -759,6 +863,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 321,
           dbId: 80,
           name: 'Hardcore',
           dbName: '',
@@ -766,6 +871,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 322,
           dbId: 65,
           name: 'Razorback',
           dbName: '',
@@ -773,6 +879,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 323,
           dbId: 112,
           name: 'DunHorse',
           dbName: '',
@@ -780,6 +887,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 324,
           dbId: 510,
           name: 'Genesis',
           dbName: '',
@@ -787,6 +895,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 325,
           dbId: 614,
           name: 'Tormentor',
           dbName: '',
@@ -794,6 +903,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 326,
           dbId: 82,
           name: 'ChameleonMk2',
           dbName: '',
@@ -801,6 +911,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 327,
           dbId: 1311,
           name: 'KA2Flywheel',
           dbName: '',
@@ -808,6 +919,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 328,
           dbId: 122,
           name: 'Doppler',
           dbName: '',
@@ -815,6 +927,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 329,
           dbId: 136,
           name: 'RD2Keen',
           dbName: '',
@@ -822,6 +935,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 330,
           dbId: 488,
           name: 'Neutrino',
           dbName: '',
@@ -829,6 +943,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 331,
           dbId: 48,
           name: 'Gasgen',
           dbName: '',
@@ -836,6 +951,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 332,
           dbId: 612,
           name: 'Oppressor',
           dbName: '',
@@ -843,6 +959,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 333,
           dbId: 131,
           name: 'HotRed',
           dbName: '',
@@ -850,6 +967,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 334,
           dbId: 117,
           name: 'Colossus',
           dbName: '',
@@ -857,6 +975,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 335,
           dbId: 71,
           name: 'Cheetah',
           dbName: '',
@@ -864,6 +983,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 336,
           dbId: 143,
           name: 'Hermes',
           dbName: '',
@@ -871,6 +991,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 337,
           dbId: 86,
           name: 'RNSeal',
           dbName: '',
@@ -878,6 +999,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 338,
           dbId: 66,
           name: 'Shiver',
           dbName: '',
@@ -885,6 +1007,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 339,
           dbId: 75,
           name: 'ExpandedAmmoPack',
           dbName: '',
@@ -896,6 +1019,7 @@ export class PricesService {
     this.movementPrices = {
       movements: [
         {
+          id: 401,
           dbId: 176,
           name: 'SmallWheel',
           dbName: '',
@@ -903,6 +1027,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 402,
           dbId: 126,
           name: 'SmallWheelST',
           dbName: '',
@@ -910,6 +1035,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 403,
           dbId: 186,
           name: 'MediumWheel',
           dbName: '',
@@ -917,6 +1043,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 404,
           dbId: 163,
           name: 'MediumWheelST',
           dbName: '',
@@ -924,6 +1051,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 405,
           dbId: 104,
           name: 'StuddedWheel',
           dbName: '',
@@ -931,6 +1059,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 406,
           dbId: 59,
           name: 'StuddedWheelST',
           dbName: '',
@@ -938,6 +1067,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 407,
           dbId: 121,
           name: 'ChainedWheel',
           dbName: '',
@@ -945,6 +1075,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 408,
           dbId: 87,
           name: 'ChainedWheelST',
           dbName: '',
@@ -952,6 +1083,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 409,
           dbId: 390,
           name: 'BalloonTyre',
           dbName: '',
@@ -959,6 +1091,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 410,
           dbId: 388,
           name: 'BalloonTyreST',
           dbName: '',
@@ -966,6 +1099,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 411,
           dbId: 383,
           name: 'RacingWheel',
           dbName: '',
@@ -973,6 +1107,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 412,
           dbId: 379,
           name: 'RacingWheelST',
           dbName: '',
@@ -980,6 +1115,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 413,
           dbId: 395,
           name: 'LandingGear',
           dbName: '',
@@ -987,6 +1123,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 414,
           dbId: 389,
           name: 'LandingGearST',
           dbName: '',
@@ -994,6 +1131,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 415,
           dbId: 116,
           name: 'LargeWheel',
           dbName: '',
@@ -1001,6 +1139,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 416,
           dbId: 113,
           name: 'LargeWheelST',
           dbName: '',
@@ -1008,6 +1147,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 417,
           dbId: 483,
           name: 'LunarIV',
           dbName: '',
@@ -1015,6 +1155,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 418,
           dbId: 482,
           name: 'LunarIVST',
           dbName: '',
@@ -1022,6 +1163,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 419,
           dbId: 1253,
           name: 'Camber',
           dbName: '',
@@ -1029,6 +1171,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 420,
           dbId: 1254,
           name: 'CamberST',
           dbName: '',
@@ -1036,6 +1179,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 421,
           dbId: 602,
           name: 'Shiv',
           dbName: '',
@@ -1043,6 +1187,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 422,
           dbId: 600,
           name: 'ShivST',
           dbName: '',
@@ -1050,6 +1195,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 423,
           dbId: 384,
           name: 'APCWheel',
           dbName: '',
@@ -1057,6 +1203,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 424,
           dbId: 380,
           name: 'APCWheelST',
           dbName: '',
@@ -1064,6 +1211,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 425,
           dbId: 91,
           name: 'TwinWheel',
           dbName: '',
@@ -1071,6 +1219,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 426,
           dbId: 83,
           name: 'TwinWheelST',
           dbName: '',
@@ -1078,6 +1227,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 427,
           dbId: 1318,
           name: 'BuggyWheel',
           dbName: '',
@@ -1085,6 +1235,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 428,
           dbId: 1319,
           name: 'BuggyWheelST',
           dbName: '',
@@ -1092,6 +1243,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 429,
           dbId: 611,
           name: 'Bigfoot',
           dbName: '',
@@ -1099,6 +1251,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 430,
           dbId: 610,
           name: 'BigfootST',
           dbName: '',
@@ -1106,6 +1259,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 431,
           dbId: 1252,
           name: 'Omni',
           dbName: '',
@@ -1113,6 +1267,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 432,
           dbId: 62,
           name: 'SmallTrack',
           dbName: '',
@@ -1120,6 +1275,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 433,
           dbId: 63,
           name: 'HardenedTrack',
           dbName: '',
@@ -1127,6 +1283,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 434,
           dbId: 42,
           name: 'ArmoredTrack',
           dbName: '',
@@ -1134,6 +1291,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 435,
           dbId: 497,
           name: 'IcarusVII',
           dbName: '',
@@ -1141,6 +1299,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 436,
           dbId: 385,
           name: 'ML200',
           dbName: '',
@@ -1148,6 +1307,7 @@ export class PricesService {
           sellPrice: 0
         },
         {
+          id: 437,
           dbId: 595,
           name: 'MeatGrinder',
           dbName: '',

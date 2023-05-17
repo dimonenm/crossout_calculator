@@ -1,4 +1,5 @@
 export interface IPrices {
+  id: number
   dbId: number
   name: string
   dbName: string

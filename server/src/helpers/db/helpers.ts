@@ -1,5 +1,14 @@
 import axios from 'axios';
 import { ICabinPrices, IHardwarePrices, IMovementPrices, IResourcePrices, IWeaponPrices } from 'src/prices/prices.interface';
+import { writeFile, appendFile } from 'fs/promises'
+
+async function saveFile(txtContent: string) {
+  try {
+    await appendFile('./test.txt', txtContent);
+  } catch (err) {
+    console.log(err);
+  }
+}
 
 export async function getPricesFromDbAPI(resourcePrices: IResourcePrices, cabinPrices: ICabinPrices, weaponPrices: IWeaponPrices, hardwarePrices: IHardwarePrices, movementPrices: IMovementPrices): Promise<void> {
   await axios.get('https://crossoutdb.com/api/v1/items').then(res => {
@@ -30,10 +39,11 @@ export async function getPricesFromDbAPI(resourcePrices: IResourcePrices, cabinP
         addData(dbItem, item)
       }
     }
-    console.log(resourcePrices);
-    console.log(cabinPrices);
-    console.log(weaponPrices);
-    console.log(hardwarePrices);
-    console.log(movementPrices);
+    
+    saveFile(JSON.stringify(resourcePrices))
+    saveFile(JSON.stringify(cabinPrices))
+    saveFile(JSON.stringify(weaponPrices))
+    saveFile(JSON.stringify(hardwarePrices))
+    saveFile(JSON.stringify(movementPrices))
   })
 }
