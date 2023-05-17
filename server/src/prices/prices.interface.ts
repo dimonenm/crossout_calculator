@@ -108,7 +108,7 @@ export interface IWeaponPrices {
   ]
 }
 export interface IHardwarePrices {
-  hardware: [
+  hardwares: [
     FuelBarrel: IPrices,
     CarJack: IPrices,
     Radio: IPrices,

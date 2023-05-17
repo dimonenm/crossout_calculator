@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import axios from 'axios';
-import { getCabinPricesFromDbById, resourceIdsArr, cabinIdsArr, getPricesFromDbAPI } from '../helpers/db/helpers'
-import { IResourcePrices, ICabinPrices, IPrices, IWeaponPrices } from './prices.interface'
+import { getPricesFromDbAPI } from '../helpers/db/helpers'
+import { IResourcePrices, ICabinPrices, IWeaponPrices, IHardwarePrices, IMovementPrices } from './prices.interface'
 
 
 
@@ -12,61 +12,62 @@ export class PricesService {
   resourcePrices: IResourcePrices
   cabinPrices: ICabinPrices
   weaponPrices: IWeaponPrices
+  hardwarePrices: IHardwarePrices
+  movementPrices: IMovementPrices
 
   constructor() {
     this.resourcePrices = {
-      resources:
-        [
-          {
-            dbId: 53,
-            name: 'scrapMetal',
-            dbName: '',
-            buyPrice: 0,
-            sellPrice: 0
-          },
-          {
-            dbId: 43,
-            name: 'copper',
-            dbName: '',
-            buyPrice: 0,
-            sellPrice: 0
-          },
-          {
-            dbId: 85,
-            name: 'wires',
-            dbName: '',
-            buyPrice: 0,
-            sellPrice: 0
-          },
-          {
-            dbId: 785,
-            name: 'plastic',
-            dbName: '',
-            buyPrice: 0,
-            sellPrice: 0
-          },
-          {
-            dbId: 783,
-            name: 'batteries',
-            dbName: '',
-            buyPrice: 0,
-            sellPrice: 0
-          },
-          {
-            dbId: 201,
-            name: 'electronics',
-            dbName: '',
-            buyPrice: 0,
-            sellPrice: 0
-          },
-          {
-            dbId: 919,
-            name: 'engravedCasings',
-            dbName: '',
-            buyPrice: 0,
-            sellPrice: 0
-          }
-        ]
+      resources: [
+        {
+          dbId: 53,
+          name: 'scrapMetal',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 43,
+          name: 'copper',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 85,
+          name: 'wires',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 785,
+          name: 'plastic',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 783,
+          name: 'batteries',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 201,
+          name: 'electronics',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 919,
+          name: 'engravedCasings',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        }
+      ]
     }
     this.cabinPrices = {
       cabins: [
@@ -494,96 +495,666 @@ export class PricesService {
           buyPrice: 0,
           sellPrice: 0
         },
-
-        
-
-     
-      case '6':
-      weaponPrices.Pyre.name = res.data[0].name
-        weaponPrices.Pyre.buyPrice = res.data[0].formatBuyPrice
-        weaponPrices.Pyre.sellPrice = res.data[0].formatSellPrice
-        break;
-      case '374':
-      weaponPrices.ClarinetTOW.name = res.data[0].name
-        weaponPrices.ClarinetTOW.buyPrice = res.data[0].formatBuyPrice
-        weaponPrices.ClarinetTOW.sellPrice = res.data[0].formatSellPrice
-        break;
-      case '1314':
-      weaponPrices.Thresher.name = res.data[0].name
-        weaponPrices.Thresher.buyPrice = res.data[0].formatBuyPrice
-        weaponPrices.Thresher.sellPrice = res.data[0].formatSellPrice
-        break;
-      case '30':
-      weaponPrices.GL55Impulse.name = res.data[0].name
-        weaponPrices.GL55Impulse.buyPrice = res.data[0].formatBuyPrice
-        weaponPrices.GL55Impulse.sellPrice = res.data[0].formatSellPrice
-        break;
-      case '498':
-      weaponPrices.Aurora.name = res.data[0].name
-        weaponPrices.Aurora.buyPrice = res.data[0].formatBuyPrice
-        weaponPrices.Aurora.sellPrice = res.data[0].formatSellPrice
-        break;
-      case '490':
-      weaponPrices.Quasar.name = res.data[0].name
-        weaponPrices.Quasar.buyPrice = res.data[0].formatBuyPrice
-        weaponPrices.Quasar.sellPrice = res.data[0].formatSellPrice
-        break;
-      case '764':
-      weaponPrices.PrometheusV.name = res.data[0].name
-        weaponPrices.PrometheusV.buyPrice = res.data[0].formatBuyPrice
-        weaponPrices.PrometheusV.sellPrice = res.data[0].formatSellPrice
-        break;
-      case '609':
-      weaponPrices.Phoenix.name = res.data[0].name
-        weaponPrices.Phoenix.buyPrice = res.data[0].formatBuyPrice
-        weaponPrices.Phoenix.sellPrice = res.data[0].formatSellPrice
-        break;
-      case '84':
-      weaponPrices.Lancelot.name = res.data[0].name
-        weaponPrices.Lancelot.buyPrice = res.data[0].formatBuyPrice
-        weaponPrices.Lancelot.sellPrice = res.data[0].formatSellPrice
-        break;
-      case '92':
-      weaponPrices.Mauler.name = res.data[0].name
-        weaponPrices.Mauler.buyPrice = res.data[0].formatBuyPrice
-        weaponPrices.Mauler.sellPrice = res.data[0].formatSellPrice
-        break;
-      case '618':
-      weaponPrices.Incinerator.name = res.data[0].name
-        weaponPrices.Incinerator.buyPrice = res.data[0].formatBuyPrice
-        weaponPrices.Incinerator.sellPrice = res.data[0].formatSellPrice
-        break;
-      case '79':
-      weaponPrices.MD3Owl.name = res.data[0].name
-        weaponPrices.MD3Owl.buyPrice = res.data[0].formatBuyPrice
-        weaponPrices.MD3Owl.sellPrice = res.data[0].formatSellPrice
-        break;
-      case '455':
-      weaponPrices.Fuze.name = res.data[0].name
-        weaponPrices.Fuze.buyPrice = res.data[0].formatBuyPrice
-        weaponPrices.Fuze.sellPrice = res.data[0].formatSellPrice
-        break;
-      case '124':
-      weaponPrices.RTAnaconda.name = res.data[0].name
-        weaponPrices.RTAnaconda.buyPrice = res.data[0].formatBuyPrice
-        weaponPrices.RTAnaconda.sellPrice = res.data[0].formatSellPrice
-        break;
-      case '508':
-      weaponPrices.BarrierIX.name = res.data[0].name
-        weaponPrices.BarrierIX.buyPrice = res.data[0].formatBuyPrice
-        weaponPrices.BarrierIX.sellPrice = res.data[0].formatSellPrice
-        break;
-      case '1248':
-      weaponPrices.Yaoguai.name = res.data[0].name
-        weaponPrices.Yaoguai.buyPrice = res.data[0].formatBuyPrice
-        weaponPrices.Yaoguai.sellPrice = res.data[0].formatSellPrice
-        break;
-      case '594':
-      weaponPrices.Skinner.name = res.data[0].name
-        weaponPrices.Skinner.buyPrice = res.data[0].formatBuyPrice
-        weaponPrices.Skinner.sellPrice = res.data[0].formatSellPrice
-        break;
-    ]
+        {
+          dbId: 6,
+          name: 'Pyre',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 374,
+          name: 'ClarinetTOW',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 1314,
+          name: 'Thresher',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 30,
+          name: 'GL55Impulse',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 498,
+          name: 'Aurora',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 490,
+          name: 'Quasar',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 764,
+          name: 'PrometheusV',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 609,
+          name: 'Phoenix',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 84,
+          name: 'Lancelot',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 92,
+          name: 'Mauler',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 618,
+          name: 'Incinerator',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 79,
+          name: 'MD3Owl',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 455,
+          name: 'Fuze',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 124,
+          name: 'RTAnaconda',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 508,
+          name: 'BarrierIX',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 1248,
+          name: 'Yaoguai',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 594,
+          name: 'Skinner',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        }
+      ]
+    }
+    this.hardwarePrices = {
+      hardwares: [
+        {
+          dbId: 139,
+          name: 'FuelBarrel',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 165,
+          name: 'CarJack',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 172,
+          name: 'Radio',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 173,
+          name: 'RS1Ruby',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 107,
+          name: 'B1Aviator',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 109,
+          name: 'R1Breese',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 433,
+          name: 'FuelTank',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 152,
+          name: 'RD1Listener',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 69,
+          name: 'TS1Horizon',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 77,
+          name: 'BigG',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 129,
+          name: 'Blastoff',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 108,
+          name: 'R2Chill',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 78,
+          name: 'CSTaymyr',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 68,
+          name: 'AmmoPack',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 100,
+          name: 'Chameleon',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 1312,
+          name: 'KA1Discharger',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 830,
+          name: 'OculusVI',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 142,
+          name: 'Maxwell',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 41,
+          name: 'PU1Charge',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 52,
+          name: 'Ampere',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 80,
+          name: 'Hardcore',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 65,
+          name: 'Razorback',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 112,
+          name: 'DunHorse',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 510,
+          name: 'Genesis',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 614,
+          name: 'Tormentor',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 82,
+          name: 'ChameleonMk2',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 1311,
+          name: 'KA2Flywheel',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 122,
+          name: 'Doppler',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 136,
+          name: 'RD2Keen',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 488,
+          name: 'Neutrino',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 48,
+          name: 'Gasgen',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 612,
+          name: 'Oppressor',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 131,
+          name: 'HotRed',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 117,
+          name: 'Colossus',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 71,
+          name: 'Cheetah',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 143,
+          name: 'Hermes',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 86,
+          name: 'RNSeal',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 66,
+          name: 'Shiver',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 75,
+          name: 'ExpandedAmmoPack',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        }
+      ]
+    }
+    this.movementPrices = {
+      movements: [
+        {
+          dbId: 176,
+          name: 'SmallWheel',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 126,
+          name: 'SmallWheelST',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 186,
+          name: 'MediumWheel',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 163,
+          name: 'MediumWheelST',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 104,
+          name: 'StuddedWheel',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 59,
+          name: 'StuddedWheelST',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 121,
+          name: 'ChainedWheel',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 87,
+          name: 'ChainedWheelST',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 390,
+          name: 'BalloonTyre',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 388,
+          name: 'BalloonTyreST',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 383,
+          name: 'RacingWheel',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 379,
+          name: 'RacingWheelST',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 395,
+          name: 'LandingGear',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 389,
+          name: 'LandingGearST',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 116,
+          name: 'LargeWheel',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 113,
+          name: 'LargeWheelST',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 483,
+          name: 'LunarIV',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 482,
+          name: 'LunarIVST',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 1253,
+          name: 'Camber',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 1254,
+          name: 'CamberST',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 602,
+          name: 'Shiv',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 600,
+          name: 'ShivST',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 384,
+          name: 'APCWheel',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 380,
+          name: 'APCWheelST',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 91,
+          name: 'TwinWheel',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 83,
+          name: 'TwinWheelST',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 1318,
+          name: 'BuggyWheel',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 1319,
+          name: 'BuggyWheelST',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 611,
+          name: 'Bigfoot',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 610,
+          name: 'BigfootST',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 1252,
+          name: 'Omni',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 62,
+          name: 'SmallTrack',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 63,
+          name: 'HardenedTrack',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 42,
+          name: 'ArmoredTrack',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 497,
+          name: 'IcarusVII',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 385,
+          name: 'ML200',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        },
+        {
+          dbId: 595,
+          name: 'MeatGrinder',
+          dbName: '',
+          buyPrice: 0,
+          sellPrice: 0
+        }
+      ]
     }
   }
 
@@ -595,7 +1166,7 @@ export class PricesService {
   }
 
   startGettingPrices(): void {
-    getPricesFromDbAPI(this.resourcePrices, this.cabinPrices)
+    getPricesFromDbAPI(this.resourcePrices, this.cabinPrices, this.weaponPrices, this.hardwarePrices, this.movementPrices)
 
     // for (const item of resourceIdsArr()) {
     //   getResourcePricesFromDbById(item, this.resourcePrices)
