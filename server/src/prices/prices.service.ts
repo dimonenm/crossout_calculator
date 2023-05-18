@@ -1,19 +1,18 @@
-import { Injectable } from '@nestjs/common';
-import axios from 'axios';
+import { Injectable } from '@nestjs/common'
 import { getPricesFromDbAPI } from '../helpers/db/helpers'
-import { IResourcePrices, ICabinPrices, IWeaponPrices, IHardwarePrices, IMovementPrices } from './prices.interface'
+import { IResourcePrices, ICabinPrices, IWeaponPrices, IHardwarePrices, IMovementPrices, IAllPrices } from './prices.interface'
 
 
 
 @Injectable()
 export class PricesService {
   // private intervalId: NodeJS.Timer
-  // resourcePrices: IResourcePrices
   resourcePrices: IResourcePrices
   cabinPrices: ICabinPrices
   weaponPrices: IWeaponPrices
   hardwarePrices: IHardwarePrices
   movementPrices: IMovementPrices
+  allPrices: IAllPrices
 
   constructor() {
     this.resourcePrices = {
@@ -1316,6 +1315,13 @@ export class PricesService {
         }
       ]
     }
+    this.allPrices = {
+      resourcePrices: this.resourcePrices,
+      cabinPrices: this.cabinPrices,
+      weaponPrices: this.weaponPrices,
+      hardwarePrices: this.hardwarePrices,
+      movementPrices: this.movementPrices
+    }
   }
 
   getResourcePrices(): string {
@@ -1325,18 +1331,13 @@ export class PricesService {
     return JSON.stringify(this.cabinPrices)
   }
 
-  startGettingPrices(): void {
-    getPricesFromDbAPI(this.resourcePrices, this.cabinPrices, this.weaponPrices, this.hardwarePrices, this.movementPrices)
+  async startGettingPrices(): Promise<void | IAllPrices> {
+    const prices =  await getPricesFromDbAPI(this.allPrices)
+    console.log('prices: ', prices);
+    return prices
 
-    // for (const item of resourceIdsArr()) {
-    //   getResourcePricesFromDbById(item, this.resourcePrices)
-    // }
-    // for (const item of cabinIdsArr()) {
-    //   getCabinPricesFromDbById(item, this.cabinPrices)
-    // }
 
     // this.intervalId = setInterval(async () => {
-
     // }, 300000)
 
   }

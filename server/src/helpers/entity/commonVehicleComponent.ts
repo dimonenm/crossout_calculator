@@ -2,6 +2,8 @@ export class CommonVehicleComponent {
   name: string
   type: string
   rarity: string
+  buyPrice: number
+  sellPrice: number
   scrapMetal: number
   copper: number
 
@@ -9,6 +11,8 @@ export class CommonVehicleComponent {
     this.name = ''
     this.type = ''
     this.rarity = 'common'
+    this.buyPrice = 0
+    this.sellPrice = 0
     this.scrapMetal = 0
     this.copper = 0
   }

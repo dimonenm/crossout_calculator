@@ -198,3 +198,10 @@ export interface IMovementPrices {
     MeatGrinder: IPrices,
   ]
 }
+export interface IAllPrices{
+  resourcePrices: IResourcePrices
+  cabinPrices: ICabinPrices
+  weaponPrices: IWeaponPrices
+  hardwarePrices: IHardwarePrices
+  movementPrices: IMovementPrices
+}

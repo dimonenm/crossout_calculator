@@ -4,6 +4,8 @@ export class RareVehicleComponent {
   name: string
   type: string
   rarity: string
+  buyPrice: number
+  sellPrice: number
   productionTime: number
   benchCost: number
   scrapMetal: number
@@ -14,6 +16,8 @@ export class RareVehicleComponent {
     this.name = ''
     this.type = ''
     this.rarity = 'rare'
+    this.buyPrice = 0
+    this.sellPrice = 0
     this.productionTime = 15
     this.benchCost = 3
     this.scrapMetal = 650

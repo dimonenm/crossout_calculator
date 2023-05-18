@@ -4,6 +4,8 @@ export class EpicVehicleComponent {
   name: string
   type: string
   rarity: string
+  buyPrice: number
+  sellPrice: number
   productionTime: number
   benchCost: number
   scrapMetal: number
@@ -18,6 +20,8 @@ export class EpicVehicleComponent {
     this.name = ''
     this.type = ''
     this.rarity = 'epic'
+    this.buyPrice = 0
+    this.sellPrice = 0
     this.productionTime = 360
     this.benchCost = 15
     this.scrapMetal = 100

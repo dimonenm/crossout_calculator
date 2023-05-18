@@ -1,16 +1,7 @@
 import axios from 'axios';
-import { ICabinPrices, IHardwarePrices, IMovementPrices, IResourcePrices, IWeaponPrices } from 'src/prices/prices.interface';
-import { writeFile, appendFile } from 'fs/promises'
+import { IAllPrices, ICabinPrices, IHardwarePrices, IMovementPrices, IResourcePrices, IWeaponPrices } from 'src/prices/prices.interface';
 
-async function saveFile(txtContent: string) {
-  try {
-    await appendFile('./test.txt', txtContent);
-  } catch (err) {
-    console.log(err);
-  }
-}
-
-export async function getPricesFromDbAPI(resourcePrices: IResourcePrices, cabinPrices: ICabinPrices, weaponPrices: IWeaponPrices, hardwarePrices: IHardwarePrices, movementPrices: IMovementPrices): Promise<void> {
+export async function getPricesFromDbAPI(allPrices: IAllPrices): Promise<void | IAllPrices> {
   await axios.get('https://crossoutdb.com/api/v1/items').then(res => {
     const items: any = res.data
 
@@ -23,27 +14,23 @@ export async function getPricesFromDbAPI(resourcePrices: IResourcePrices, cabinP
     }
 
     for (const dbItem of items) {
-      for (const item of resourcePrices.resources) {
+      for (const item of allPrices.resourcePrices.resources) {
         addData(dbItem, item)
       }
-      for (const item of cabinPrices.cabins) {
+      for (const item of allPrices.cabinPrices.cabins) {
         addData(dbItem, item)
       }
-      for (const item of weaponPrices.weapons) {
+      for (const item of allPrices.weaponPrices.weapons) {
         addData(dbItem, item)
       }
-      for (const item of hardwarePrices.hardwares) {
+      for (const item of allPrices.hardwarePrices.hardwares) {
         addData(dbItem, item)
       }
-      for (const item of movementPrices.movements) {
+      for (const item of allPrices.movementPrices.movements) {
         addData(dbItem, item)
       }
     }
-    
-    saveFile(JSON.stringify(resourcePrices))
-    saveFile(JSON.stringify(cabinPrices))
-    saveFile(JSON.stringify(weaponPrices))
-    saveFile(JSON.stringify(hardwarePrices))
-    saveFile(JSON.stringify(movementPrices))
-  })
+
+    return allPrices
+  }).catch(e => { return e })
 }
