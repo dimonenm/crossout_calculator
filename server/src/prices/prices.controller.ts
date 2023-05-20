@@ -8,7 +8,7 @@ export class PricesController {
   constructor(private readonly pricesService: PricesService) {}
 
   @Get('start')
-  startGettingPrices(): Promise<void | IAllPrices> {
+  startGettingPrices(): Promise<IAllPrices> {
     return this.pricesService.startGettingPrices()
   }
   @Get('stop')

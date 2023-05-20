@@ -2,8 +2,6 @@ import { Injectable } from '@nestjs/common'
 import { getPricesFromDbAPI } from '../helpers/db/helpers'
 import { IResourcePrices, ICabinPrices, IWeaponPrices, IHardwarePrices, IMovementPrices, IAllPrices } from './prices.interface'
 
-
-
 @Injectable()
 export class PricesService {
   // private intervalId: NodeJS.Timer
@@ -1331,9 +1329,8 @@ export class PricesService {
     return JSON.stringify(this.cabinPrices)
   }
 
-  async startGettingPrices(): Promise<void | IAllPrices> {
+  async startGettingPrices(): Promise<IAllPrices> {
     const prices =  await getPricesFromDbAPI(this.allPrices)
-    console.log('prices: ', prices);
     return prices
 
 
@@ -1341,6 +1338,7 @@ export class PricesService {
     // }, 300000)
 
   }
+
   stopGettingPrices(): string {
     // clearInterval(this.intervalId)
     return 'stop getting prices';
