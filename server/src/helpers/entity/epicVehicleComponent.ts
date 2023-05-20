@@ -1,6 +1,7 @@
 import { SpecialVehicleComponent } from './specialVehicleComponent'
 
 export class EpicVehicleComponent {
+  id: number
   name: string
   type: string
   rarity: string

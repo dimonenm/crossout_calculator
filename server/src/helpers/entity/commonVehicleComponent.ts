@@ -1,4 +1,5 @@
 export class CommonVehicleComponent {
+  id: number
   name: string
   type: string
   rarity: string

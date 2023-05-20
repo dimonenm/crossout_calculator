@@ -1,4 +1,8 @@
 import { Injectable } from '@nestjs/common'
+import { Growl, Wyvern, Trucker } from 'src/helpers/entity/cabins/rare'
+import { Bat, Pilgrim, Jawbreaker } from 'src/helpers/entity/cabins/special'
+import { RareVehicleComponent } from 'src/helpers/entity/rareVehicleComponent'
+import { SpecialVehicleComponent } from 'src/helpers/entity/specialVehicleComponent'
 import { getPricesFromDbAPI } from '../helpers/db/helpers'
 import { IResourcePrices, ICabinPrices, IWeaponPrices, IHardwarePrices, IMovementPrices, IAllPrices } from './prices.interface'
 
@@ -11,6 +15,9 @@ export class PricesService {
   hardwarePrices: IHardwarePrices
   movementPrices: IMovementPrices
   allPrices: IAllPrices
+  cabinsRare: RareVehicleComponent[]
+  cabinsSpecial: SpecialVehicleComponent[]
+
 
   constructor() {
     this.resourcePrices = {
@@ -1320,6 +1327,8 @@ export class PricesService {
       hardwarePrices: this.hardwarePrices,
       movementPrices: this.movementPrices
     }
+    this.cabinsRare = [new Growl(), new Wyvern(), new Trucker()]
+    this.cabinsSpecial = [new Bat(), new Pilgrim(), new Jawbreaker()]
   }
 
   getResourcePrices(): string {
@@ -1330,7 +1339,66 @@ export class PricesService {
   }
 
   async startGettingPrices(): Promise<IAllPrices> {
-    const prices =  await getPricesFromDbAPI(this.allPrices)
+
+
+
+    const prices = await getPricesFromDbAPI(this.allPrices)
+
+    for (const item of prices.cabinPrices.cabins) {
+      for (const c of this.cabinsRare) {
+        if (c.id === item.id) {
+          c.buyPrice = item.buyPrice
+          c.sellPrice = item.sellPrice
+        }
+      }
+      for (const c of this.cabinsSpecial) {
+        if (c.id === item.id) {
+          c.buyPrice = item.buyPrice
+          c.sellPrice = item.sellPrice
+        }
+      }
+    }
+
+    const scrapMetalPrice = prices.resourcePrices.resources[0].sellPrice
+    const copperPrice = prices.resourcePrices.resources[1].sellPrice
+    const wiresPrice = prices.resourcePrices.resources[2].sellPrice
+    const plasticPrice = prices.resourcePrices.resources[3].sellPrice
+    console.log('scrapMetalPrice', scrapMetalPrice);
+    console.log('copperPrice', copperPrice);
+    console.log('wiresPrice', wiresPrice);
+    console.log('plasticPrice', plasticPrice);
+    console.log('++++++++++++++++++++');
+
+    for (const cabin of this.cabinsRare) {
+      console.log(cabin.name);
+      console.log('all scrap metal: ', cabin.getAllScrapMetal(), 'all copper: ', cabin.getAllCopper());
+      const scrapMetalCost = Math.ceil((cabin.getAllScrapMetal() / 100)) * scrapMetalPrice
+      const copperCost = Math.ceil((cabin.getAllCopper() / 100)) * copperPrice
+      const allCost = scrapMetalCost + copperCost + cabin.benchCost
+      console.log('scrapMetalCost: ', scrapMetalCost, 'copperCost: ', copperCost, 'cabin.benchCost: ', cabin.benchCost);
+      console.log(cabin.name, ' sellPrice:', '(allCost + benchCost):', 'profit');
+      console.log(cabin.sellPrice, '  -  ', allCost, '  =  ', cabin.sellPrice - allCost);
+      console.log('------------------------------');
+    }
+
+    for (const cabin of this.cabinsSpecial) {
+      console.log(cabin.name);
+      console.log('all scrap metal: ', cabin.getAllScrapMetal(), 'all copper: ', cabin.getAllCopper(), 'all wires: ', cabin.getWires(), 'all plastic: ', cabin.getPlastic());
+      const scrapMetalCost = Math.ceil((cabin.getAllScrapMetal() / 100)) * scrapMetalPrice
+      const copperCost = Math.ceil((cabin.getAllCopper() / 100)) * copperPrice
+      const wiresCost = Math.ceil((cabin.getWires() / 100)) * wiresPrice
+      const plasticCost = Math.ceil((cabin.getPlastic() / 100)) * plasticPrice
+      const allCost = scrapMetalCost + copperCost + wiresCost + plasticCost + cabin.benchCost
+      console.log('scrapMetalCost: ', scrapMetalCost, 'copperCost: ', copperCost, 'wiresCost: ', wiresCost, 'plasticCost: ', plasticCost, 'cabin.benchCost: ', cabin.benchCost);
+      console.log(cabin.name, ' sellPrice:', '(allCost + benchCost):', 'profit');
+      console.log(cabin.sellPrice, '  -  ', allCost, '  =  ', cabin.sellPrice - allCost);
+      console.log('------------------------------');
+    }
+
+
+
+
+
     return prices
 
 

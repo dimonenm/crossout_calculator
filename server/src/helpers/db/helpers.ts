@@ -7,8 +7,8 @@ export async function getPricesFromDbAPI(allPrices: IAllPrices): Promise<IAllPri
   function addData(dbItemData, itemData) {
     if (dbItemData['id'] === itemData.dbId) {
       itemData.dbName = dbItemData['name']
-      itemData.buyPrice = dbItemData['formatBuyPrice']
-      itemData.sellPrice = dbItemData['formatSellPrice']
+      itemData.buyPrice = Number(dbItemData['formatBuyPrice'])
+      itemData.sellPrice = Number(dbItemData['formatSellPrice'])
     }
   }
 

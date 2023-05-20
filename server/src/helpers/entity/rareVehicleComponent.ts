@@ -1,6 +1,7 @@
 import { CommonVehicleComponent } from './commonVehicleComponent'
 
 export class RareVehicleComponent {
+  id: number
   name: string
   type: string
   rarity: string
