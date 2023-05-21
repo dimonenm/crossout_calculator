@@ -15,14 +15,6 @@ export class PricesController {
   stopGettingPrices(): string {
     return this.pricesService.stopGettingPrices();
   }
-  @Get('resourcePrices')
-  getResourcePrices(): string {
-    return this.pricesService.getResourcePrices();
-  }
-  @Get('cabinPrices')
-  getCabinPrices(): string {
-    return this.pricesService.getCabinPrices();
-  }
   // @Get('weaponPrices')
   // getCabinPrices(): string {
   //   return this.pricesService.getCabinPrices();
