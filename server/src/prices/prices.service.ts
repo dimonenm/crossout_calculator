@@ -1384,6 +1384,16 @@ export class PricesService {
       }
       return false
     }
+    function getComponentPrice(componentId: number, componentsArr): number {
+      for (const category of componentsArr) {
+        for (const item of category) {
+          if (componentId === item.id) {
+            return item.sellPrice
+          }
+        }
+      }
+      return 0
+    }
 
     for (const price of prices.cabinPrices) {
       for (const item of this.allVehicleComponents[0]) {
@@ -1446,17 +1456,34 @@ export class PricesService {
     const copperPrice = prices.resourcePrices[1].sellPrice
     const wiresPrice = prices.resourcePrices[2].sellPrice
     const plasticPrice = prices.resourcePrices[3].sellPrice
+    const batteriesPrice = prices.resourcePrices[4].sellPrice
+    const electronicsPrice = prices.resourcePrices[5].sellPrice
+    const engravedCasingsPrice = prices.resourcePrices[6].sellPrice
     console.log('scrapMetalPrice', scrapMetalPrice);
     console.log('copperPrice', copperPrice);
     console.log('wiresPrice', wiresPrice);
     console.log('plasticPrice', plasticPrice);
+    console.log('batteries', batteriesPrice);
+    console.log('electronics', electronicsPrice);
+    console.log('engravedCasings', engravedCasingsPrice);
     console.log('------------------------------');
 
     for (const cabin of this.allVehicleComponents[1]) {
-      const scrapMetalCost = Math.ceil((cabin.getAllScrapMetal() / 100)) * scrapMetalPrice
-      const copperCost = Math.ceil((cabin.getAllCopper() / 100)) * copperPrice
-      const allCost = scrapMetalCost + copperCost + cabin.benchCost
-      console.log(cabin.name, ' sellPrice:', cabin.sellPrice, '(allCost + benchCost):', Math.round(allCost * 100) / 100, 'profit', Math.round((cabin.sellPrice - allCost) * 100) / 100);
+      const scrapMetalAllCost = Math.ceil((cabin.getAllScrapMetal() / 100)) * scrapMetalPrice
+      const copperAllCost = Math.ceil((cabin.getAllCopper() / 100)) * copperPrice
+      const allCost = scrapMetalAllCost + copperAllCost + cabin.benchCost
+      console.log(cabin.name, cabin.rarity)
+      console.log('sellPrice - allCost:', cabin.sellPrice, '-', Math.round(allCost * 100) / 100, 'profit without = ', Math.round((cabin.sellPrice - allCost) * 100) / 100);
+
+      const scrapMetalCost = Math.ceil((cabin.getScrapMetal() / 100)) * scrapMetalPrice
+      const copperCost = Math.ceil((cabin.getCopper() / 100)) * copperPrice
+      let componentsCost = 0
+      for (const item of cabin.ingredients) {
+        componentsCost += getComponentPrice(item.id, this.allVehicleComponents)
+      }
+      const allCostWithComponents = scrapMetalCost + copperCost + cabin.benchCost + componentsCost
+      console.log('sellPrice - allCost:', cabin.sellPrice, '-', Math.round(allCostWithComponents * 100) / 100, 'profit with = ', Math.round((cabin.sellPrice - allCostWithComponents) * 100) / 100);
+
       console.log('------------------------------');
     }
 
@@ -1466,11 +1493,10 @@ export class PricesService {
       const wiresCost = Math.ceil((cabin.getWires() / 100)) * wiresPrice
       const plasticCost = Math.ceil((cabin.getPlastic() / 100)) * plasticPrice
       const allCost = scrapMetalCost + copperCost + wiresCost + plasticCost + cabin.benchCost
-
-      console.log(cabin.name, ' sellPrice:', cabin.sellPrice, '(allCost + benchCost):', Math.round(allCost * 100) / 100, 'profit', Math.round((cabin.sellPrice - allCost) * 100) / 100);
+      console.log(cabin.name, cabin.rarity, ' sellPrice:', cabin.sellPrice, '(allCost + benchCost):', Math.round(allCost * 100) / 100, 'profit', Math.round((cabin.sellPrice - allCost) * 100) / 100);
       console.log('------------------------------');
-
     }
+
     return prices
 
 
