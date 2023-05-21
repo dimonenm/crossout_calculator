@@ -13,19 +13,19 @@ export async function getPricesFromDbAPI(allPrices: IAllPrices): Promise<IAllPri
   }
 
   for (const dbItem of items) {
-    for (const item of allPrices.resourcePrices.resources) {
+    for (const item of allPrices.resourcePrices) {
       addData(dbItem, item)
     }
-    for (const item of allPrices.cabinPrices.cabins) {
+    for (const item of allPrices.cabinPrices) {
       addData(dbItem, item)
     }
-    for (const item of allPrices.weaponPrices.weapons) {
+    for (const item of allPrices.weaponPrices) {
       addData(dbItem, item)
     }
-    for (const item of allPrices.hardwarePrices.hardwares) {
+    for (const item of allPrices.hardwarePrices) {
       addData(dbItem, item)
     }
-    for (const item of allPrices.movementPrices.movements) {
+    for (const item of allPrices.movementPrices) {
       addData(dbItem, item)
     }
   }
