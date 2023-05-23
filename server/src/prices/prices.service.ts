@@ -20,7 +20,7 @@ import { M29Protector, M38Fidget, Spectre2, MG13Equalizer, Caucasus, Gremlin, Fa
 import { STM23Defender, Vector, Sledgehammer, Spitfire, AC43Rapier, LittleBoy6LB, Judge76mm, Wasp, Borer, AD12Falcon, DTCobra } from 'src/helpers/entity/weapons/rare'
 import { M37Piercer, Sinus0, Goblin, Junkbow, Mace, AC50Storm, ZS33Hulk, Prosecutor76mm, Synthesis, Boom, Tempura, Buzzsaw, AD13Hawk, Sidekick, T3Python } from 'src/helpers/entity/weapons/special'
 import { getPricesFromDbAPI } from '../helpers/db/helpers'
-import { IResourcePrices, ICabinPrices, IWeaponPrices, IHardwarePrices, IMovementPrices, IAllPrices } from './prices.interface'
+import { IResourcePrices, ICabinPrices, IWeaponPrices, IHardwarePrices, IMovementPrices, IAllPrices, IAllVehicleComponents } from './prices.interface'
 
 @Injectable()
 export class PricesService {
@@ -31,24 +31,25 @@ export class PricesService {
   hardwarePrices: IHardwarePrices
   movementPrices: IMovementPrices
   allPrices: IAllPrices
-  allVehicleComponents: [
-    cabinsCommon: CommonVehicleComponent[],
-    cabinsRare: RareVehicleComponent[],
-    cabinsSpecial: SpecialVehicleComponent[],
-    cabinsEpic: EpicVehicleComponent[],
-    weaponsCommon: CommonVehicleComponent[],
-    weaponsRare: RareVehicleComponent[],
-    weaponsSpecial: SpecialVehicleComponent[],
-    weaponsEpic: EpicVehicleComponent[],
-    hardwaresCommon: CommonVehicleComponent[],
-    hardwaresRare: RareVehicleComponent[],
-    hardwaresSpecial: SpecialVehicleComponent[],
-    hardwaresEpic: EpicVehicleComponent[],
-    movementsCommon: CommonVehicleComponent[],
-    movementsRare: RareVehicleComponent[],
-    movementsSpecial: SpecialVehicleComponent[],
-    movementsEpic: EpicVehicleComponent[]
-  ]
+  // allVehicleComponents: [
+  //   cabinsCommon: CommonVehicleComponent[],
+  //   cabinsRare: RareVehicleComponent[],
+  //   cabinsSpecial: SpecialVehicleComponent[],
+  //   cabinsEpic: EpicVehicleComponent[],
+  //   weaponsCommon: CommonVehicleComponent[],
+  //   weaponsRare: RareVehicleComponent[],
+  //   weaponsSpecial: SpecialVehicleComponent[],
+  //   weaponsEpic: EpicVehicleComponent[],
+  //   hardwaresCommon: CommonVehicleComponent[],
+  //   hardwaresRare: RareVehicleComponent[],
+  //   hardwaresSpecial: SpecialVehicleComponent[],
+  //   hardwaresEpic: EpicVehicleComponent[],
+  //   movementsCommon: CommonVehicleComponent[],
+  //   movementsRare: RareVehicleComponent[],
+  //   movementsSpecial: SpecialVehicleComponent[],
+  //   movementsEpic: EpicVehicleComponent[]
+  // ]
+  allVehicleComponents: IAllVehicleComponents
 
 
   constructor() {
@@ -1384,17 +1385,41 @@ export class PricesService {
       }
       return false
     }
-    function getComponentPrice(componentId: number, componentsArr): number {
+    function getComponentPrice(componentId: number, componentsArr: [
+      cabinsCommon: CommonVehicleComponent[],
+      cabinsRare: RareVehicleComponent[],
+      cabinsSpecial: SpecialVehicleComponent[],
+      cabinsEpic: EpicVehicleComponent[],
+      weaponsCommon: CommonVehicleComponent[],
+      weaponsRare: RareVehicleComponent[],
+      weaponsSpecial: SpecialVehicleComponent[],
+      weaponsEpic: EpicVehicleComponent[],
+      hardwaresCommon: CommonVehicleComponent[],
+      hardwaresRare: RareVehicleComponent[],
+      hardwaresSpecial: SpecialVehicleComponent[],
+      hardwaresEpic: EpicVehicleComponent[],
+      movementsCommon: CommonVehicleComponent[],
+      movementsRare: RareVehicleComponent[],
+      movementsSpecial: SpecialVehicleComponent[],
+      movementsEpic: EpicVehicleComponent[]
+    ]): number {
+      console.log('getComponentPrice: ');
       for (const category of componentsArr) {
-        for (let i = 0; i < category.length; i++){
-          if (componentId === category[i].id) {
-            return category[i].sellPrice
+        for (const component of category) {
+          if (componentId === component.id) {
+            return component.sellPrice
           }
         }
+        // for (let i = 0; i < category.length; i++) {
+        //   if (componentId === category[i].id) {
+        //     return category[i].sellPrice
+        //   }
+        // }
       }
       return 0
     }
-    function calculateProfitRareComponents(arrVehicleComponents: RareVehicleComponent[]) {
+    function calculateProfitRareComponents(arrVehicleComponents: RareVehicleComponent[]): RareVehicleComponent[] {
+      const result: RareVehicleComponent[] = []
       for (const item of arrVehicleComponents) {
         const scrapMetalAllCost = Math.ceil((item.getAllScrapMetal() / 100)) * scrapMetalPrice
         const copperAllCost = Math.ceil((item.getAllCopper() / 100)) * copperPrice
@@ -1404,17 +1429,27 @@ export class PricesService {
         const copperCost = Math.ceil((item.getCopper() / 100)) * copperPrice
         let componentsCost = 0
         for (const i of item.ingredients) {
-          componentsCost += getComponentPrice(i.id, arrVehicleComponents)
+          componentsCost += getComponentPrice(i.id, this.allVehicleComponents)
         }
         const allCostWithComponents = scrapMetalCost + copperCost + item.benchCost + componentsCost
 
+        const profitWithout = Math.round((item.buyPrice - allCost) * 100) / 100
+        const profitWith = Math.round((item.buyPrice - allCostWithComponents) * 100) / 100
+
+        if (profitWithout > 0 && profitWith > 0) {
+          result.push(item)
+        }
+
         console.log(item.name, item.rarity)
-        console.log('sellPrice - allCost:', item.sellPrice, '-', Math.round(allCost * 100) / 100, 'profit without = ', Math.round((item.sellPrice - allCost) * 100) / 100);
-        console.log('sellPrice - allCost:', item.sellPrice, '-', Math.round(allCostWithComponents * 100) / 100, 'profit with = ', Math.round((item.sellPrice - allCostWithComponents) * 100) / 100);
+        console.log('sellPrice - allCost:', item.buyPrice, '-', Math.round(allCost * 100) / 100, 'profit without = ', profitWithout);
+        console.log('sellPrice - allCost:', item.buyPrice, '-', Math.round(allCostWithComponents * 100) / 100, 'profit with = ', profitWith);
+        console.log('componentsCost', componentsCost);
         console.log('------------------------------');
       }
+      return result
     }
-    function calculateProfitSpecialComponents(arrVehicleComponents: SpecialVehicleComponent[]) {
+    function calculateProfitSpecialComponents(arrVehicleComponents: SpecialVehicleComponent[]): SpecialVehicleComponent[] {
+      const result: SpecialVehicleComponent[] = []
       for (const item of arrVehicleComponents) {
         const scrapMetalAllCost = Math.ceil((item.getAllScrapMetal() / 100)) * scrapMetalPrice
         const copperAllCost = Math.ceil((item.getAllCopper() / 100)) * copperPrice
@@ -1427,17 +1462,27 @@ export class PricesService {
         const copperCost = Math.ceil((item.getCopper() / 100)) * copperPrice
         let componentsCost = 0
         for (const i of item.ingredients) {
-          componentsCost += getComponentPrice(i.id, arrVehicleComponents)
+          componentsCost += getComponentPrice(i.id, this.allVehicleComponents)
         }
         const allCostWithComponents = scrapMetalCost + copperCost + wiresCost + plasticCost + engravedCasingsCost + item.benchCost + componentsCost
 
+        const profitWithout = Math.round((item.buyPrice - allCost) * 100) / 100
+        const profitWith = Math.round((item.buyPrice - allCostWithComponents) * 100) / 100
+
+        if (profitWithout > 0 && profitWith > 0) {
+          result.push(item)
+        }
+
         console.log(item.name, item.rarity)
-        console.log('sellPrice - allCost:', item.sellPrice, '-', Math.round(allCost * 100) / 100, 'profit without = ', Math.round((item.sellPrice - allCost) * 100) / 100);
-        console.log('sellPrice - allCost:', item.sellPrice, '-', Math.round(allCostWithComponents * 100) / 100, 'profit with = ', Math.round((item.sellPrice - allCostWithComponents) * 100) / 100);
+        console.log('sellPrice - allCost:', item.buyPrice, '-', Math.round(allCost * 100) / 100, 'profit without = ', profitWithout);
+        console.log('sellPrice - allCost:', item.buyPrice, '-', Math.round(allCostWithComponents * 100) / 100, 'profit with = ', profitWith);
+        console.log('componentsCost', componentsCost);
         console.log('------------------------------');
       }
+      return result
     }
-    function calculateProfitEpicComponents(arrVehicleComponents: EpicVehicleComponent[]) {
+    function calculateProfitEpicComponents(arrVehicleComponents: EpicVehicleComponent[]): EpicVehicleComponent[] {
+      const result: EpicVehicleComponent[] = []
       for (const item of arrVehicleComponents) {
         const scrapMetalAllCost = Math.ceil((item.getAllScrapMetal() / 100)) * scrapMetalPrice
         const copperAllCost = Math.ceil((item.getAllCopper() / 100)) * copperPrice
@@ -1453,14 +1498,24 @@ export class PricesService {
         const plasticCost = Math.ceil((item.getPlastic() / 100)) * plasticPrice
         let componentsCost = 0
         for (const i of item.ingredients) {
-          componentsCost += getComponentPrice(i.id, arrVehicleComponents)
+          componentsCost += getComponentPrice(i.id, this.allVehicleComponents)
         }
         const allCostWithComponents = scrapMetalCost + copperCost + wiresCost + plasticCost + engravedCasingsCost + item.benchCost + componentsCost
+
+        const profitWithout = Math.round((item.buyPrice - allCost) * 100) / 100
+        const profitWith = Math.round((item.buyPrice - allCostWithComponents) * 100) / 100
+
+        if (profitWithout > 0 && profitWith > 0) {
+          result.push(item)
+        }
+
         console.log(item.name, item.rarity)
-        console.log('sellPrice - allCost:', item.sellPrice, '-', Math.round(allCost * 100) / 100, 'profit without = ', Math.round((item.sellPrice - allCost) * 100) / 100);
-        console.log('sellPrice - allCost:', item.sellPrice, '-', Math.round(allCostWithComponents * 100) / 100, 'profit with = ', Math.round((item.sellPrice - allCostWithComponents) * 100) / 100);
+        console.log('sellPrice - allCost:', item.buyPrice, '-', Math.round(allCost * 100) / 100, 'profit without = ', profitWithout);
+        console.log('sellPrice - allCost:', item.buyPrice, '-', Math.round(allCostWithComponents * 100) / 100, 'profit with = ', profitWith);
+        console.log('componentsCost', componentsCost);
         console.log('------------------------------');
       }
+      return result
     }
 
     for (const price of prices.cabinPrices) {
@@ -1539,54 +1594,6 @@ export class PricesService {
     calculateProfitRareComponents(this.allVehicleComponents[1])
     calculateProfitSpecialComponents(this.allVehicleComponents[2])
     calculateProfitEpicComponents(this.allVehicleComponents[3])
-    // for (const cabin of this.allVehicleComponents[2]) {
-    //   const scrapMetalAllCost = Math.ceil((cabin.getAllScrapMetal() / 100)) * scrapMetalPrice
-    //   const copperAllCost = Math.ceil((cabin.getAllCopper() / 100)) * copperPrice
-    //   const wiresCost = Math.ceil((cabin.getWires() / 100)) * wiresPrice
-    //   const plasticCost = Math.ceil((cabin.getPlastic() / 100)) * plasticPrice
-    //   const engravedCasingsCost = Math.ceil((cabin.getEngravedCasings() / 100)) * engravedCasingsPrice
-    //   const allCost = scrapMetalAllCost + copperAllCost + wiresCost + plasticCost + engravedCasingsCost + cabin.benchCost
-
-    //   const scrapMetalCost = Math.ceil((cabin.getScrapMetal() / 100)) * scrapMetalPrice
-    //   const copperCost = Math.ceil((cabin.getCopper() / 100)) * copperPrice
-    //   let componentsCost = 0
-    //   for (const item of cabin.ingredients) {
-    //     componentsCost += getComponentPrice(item.id, this.allVehicleComponents)
-    //   }
-    //   const allCostWithComponents = scrapMetalCost + copperCost + wiresCost + plasticCost + engravedCasingsCost + cabin.benchCost + componentsCost
-
-    //   console.log(cabin.name, cabin.rarity)
-    //   console.log('sellPrice - allCost:', cabin.sellPrice, '-', Math.round(allCost * 100) / 100, 'profit without = ', Math.round((cabin.sellPrice - allCost) * 100) / 100);
-    //   console.log('sellPrice - allCost:', cabin.sellPrice, '-', Math.round(allCostWithComponents * 100) / 100, 'profit with = ', Math.round((cabin.sellPrice - allCostWithComponents) * 100) / 100);
-    //   console.log('------------------------------');
-    // }
-
-    // for (const item of this.allVehicleComponents[3]) {
-    //   const scrapMetalAllCost = Math.ceil((item.getAllScrapMetal() / 100)) * scrapMetalPrice
-    //   const copperAllCost = Math.ceil((item.getAllCopper() / 100)) * copperPrice
-    //   const wiresAllCost = Math.ceil((item.getAllWires() / 100)) * wiresPrice
-    //   const plasticAllCost = Math.ceil((item.getAllPlastic() / 100)) * plasticPrice
-    //   const batteriesCost = Math.ceil((item.getBatteries() / 100)) * batteriesPrice
-    //   const engravedCasingsCost = Math.ceil((item.getEngravedCasings() / 100)) * engravedCasingsPrice
-    //   const allCost = scrapMetalAllCost + copperAllCost + wiresAllCost + plasticAllCost + batteriesCost + engravedCasingsCost + item.benchCost
-
-    //   const scrapMetalCost = Math.ceil((item.getScrapMetal() / 100)) * scrapMetalPrice
-    //   const copperCost = Math.ceil((item.getCopper() / 100)) * copperPrice
-    //   const wiresCost = Math.ceil((item.getWires() / 100)) * wiresPrice
-    //   const plasticCost = Math.ceil((item.getPlastic() / 100)) * plasticPrice
-    //   let componentsCost = 0
-    //   for (const i of item.ingredients) {
-    //     componentsCost += getComponentPrice(i.id, this.allVehicleComponents)
-    //   }
-    //   const allCostWithComponents = scrapMetalCost + copperCost + wiresCost + plasticCost + engravedCasingsCost + item.benchCost + componentsCost
-    //   console.log(item.name, item.rarity)
-    //   console.log('sellPrice - allCost:', item.sellPrice, '-', Math.round(allCost * 100) / 100, 'profit without = ', Math.round((item.sellPrice - allCost) * 100) / 100);
-    //   console.log('sellPrice - allCost:', item.sellPrice, '-', Math.round(allCostWithComponents * 100) / 100, 'profit with = ', Math.round((item.sellPrice - allCostWithComponents) * 100) / 100);
-    //   console.log('------------------------------');
-    // }
-
-
-
 
     return prices
 
