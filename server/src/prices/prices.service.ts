@@ -20,7 +20,7 @@ import { M29Protector, M38Fidget, Spectre2, MG13Equalizer, Caucasus, Gremlin, Fa
 import { STM23Defender, Vector, Sledgehammer, Spitfire, AC43Rapier, LittleBoy6LB, Judge76mm, Wasp, Borer, AD12Falcon, DTCobra } from 'src/helpers/entity/weapons/rare'
 import { M37Piercer, Sinus0, Goblin, Junkbow, Mace, AC50Storm, ZS33Hulk, Prosecutor76mm, Synthesis, Boom, Tempura, Buzzsaw, AD13Hawk, Sidekick, T3Python } from 'src/helpers/entity/weapons/special'
 import { getPricesFromDbAPI } from '../helpers/db/helpers'
-import { IResourcePrices, ICabinPrices, IWeaponPrices, IHardwarePrices, IMovementPrices, IAllPrices, IAllVehicleComponents } from './prices.interface'
+import { IResourcePrices, ICabinPrices, IWeaponPrices, IHardwarePrices, IMovementPrices, IAllPrices, IAllVehicleComponents, ICommonVehicleComponent, IEpicVehicleComponent, IRareVehicleComponent, ISpecialVehicleComponent } from './prices.interface'
 
 @Injectable()
 export class PricesService {
@@ -31,24 +31,22 @@ export class PricesService {
   hardwarePrices: IHardwarePrices
   movementPrices: IMovementPrices
   allPrices: IAllPrices
-  // allVehicleComponents: [
-  //   cabinsCommon: CommonVehicleComponent[],
-  //   cabinsRare: RareVehicleComponent[],
-  //   cabinsSpecial: SpecialVehicleComponent[],
-  //   cabinsEpic: EpicVehicleComponent[],
-  //   weaponsCommon: CommonVehicleComponent[],
-  //   weaponsRare: RareVehicleComponent[],
-  //   weaponsSpecial: SpecialVehicleComponent[],
-  //   weaponsEpic: EpicVehicleComponent[],
-  //   hardwaresCommon: CommonVehicleComponent[],
-  //   hardwaresRare: RareVehicleComponent[],
-  //   hardwaresSpecial: SpecialVehicleComponent[],
-  //   hardwaresEpic: EpicVehicleComponent[],
-  //   movementsCommon: CommonVehicleComponent[],
-  //   movementsRare: RareVehicleComponent[],
-  //   movementsSpecial: SpecialVehicleComponent[],
-  //   movementsEpic: EpicVehicleComponent[]
-  // ]
+  cabinsCommon: ICommonVehicleComponent[]
+  cabinsRare: IRareVehicleComponent[]
+  cabinsSpecial: ISpecialVehicleComponent[]
+  cabinsEpic: IEpicVehicleComponent[]
+  weaponsCommon: ICommonVehicleComponent[]
+  weaponsRare: IRareVehicleComponent[]
+  weaponsSpecial: ISpecialVehicleComponent[]
+  weaponsEpic: IEpicVehicleComponent[]
+  hardwaresCommon: ICommonVehicleComponent[]
+  hardwaresRare: IRareVehicleComponent[]
+  hardwaresSpecial: ISpecialVehicleComponent[]
+  hardwaresEpic: IEpicVehicleComponent[]
+  movementsCommon: ICommonVehicleComponent[]
+  movementsRare: IRareVehicleComponent[]
+  movementsSpecial: ISpecialVehicleComponent[]
+  movementsEpic: IEpicVehicleComponent[]
   allVehicleComponents: IAllVehicleComponents
 
 
@@ -1350,26 +1348,24 @@ export class PricesService {
       hardwarePrices: this.hardwarePrices,
       movementPrices: this.movementPrices
     }
+
     this.allVehicleComponents = [
-      [new Sprinter(), new Huntsman(), new WWT1(), new Docker()],
-      [new Growl(), new Wyvern(), new Trucker()],
-      [new Bat(), new Pilgrim(), new Jawbreaker()],
-      [new Jannabi(), new Harpy(), new Werewolf(), new Aggressor(), new Quantum(), new Photon(), new Humpback(), new Bastion()],
-
-      [new P54MAccord(), new Lupara(), new Avenger57mm()],
-      [new STM23Defender(), new Vector(), new Sledgehammer(), new Spitfire(), new AC43Rapier(), new LittleBoy6LB(), new Judge76mm(), new Wasp(), new Borer(), new AD12Falcon(), new DTCobra()],
-      [new M37Piercer(), new Sinus0(), new Goblin(), new Junkbow(), new Mace(), new AC50Storm(), new ZS33Hulk(), new Prosecutor76mm(), new Synthesis(), new Boom(), new Tempura(), new Buzzsaw(), new AD13Hawk(), new Sidekick(), new T3Python()],
-      [new M29Protector(), new M38Fidget(), new Spectre2(), new MG13Equalizer(), new Caucasus(), new Gremlin(), new Fafnir(), new Thunderbolt(), new Rupture(), new AC72Whirlwind(), new ZS34FatMan(), new Executioner88mm(), new Cricket(), new Pyre(), new ClarinetTOW(), new Thresher(), new GL55Impulse(), new Aurora(), new Quasar(), new PrometheusV(), new Phoenix(), new Lancelot(), new Mauler(), new Incinerator(), new MD3Owl(), new Fuze(), new RTAnaconda(), new BarrierIX(), new Yaoguai(), new Skinner()],
-
-      [new FuelBarrel(), new CarJack(), new Radio(), new RS1Ruby(), new B1Aviator(), new R1Breese()],
-      [new FuelTank(), new RD1Listener(), new TS1Horizon(), new BigG(), new Blastoff(), new R2Chill(), new CSTaymyr(), new AmmoPack()],
-      [new Chameleon(), new KA1Discharger(), new OculusVI(), new Maxwell(), new PU1Charge(), new Ampere(), new Hardcore(), new Razorback(), new DunHorse(), new Genesis()],
-      [new Tormentor(), new ChameleonMk2(), new KA2Flywheel(), new Doppler(), new RD2Keen(), new Neutrino(), new Gasgen(), new Oppressor(), new HotRed(), new Colossus(), new Cheetah(), new Hermes(), new RNSeal(), new Shiver(), new ExpandedAmmoPack()],
-
-      [new SmallWheel(), new SmallWheelST(), new MediumWheel(), new MediumWheelST()],
-      [new StuddedWheel(), new StuddedWheelST(), new ChainedWheel(), new ChainedWheelST(), new BalloonTyre(), new BalloonTyreST(), new RacingWheel(), new RacingWheelST(), new LandingGear(), new LandingGearST(), new LargeWheel(), new LargeWheelST()],
-      [new LunarIV(), new LunarIVST(), new Camber(), new CamberST(), new Shiv(), new ShivST(), new APCWheel(), new APCWheelST(), new TwinWheel(), new TwinWheelST()],
-      [new BuggyWheel(), new BuggyWheelST(), new Bigfoot(), new BigfootST(), new Omni(), new SmallTrack(), new HardenedTrack(), new ArmoredTrack(), new IcarusVII(), new ML200(), new MeatGrinder()]
+      this.cabinsCommon = [new Sprinter(), new Huntsman(), new WWT1(), new Docker()],
+      this.cabinsRare = [new Growl(), new Wyvern(), new Trucker()],
+      this.cabinsSpecial = [new Bat(), new Pilgrim(), new Jawbreaker()],
+      this.cabinsEpic = [new Jannabi(), new Harpy(), new Werewolf(), new Aggressor(), new Quantum(), new Photon(), new Humpback(), new Bastion()],
+      this.weaponsCommon = [new P54MAccord(), new Lupara(), new Avenger57mm()],
+      this.weaponsRare = [new STM23Defender(), new Vector(), new Sledgehammer(), new Spitfire(), new AC43Rapier(), new LittleBoy6LB(), new Judge76mm(), new Wasp(), new Borer(), new AD12Falcon(), new DTCobra()],
+      this.weaponsSpecial = [new M37Piercer(), new Sinus0(), new Goblin(), new Junkbow(), new Mace(), new AC50Storm(), new ZS33Hulk(), new Prosecutor76mm(), new Synthesis(), new Boom(), new Tempura(), new Buzzsaw(), new AD13Hawk(), new Sidekick(), new T3Python()],
+      this.weaponsEpic = [new M29Protector(), new M38Fidget(), new Spectre2(), new MG13Equalizer(), new Caucasus(), new Gremlin(), new Fafnir(), new Thunderbolt(), new Rupture(), new AC72Whirlwind(), new ZS34FatMan(), new Executioner88mm(), new Cricket(), new Pyre(), new ClarinetTOW(), new Thresher(), new GL55Impulse(), new Aurora(), new Quasar(), new PrometheusV(), new Phoenix(), new Lancelot(), new Mauler(), new Incinerator(), new MD3Owl(), new Fuze(), new RTAnaconda(), new BarrierIX(), new Yaoguai(), new Skinner()],
+      this.hardwaresCommon = [new FuelBarrel(), new CarJack(), new Radio(), new RS1Ruby(), new B1Aviator(), new R1Breese()],
+      this.hardwaresRare = [new FuelTank(), new RD1Listener(), new TS1Horizon(), new BigG(), new Blastoff(), new R2Chill(), new CSTaymyr(), new AmmoPack()],
+      this.hardwaresSpecial = [new Chameleon(), new KA1Discharger(), new OculusVI(), new Maxwell(), new PU1Charge(), new Ampere(), new Hardcore(), new Razorback(), new DunHorse(), new Genesis()],
+      this.hardwaresEpic = [new Tormentor(), new ChameleonMk2(), new KA2Flywheel(), new Doppler(), new RD2Keen(), new Neutrino(), new Gasgen(), new Oppressor(), new HotRed(), new Colossus(), new Cheetah(), new Hermes(), new RNSeal(), new Shiver(), new ExpandedAmmoPack()],
+      this.movementsCommon = [new SmallWheel(), new SmallWheelST(), new MediumWheel(), new MediumWheelST()],
+      this.movementsRare = [new StuddedWheel(), new StuddedWheelST(), new ChainedWheel(), new ChainedWheelST(), new BalloonTyre(), new BalloonTyreST(), new RacingWheel(), new RacingWheelST(), new LandingGear(), new LandingGearST(), new LargeWheel(), new LargeWheelST()],
+      this.movementsSpecial = [new LunarIV(), new LunarIVST(), new Camber(), new CamberST(), new Shiv(), new ShivST(), new APCWheel(), new APCWheelST(), new TwinWheel(), new TwinWheelST()],
+      this.movementsEpic = [new BuggyWheel(), new BuggyWheelST(), new Bigfoot(), new BigfootST(), new Omni(), new SmallTrack(), new HardenedTrack(), new ArmoredTrack(), new IcarusVII(), new ML200(), new MeatGrinder()]
     ]
   }
 

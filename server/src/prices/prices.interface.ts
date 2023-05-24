@@ -1,8 +1,3 @@
-import { CommonVehicleComponent } from 'src/helpers/entity/commonVehicleComponent'
-import { EpicVehicleComponent } from 'src/helpers/entity/epicVehicleComponent'
-import { RareVehicleComponent } from 'src/helpers/entity/rareVehicleComponent'
-import { SpecialVehicleComponent } from 'src/helpers/entity/specialVehicleComponent'
-
 export interface IPrices {
   id: number
   dbId: number
@@ -37,5 +32,98 @@ export interface ICommonVehicleComponent {
   getScrapMetal(): number
   getCopper(): number
 }
+export interface IRareVehicleComponent {
+  id: number
+  name: string
+  type: string
+  rarity: string
+  buyPrice: number
+  sellPrice: number
+  productionTime: number
+  benchCost: number
+  scrapMetal: number
+  copper: number
+  ingredients: ICommonVehicleComponent[]
 
-export interface IAllVehicleComponents extends Array<CommonVehicleComponent[] | RareVehicleComponent[] | SpecialVehicleComponent[] | EpicVehicleComponent[]> { }
+  getScrapMetal(): number
+  getCopper(): number
+  getBenchCost(): number
+  getAllScrapMetal(): number
+  getAllCopper(): number
+}
+export interface ISpecialVehicleComponent {
+  id: number
+  name: string
+  type: string
+  rarity: string
+  buyPrice: number
+  sellPrice: number
+  productionTime: number
+  benchCost: number
+  scrapMetal: number
+  copper: number
+  wires: number
+  plastic: number
+  engravedCasings: number
+  ingredients: IRareVehicleComponent[]
+
+  getScrapMetal(): number
+  getCopper(): number
+  getWires(): number
+  getPlastic(): number
+  getEngravedCasings(): number
+  getBenchCost(): number
+  getAllScrapMetal(): number
+  getAllCopper(): number
+  getAllBenchCost(): number
+}
+export interface IEpicVehicleComponent {
+  id: number
+  name: string
+  type: string
+  rarity: string
+  buyPrice: number
+  sellPrice: number
+  productionTime: number
+  benchCost: number
+  scrapMetal: number
+  copper: number
+  wires: number
+  plastic: number
+  batteries: number
+  engravedCasings: number
+  ingredients: ISpecialVehicleComponent[]
+
+  getScrapMetal(): number
+  getCopper(): number
+  getWires(): number
+  getPlastic(): number
+  getBatteries(): number
+  getEngravedCasings(): number
+  getBenchCost(): number
+  getAllScrapMetal(): number
+  getAllCopper(): number
+  getAllWires(): number
+  getAllPlastic(): number
+  getAllEngravedCasings(): number
+  getAllBenchCost(): number
+}
+
+export interface IAllVehicleComponents {
+  cabinsCommon: ICommonVehicleComponent[],
+  cabinsRare: IRareVehicleComponent[],
+  cabinsSpecial: ISpecialVehicleComponent[],
+  cabinsEpic: IEpicVehicleComponent[],
+  weaponsCommon: ICommonVehicleComponent[],
+  weaponsRare: IRareVehicleComponent[],
+  weaponsSpecial: ISpecialVehicleComponent[],
+  weaponsEpic: IEpicVehicleComponent[],
+  hardwaresCommon: ICommonVehicleComponent[],
+  hardwaresRare: IRareVehicleComponent[],
+  hardwaresSpecial: ISpecialVehicleComponent[],
+  hardwaresEpic: IEpicVehicleComponent[],
+  movementsCommon: ICommonVehicleComponent[],
+  movementsRare: IRareVehicleComponent[],
+  movementsSpecial: ISpecialVehicleComponent[],
+  movementsEpic: IEpicVehicleComponent[]
+}

@@ -17,23 +17,6 @@ export class EpicVehicleComponent {
   engravedCasings: number
   ingredients: SpecialVehicleComponent[]
 
-  constructor() {
-    this.name = ''
-    this.type = ''
-    this.rarity = 'epic'
-    this.buyPrice = 0
-    this.sellPrice = 0
-    this.productionTime = 360
-    this.benchCost = 15
-    this.scrapMetal = 100
-    this.copper = 150
-    this.wires = 200
-    this.plastic = 100
-    this.batteries = 0
-    this.engravedCasings = 0
-    this.ingredients = []
-  }
-
   getScrapMetal = (): number => {
     return this.scrapMetal
   }
