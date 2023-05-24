@@ -109,21 +109,22 @@ export interface IEpicVehicleComponent {
   getAllBenchCost(): number
 }
 
-export interface IAllVehicleComponents {
-  cabinsCommon: ICommonVehicleComponent[],
-  cabinsRare: IRareVehicleComponent[],
-  cabinsSpecial: ISpecialVehicleComponent[],
-  cabinsEpic: IEpicVehicleComponent[],
-  weaponsCommon: ICommonVehicleComponent[],
-  weaponsRare: IRareVehicleComponent[],
-  weaponsSpecial: ISpecialVehicleComponent[],
-  weaponsEpic: IEpicVehicleComponent[],
-  hardwaresCommon: ICommonVehicleComponent[],
-  hardwaresRare: IRareVehicleComponent[],
-  hardwaresSpecial: ISpecialVehicleComponent[],
-  hardwaresEpic: IEpicVehicleComponent[],
-  movementsCommon: ICommonVehicleComponent[],
-  movementsRare: IRareVehicleComponent[],
-  movementsSpecial: ISpecialVehicleComponent[],
-  movementsEpic: IEpicVehicleComponent[]
+export interface IAllVehicleComponents extends Array<ICommonVehicleComponent[] | IRareVehicleComponent[] | ISpecialVehicleComponent[] | IEpicVehicleComponent[]> {
+  [index: number]: ICommonVehicleComponent[] | IRareVehicleComponent[] | ISpecialVehicleComponent[] | IEpicVehicleComponent[]
+  // cabinsCommon: ICommonVehicleComponent[],
+  // cabinsRare: IRareVehicleComponent[],
+  // cabinsSpecial: ISpecialVehicleComponent[],
+  // cabinsEpic: IEpicVehicleComponent[],
+  // weaponsCommon: ICommonVehicleComponent[],
+  // weaponsRare: IRareVehicleComponent[],
+  // weaponsSpecial: ISpecialVehicleComponent[],
+  // weaponsEpic: IEpicVehicleComponent[],
+  // hardwaresCommon: ICommonVehicleComponent[],
+  // hardwaresRare: IRareVehicleComponent[],
+  // hardwaresSpecial: ISpecialVehicleComponent[],
+  // hardwaresEpic: IEpicVehicleComponent[],
+  // movementsCommon: ICommonVehicleComponent[],
+  // movementsRare: IRareVehicleComponent[],
+  // movementsSpecial: ISpecialVehicleComponent[],
+  // movementsEpic: IEpicVehicleComponent[]
 }

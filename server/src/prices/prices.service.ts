@@ -47,7 +47,7 @@ export class PricesService {
   movementsRare: IRareVehicleComponent[]
   movementsSpecial: ISpecialVehicleComponent[]
   movementsEpic: IEpicVehicleComponent[]
-  allVehicleComponents: IAllVehicleComponents
+  allVehicleComponents: IAllVehicleComponents = []
 
 
   constructor() {
@@ -1348,24 +1348,26 @@ export class PricesService {
       hardwarePrices: this.hardwarePrices,
       movementPrices: this.movementPrices
     }
-
     this.allVehicleComponents = [
-      this.cabinsCommon = [new Sprinter(), new Huntsman(), new WWT1(), new Docker()],
-      this.cabinsRare = [new Growl(), new Wyvern(), new Trucker()],
-      this.cabinsSpecial = [new Bat(), new Pilgrim(), new Jawbreaker()],
-      this.cabinsEpic = [new Jannabi(), new Harpy(), new Werewolf(), new Aggressor(), new Quantum(), new Photon(), new Humpback(), new Bastion()],
-      this.weaponsCommon = [new P54MAccord(), new Lupara(), new Avenger57mm()],
-      this.weaponsRare = [new STM23Defender(), new Vector(), new Sledgehammer(), new Spitfire(), new AC43Rapier(), new LittleBoy6LB(), new Judge76mm(), new Wasp(), new Borer(), new AD12Falcon(), new DTCobra()],
-      this.weaponsSpecial = [new M37Piercer(), new Sinus0(), new Goblin(), new Junkbow(), new Mace(), new AC50Storm(), new ZS33Hulk(), new Prosecutor76mm(), new Synthesis(), new Boom(), new Tempura(), new Buzzsaw(), new AD13Hawk(), new Sidekick(), new T3Python()],
-      this.weaponsEpic = [new M29Protector(), new M38Fidget(), new Spectre2(), new MG13Equalizer(), new Caucasus(), new Gremlin(), new Fafnir(), new Thunderbolt(), new Rupture(), new AC72Whirlwind(), new ZS34FatMan(), new Executioner88mm(), new Cricket(), new Pyre(), new ClarinetTOW(), new Thresher(), new GL55Impulse(), new Aurora(), new Quasar(), new PrometheusV(), new Phoenix(), new Lancelot(), new Mauler(), new Incinerator(), new MD3Owl(), new Fuze(), new RTAnaconda(), new BarrierIX(), new Yaoguai(), new Skinner()],
-      this.hardwaresCommon = [new FuelBarrel(), new CarJack(), new Radio(), new RS1Ruby(), new B1Aviator(), new R1Breese()],
-      this.hardwaresRare = [new FuelTank(), new RD1Listener(), new TS1Horizon(), new BigG(), new Blastoff(), new R2Chill(), new CSTaymyr(), new AmmoPack()],
-      this.hardwaresSpecial = [new Chameleon(), new KA1Discharger(), new OculusVI(), new Maxwell(), new PU1Charge(), new Ampere(), new Hardcore(), new Razorback(), new DunHorse(), new Genesis()],
-      this.hardwaresEpic = [new Tormentor(), new ChameleonMk2(), new KA2Flywheel(), new Doppler(), new RD2Keen(), new Neutrino(), new Gasgen(), new Oppressor(), new HotRed(), new Colossus(), new Cheetah(), new Hermes(), new RNSeal(), new Shiver(), new ExpandedAmmoPack()],
-      this.movementsCommon = [new SmallWheel(), new SmallWheelST(), new MediumWheel(), new MediumWheelST()],
-      this.movementsRare = [new StuddedWheel(), new StuddedWheelST(), new ChainedWheel(), new ChainedWheelST(), new BalloonTyre(), new BalloonTyreST(), new RacingWheel(), new RacingWheelST(), new LandingGear(), new LandingGearST(), new LargeWheel(), new LargeWheelST()],
-      this.movementsSpecial = [new LunarIV(), new LunarIVST(), new Camber(), new CamberST(), new Shiv(), new ShivST(), new APCWheel(), new APCWheelST(), new TwinWheel(), new TwinWheelST()],
-      this.movementsEpic = [new BuggyWheel(), new BuggyWheelST(), new Bigfoot(), new BigfootST(), new Omni(), new SmallTrack(), new HardenedTrack(), new ArmoredTrack(), new IcarusVII(), new ML200(), new MeatGrinder()]
+      [new Sprinter(), new Huntsman(), new WWT1(), new Docker()],
+      [new Growl(), new Wyvern(), new Trucker()],
+      [new Bat(), new Pilgrim(), new Jawbreaker()],
+      [new Jannabi(), new Harpy(), new Werewolf(), new Aggressor(), new Quantum(), new Photon(), new Humpback(), new Bastion()],
+
+      [new P54MAccord(), new Lupara(), new Avenger57mm()],
+      [new STM23Defender(), new Vector(), new Sledgehammer(), new Spitfire(), new AC43Rapier(), new LittleBoy6LB(), new Judge76mm(), new Wasp(), new Borer(), new AD12Falcon(), new DTCobra()],
+      [new M37Piercer(), new Sinus0(), new Goblin(), new Junkbow(), new Mace(), new AC50Storm(), new ZS33Hulk(), new Prosecutor76mm(), new Synthesis(), new Boom(), new Tempura(), new Buzzsaw(), new AD13Hawk(), new Sidekick(), new T3Python()],
+      [new M29Protector(), new M38Fidget(), new Spectre2(), new MG13Equalizer(), new Caucasus(), new Gremlin(), new Fafnir(), new Thunderbolt(), new Rupture(), new AC72Whirlwind(), new ZS34FatMan(), new Executioner88mm(), new Cricket(), new Pyre(), new ClarinetTOW(), new Thresher(), new GL55Impulse(), new Aurora(), new Quasar(), new PrometheusV(), new Phoenix(), new Lancelot(), new Mauler(), new Incinerator(), new MD3Owl(), new Fuze(), new RTAnaconda(), new BarrierIX(), new Yaoguai(), new Skinner()],
+
+      [new FuelBarrel(), new CarJack(), new Radio(), new RS1Ruby(), new B1Aviator(), new R1Breese()],
+      [new FuelTank(), new RD1Listener(), new TS1Horizon(), new BigG(), new Blastoff(), new R2Chill(), new CSTaymyr(), new AmmoPack()],
+      [new Chameleon(), new KA1Discharger(), new OculusVI(), new Maxwell(), new PU1Charge(), new Ampere(), new Hardcore(), new Razorback(), new DunHorse(), new Genesis()],
+      [new Tormentor(), new ChameleonMk2(), new KA2Flywheel(), new Doppler(), new RD2Keen(), new Neutrino(), new Gasgen(), new Oppressor(), new HotRed(), new Colossus(), new Cheetah(), new Hermes(), new RNSeal(), new Shiver(), new ExpandedAmmoPack()],
+
+      [new SmallWheel(), new SmallWheelST(), new MediumWheel(), new MediumWheelST()],
+      [new StuddedWheel(), new StuddedWheelST(), new ChainedWheel(), new ChainedWheelST(), new BalloonTyre(), new BalloonTyreST(), new RacingWheel(), new RacingWheelST(), new LandingGear(), new LandingGearST(), new LargeWheel(), new LargeWheelST()],
+      [new LunarIV(), new LunarIVST(), new Camber(), new CamberST(), new Shiv(), new ShivST(), new APCWheel(), new APCWheelST(), new TwinWheel(), new TwinWheelST()],
+      [new BuggyWheel(), new BuggyWheelST(), new Bigfoot(), new BigfootST(), new Omni(), new SmallTrack(), new HardenedTrack(), new ArmoredTrack(), new IcarusVII(), new ML200(), new MeatGrinder()]
     ]
   }
 
@@ -1381,42 +1383,28 @@ export class PricesService {
       }
       return false
     }
-    function getComponentPrice(componentId: number, componentsArr: [
-      cabinsCommon: CommonVehicleComponent[],
-      cabinsRare: RareVehicleComponent[],
-      cabinsSpecial: SpecialVehicleComponent[],
-      cabinsEpic: EpicVehicleComponent[],
-      weaponsCommon: CommonVehicleComponent[],
-      weaponsRare: RareVehicleComponent[],
-      weaponsSpecial: SpecialVehicleComponent[],
-      weaponsEpic: EpicVehicleComponent[],
-      hardwaresCommon: CommonVehicleComponent[],
-      hardwaresRare: RareVehicleComponent[],
-      hardwaresSpecial: SpecialVehicleComponent[],
-      hardwaresEpic: EpicVehicleComponent[],
-      movementsCommon: CommonVehicleComponent[],
-      movementsRare: RareVehicleComponent[],
-      movementsSpecial: SpecialVehicleComponent[],
-      movementsEpic: EpicVehicleComponent[]
-    ]): number {
-      console.log('getComponentPrice: ');
+    function getComponentPrice(componentId: number, componentsArr: IAllVehicleComponents): number {
       for (const category of componentsArr) {
-        for (const component of category) {
-          if (componentId === component.id) {
-            return component.sellPrice
-          }
-        }
-        // for (let i = 0; i < category.length; i++) {
-        //   if (componentId === category[i].id) {
-        //     return category[i].sellPrice
-        //   }
-        // }
+        console.log('category: ', category[0].name);
+        
       }
+      // for (const category of componentsArr) {
+      //   for (const component of category) {
+      //     if (componentId === component.id) {
+      //       return component.sellPrice
+      //     }
+      //   }
+      //   for (let i = 0; i < category.length; i++) {
+      //     if (componentId === category[i].id) {
+      //       return category[i].sellPrice
+      //     }
+      //   }
+      // }
       return 0
     }
-    function calculateProfitRareComponents(arrVehicleComponents: RareVehicleComponent[]): RareVehicleComponent[] {
-      const result: RareVehicleComponent[] = []
-      for (const item of arrVehicleComponents) {
+    function calculateProfitRareComponents(rareVehicleComponents: IRareVehicleComponent[], allVehicleComponents: IAllVehicleComponents): IRareVehicleComponent[] {
+      const result: IRareVehicleComponent[] = []
+      for (const item of rareVehicleComponents) {
         const scrapMetalAllCost = Math.ceil((item.getAllScrapMetal() / 100)) * scrapMetalPrice
         const copperAllCost = Math.ceil((item.getAllCopper() / 100)) * copperPrice
         const allCost = scrapMetalAllCost + copperAllCost + item.benchCost
@@ -1425,7 +1413,7 @@ export class PricesService {
         const copperCost = Math.ceil((item.getCopper() / 100)) * copperPrice
         let componentsCost = 0
         for (const i of item.ingredients) {
-          componentsCost += getComponentPrice(i.id, this.allVehicleComponents)
+          componentsCost += getComponentPrice(i.id, allVehicleComponents)
         }
         const allCostWithComponents = scrapMetalCost + copperCost + item.benchCost + componentsCost
 
@@ -1444,9 +1432,9 @@ export class PricesService {
       }
       return result
     }
-    function calculateProfitSpecialComponents(arrVehicleComponents: SpecialVehicleComponent[]): SpecialVehicleComponent[] {
+    function calculateProfitSpecialComponents(specialVehicleComponents: ISpecialVehicleComponent[], allVehicleComponents: IAllVehicleComponents): ISpecialVehicleComponent[] {
       const result: SpecialVehicleComponent[] = []
-      for (const item of arrVehicleComponents) {
+      for (const item of specialVehicleComponents) {
         const scrapMetalAllCost = Math.ceil((item.getAllScrapMetal() / 100)) * scrapMetalPrice
         const copperAllCost = Math.ceil((item.getAllCopper() / 100)) * copperPrice
         const wiresCost = Math.ceil((item.getWires() / 100)) * wiresPrice
@@ -1458,7 +1446,7 @@ export class PricesService {
         const copperCost = Math.ceil((item.getCopper() / 100)) * copperPrice
         let componentsCost = 0
         for (const i of item.ingredients) {
-          componentsCost += getComponentPrice(i.id, this.allVehicleComponents)
+          componentsCost += getComponentPrice(i.id, allVehicleComponents)
         }
         const allCostWithComponents = scrapMetalCost + copperCost + wiresCost + plasticCost + engravedCasingsCost + item.benchCost + componentsCost
 
@@ -1477,9 +1465,9 @@ export class PricesService {
       }
       return result
     }
-    function calculateProfitEpicComponents(arrVehicleComponents: EpicVehicleComponent[]): EpicVehicleComponent[] {
+    function calculateProfitEpicComponents(epicVehicleComponents: IEpicVehicleComponent[], allVehicleComponents: IAllVehicleComponents): IEpicVehicleComponent[] {
       const result: EpicVehicleComponent[] = []
-      for (const item of arrVehicleComponents) {
+      for (const item of epicVehicleComponents) {
         const scrapMetalAllCost = Math.ceil((item.getAllScrapMetal() / 100)) * scrapMetalPrice
         const copperAllCost = Math.ceil((item.getAllCopper() / 100)) * copperPrice
         const wiresAllCost = Math.ceil((item.getAllWires() / 100)) * wiresPrice
@@ -1494,7 +1482,7 @@ export class PricesService {
         const plasticCost = Math.ceil((item.getPlastic() / 100)) * plasticPrice
         let componentsCost = 0
         for (const i of item.ingredients) {
-          componentsCost += getComponentPrice(i.id, this.allVehicleComponents)
+          componentsCost += getComponentPrice(i.id, allVehicleComponents)
         }
         const allCostWithComponents = scrapMetalCost + copperCost + wiresCost + plasticCost + engravedCasingsCost + item.benchCost + componentsCost
 
@@ -1587,9 +1575,9 @@ export class PricesService {
     console.log('engravedCasings', engravedCasingsPrice);
     console.log('------------------------------');
 
-    calculateProfitRareComponents(this.allVehicleComponents[1])
-    calculateProfitSpecialComponents(this.allVehicleComponents[2])
-    calculateProfitEpicComponents(this.allVehicleComponents[3])
+    calculateProfitRareComponents(this.allVehicleComponents[1] as IRareVehicleComponent[], this.allVehicleComponents)
+    // calculateProfitSpecialComponents(this.allVehicleComponents[2] as ISpecialVehicleComponent[])
+    // calculateProfitEpicComponents(this.allVehicleComponents[3] as IEpicVehicleComponent[])
 
     return prices
 
