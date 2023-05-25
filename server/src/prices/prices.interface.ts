@@ -108,7 +108,6 @@ export interface IEpicVehicleComponent {
   getAllEngravedCasings(): number
   getAllBenchCost(): number
 }
-
 export interface IAllVehicleComponents extends Array<ICommonVehicleComponent[] | IRareVehicleComponent[] | ISpecialVehicleComponent[] | IEpicVehicleComponent[]> {
   [index: number]: ICommonVehicleComponent[] | IRareVehicleComponent[] | ISpecialVehicleComponent[] | IEpicVehicleComponent[]
   // cabinsCommon: ICommonVehicleComponent[],
@@ -127,4 +126,10 @@ export interface IAllVehicleComponents extends Array<ICommonVehicleComponent[] |
   // movementsRare: IRareVehicleComponent[],
   // movementsSpecial: ISpecialVehicleComponent[],
   // movementsEpic: IEpicVehicleComponent[]
+}
+
+export interface IListItem{
+  id: number
+  name: string
+  profitRatio: number
 }
