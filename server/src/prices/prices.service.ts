@@ -1383,26 +1383,30 @@ export class PricesService {
       }
       return false
     }
-    function getComponentPrice(componentId: number, componentsArr: IAllVehicleComponents): number {
-      for (const category of componentsArr) {
-        console.log('category: ', category[0].name);
-        
+    function getComponentPrice(componentId: number, сomponentsPrices: IAllPrices): number {
+      for (const item of сomponentsPrices.cabinPrices) {
+        if (componentId === item.id) {
+          return item.sellPrice
+        }
       }
-      // for (const category of componentsArr) {
-      //   for (const component of category) {
-      //     if (componentId === component.id) {
-      //       return component.sellPrice
-      //     }
-      //   }
-      //   for (let i = 0; i < category.length; i++) {
-      //     if (componentId === category[i].id) {
-      //       return category[i].sellPrice
-      //     }
-      //   }
-      // }
+      for (const item of сomponentsPrices.weaponPrices) {
+        if (componentId === item.id) {
+          return item.sellPrice
+        }
+      }
+      for (const item of сomponentsPrices.hardwarePrices) {
+        if (componentId === item.id) {
+          return item.sellPrice
+        }
+      }
+      for (const item of сomponentsPrices.movementPrices) {
+        if (componentId === item.id) {
+          return item.sellPrice
+        }
+      }
       return 0
     }
-    function calculateProfitRareComponents(rareVehicleComponents: IRareVehicleComponent[], allVehicleComponents: IAllVehicleComponents): IRareVehicleComponent[] {
+    function calculateProfitRareComponents(rareVehicleComponents: IRareVehicleComponent[], allСomponentsPrices: IAllPrices): IRareVehicleComponent[] {
       const result: IRareVehicleComponent[] = []
       for (const item of rareVehicleComponents) {
         const scrapMetalAllCost = Math.ceil((item.getAllScrapMetal() / 100)) * scrapMetalPrice
@@ -1413,7 +1417,7 @@ export class PricesService {
         const copperCost = Math.ceil((item.getCopper() / 100)) * copperPrice
         let componentsCost = 0
         for (const i of item.ingredients) {
-          componentsCost += getComponentPrice(i.id, allVehicleComponents)
+          componentsCost += getComponentPrice(i.id, allСomponentsPrices)
         }
         const allCostWithComponents = scrapMetalCost + copperCost + item.benchCost + componentsCost
 
@@ -1424,15 +1428,15 @@ export class PricesService {
           result.push(item)
         }
 
-        console.log(item.name, item.rarity)
-        console.log('sellPrice - allCost:', item.buyPrice, '-', Math.round(allCost * 100) / 100, 'profit without = ', profitWithout);
-        console.log('sellPrice - allCost:', item.buyPrice, '-', Math.round(allCostWithComponents * 100) / 100, 'profit with = ', profitWith);
-        console.log('componentsCost', componentsCost);
-        console.log('------------------------------');
+        // console.log(item.name, item.rarity)
+        // console.log('sellPrice - allCost:', item.buyPrice, '-', Math.round(allCost * 100) / 100, 'profit without = ', profitWithout);
+        // console.log('sellPrice - allCost:', item.buyPrice, '-', Math.round(allCostWithComponents * 100) / 100, 'profit with = ', profitWith);
+        // console.log('componentsCost', componentsCost);
+        // console.log('------------------------------');
       }
       return result
     }
-    function calculateProfitSpecialComponents(specialVehicleComponents: ISpecialVehicleComponent[], allVehicleComponents: IAllVehicleComponents): ISpecialVehicleComponent[] {
+    function calculateProfitSpecialComponents(specialVehicleComponents: ISpecialVehicleComponent[], allСomponentsPrices: IAllPrices): ISpecialVehicleComponent[] {
       const result: SpecialVehicleComponent[] = []
       for (const item of specialVehicleComponents) {
         const scrapMetalAllCost = Math.ceil((item.getAllScrapMetal() / 100)) * scrapMetalPrice
@@ -1446,7 +1450,7 @@ export class PricesService {
         const copperCost = Math.ceil((item.getCopper() / 100)) * copperPrice
         let componentsCost = 0
         for (const i of item.ingredients) {
-          componentsCost += getComponentPrice(i.id, allVehicleComponents)
+          componentsCost += getComponentPrice(i.id, allСomponentsPrices)
         }
         const allCostWithComponents = scrapMetalCost + copperCost + wiresCost + plasticCost + engravedCasingsCost + item.benchCost + componentsCost
 
@@ -1457,15 +1461,15 @@ export class PricesService {
           result.push(item)
         }
 
-        console.log(item.name, item.rarity)
-        console.log('sellPrice - allCost:', item.buyPrice, '-', Math.round(allCost * 100) / 100, 'profit without = ', profitWithout);
-        console.log('sellPrice - allCost:', item.buyPrice, '-', Math.round(allCostWithComponents * 100) / 100, 'profit with = ', profitWith);
-        console.log('componentsCost', componentsCost);
-        console.log('------------------------------');
+        // console.log(item.name, item.rarity)
+        // console.log('sellPrice - allCost:', item.buyPrice, '-', Math.round(allCost * 100) / 100, 'profit without = ', profitWithout);
+        // console.log('sellPrice - allCost:', item.buyPrice, '-', Math.round(allCostWithComponents * 100) / 100, 'profit with = ', profitWith);
+        // console.log('componentsCost', componentsCost);
+        // console.log('------------------------------');
       }
       return result
     }
-    function calculateProfitEpicComponents(epicVehicleComponents: IEpicVehicleComponent[], allVehicleComponents: IAllVehicleComponents): IEpicVehicleComponent[] {
+    function calculateProfitEpicComponents(epicVehicleComponents: IEpicVehicleComponent[], allСomponentsPrices: IAllPrices): IEpicVehicleComponent[] {
       const result: EpicVehicleComponent[] = []
       for (const item of epicVehicleComponents) {
         const scrapMetalAllCost = Math.ceil((item.getAllScrapMetal() / 100)) * scrapMetalPrice
@@ -1482,7 +1486,7 @@ export class PricesService {
         const plasticCost = Math.ceil((item.getPlastic() / 100)) * plasticPrice
         let componentsCost = 0
         for (const i of item.ingredients) {
-          componentsCost += getComponentPrice(i.id, allVehicleComponents)
+          componentsCost += getComponentPrice(i.id, allСomponentsPrices)
         }
         const allCostWithComponents = scrapMetalCost + copperCost + wiresCost + plasticCost + engravedCasingsCost + item.benchCost + componentsCost
 
@@ -1493,11 +1497,11 @@ export class PricesService {
           result.push(item)
         }
 
-        console.log(item.name, item.rarity)
-        console.log('sellPrice - allCost:', item.buyPrice, '-', Math.round(allCost * 100) / 100, 'profit without = ', profitWithout);
-        console.log('sellPrice - allCost:', item.buyPrice, '-', Math.round(allCostWithComponents * 100) / 100, 'profit with = ', profitWith);
-        console.log('componentsCost', componentsCost);
-        console.log('------------------------------');
+        // console.log(item.name, item.rarity)
+        // console.log('sellPrice - allCost:', item.buyPrice, '-', Math.round(allCost * 100) / 100, 'profit without = ', profitWithout);
+        // console.log('sellPrice - allCost:', item.buyPrice, '-', Math.round(allCostWithComponents * 100) / 100, 'profit with = ', profitWith);
+        // console.log('componentsCost', componentsCost);
+        // console.log('------------------------------');
       }
       return result
     }
@@ -1575,9 +1579,17 @@ export class PricesService {
     console.log('engravedCasings', engravedCasingsPrice);
     console.log('------------------------------');
 
-    calculateProfitRareComponents(this.allVehicleComponents[1] as IRareVehicleComponent[], this.allVehicleComponents)
-    // calculateProfitSpecialComponents(this.allVehicleComponents[2] as ISpecialVehicleComponent[])
-    // calculateProfitEpicComponents(this.allVehicleComponents[3] as IEpicVehicleComponent[])
+    
+    for (const item of calculateProfitRareComponents(this.allVehicleComponents[1] as IRareVehicleComponent[], this.allPrices)) {
+      console.log(item.name);
+    }
+    for (const item of calculateProfitSpecialComponents(this.allVehicleComponents[2] as ISpecialVehicleComponent[], this.allPrices)) {
+      console.log(item.name);
+    }
+    for (const item of calculateProfitEpicComponents(this.allVehicleComponents[3] as IEpicVehicleComponent[], this.allPrices)) {
+      console.log(item.name);
+    }
+    
 
     return prices
 
