@@ -1604,6 +1604,33 @@ export class PricesService {
     for (const item of calculateProfitEpicComponents(this.allVehicleComponents[3] as IEpicVehicleComponent[], this.allPrices)) {
       console.log(item);
     }
+    for (const item of calculateProfitRareComponents(this.allVehicleComponents[5] as IRareVehicleComponent[], this.allPrices)) {
+      console.log(item);
+    }
+    for (const item of calculateProfitSpecialComponents(this.allVehicleComponents[6] as ISpecialVehicleComponent[], this.allPrices)) {
+      console.log(item);
+    }
+    for (const item of calculateProfitEpicComponents(this.allVehicleComponents[7] as IEpicVehicleComponent[], this.allPrices)) {
+      console.log(item);
+    }
+    for (const item of calculateProfitRareComponents(this.allVehicleComponents[9] as IRareVehicleComponent[], this.allPrices)) {
+      console.log(item);
+    }
+    for (const item of calculateProfitSpecialComponents(this.allVehicleComponents[10] as ISpecialVehicleComponent[], this.allPrices)) {
+      console.log(item);
+    }
+    for (const item of calculateProfitEpicComponents(this.allVehicleComponents[11] as IEpicVehicleComponent[], this.allPrices)) {
+      console.log(item);
+    }
+    for (const item of calculateProfitRareComponents(this.allVehicleComponents[13] as IRareVehicleComponent[], this.allPrices)) {
+      console.log(item);
+    }
+    for (const item of calculateProfitSpecialComponents(this.allVehicleComponents[14] as ISpecialVehicleComponent[], this.allPrices)) {
+      console.log(item);
+    }
+    for (const item of calculateProfitEpicComponents(this.allVehicleComponents[15] as IEpicVehicleComponent[], this.allPrices)) {
+      console.log(item);
+    }
     
 
     return prices
