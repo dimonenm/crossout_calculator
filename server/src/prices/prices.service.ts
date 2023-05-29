@@ -20,7 +20,7 @@ import { M29Protector, M38Fidget, Spectre2, MG13Equalizer, Caucasus, Gremlin, Fa
 import { STM23Defender, Vector, Sledgehammer, Spitfire, AC43Rapier, LittleBoy6LB, Judge76mm, Wasp, Borer, AD12Falcon, DTCobra } from 'src/helpers/entity/weapons/rare'
 import { M37Piercer, Sinus0, Goblin, Junkbow, Mace, AC50Storm, ZS33Hulk, Prosecutor76mm, Synthesis, Boom, Tempura, Buzzsaw, AD13Hawk, Sidekick, T3Python } from 'src/helpers/entity/weapons/special'
 import { getPricesFromDbAPI } from '../helpers/db/helpers'
-import { IResourcePrices, ICabinPrices, IWeaponPrices, IHardwarePrices, IMovementPrices, IAllPrices, IAllVehicleComponents, ICommonVehicleComponent, IEpicVehicleComponent, IRareVehicleComponent, ISpecialVehicleComponent, IListItem } from './prices.interface'
+import { IResourcePrices, ICabinPrices, IWeaponPrices, IHardwarePrices, IMovementPrices, IAllPrices, IAllVehicleComponents, ICommonVehicleComponent, IEpicVehicleComponent, IRareVehicleComponent, ISpecialVehicleComponent, IListItem, IResponse } from './prices.interface'
 
 @Injectable()
 export class PricesService {
@@ -1371,9 +1371,22 @@ export class PricesService {
     ]
   }
 
-  async startGettingPrices(): Promise<IAllPrices> {
+  async startGettingPrices(): Promise<IResponse> {
 
     const prices = await getPricesFromDbAPI(this.allPrices)
+
+    const scrapMetalPrice = prices.resourcePrices[0].sellPrice
+    const copperPrice = prices.resourcePrices[1].sellPrice
+    const wiresPrice = prices.resourcePrices[2].sellPrice
+    const plasticPrice = prices.resourcePrices[3].sellPrice
+    const batteriesPrice = prices.resourcePrices[4].sellPrice
+    const electronicsPrice = prices.resourcePrices[5].sellPrice
+    const engravedCasingsPrice = prices.resourcePrices[6].sellPrice
+
+    const result: IResponse = {
+      list: [],
+      prices
+    } 
 
     function addPriceToComponent(component, price): boolean {
       if (component.id === price.id) {
@@ -1578,62 +1591,55 @@ export class PricesService {
       }
     }
 
-    const scrapMetalPrice = prices.resourcePrices[0].sellPrice
-    const copperPrice = prices.resourcePrices[1].sellPrice
-    const wiresPrice = prices.resourcePrices[2].sellPrice
-    const plasticPrice = prices.resourcePrices[3].sellPrice
-    const batteriesPrice = prices.resourcePrices[4].sellPrice
-    const electronicsPrice = prices.resourcePrices[5].sellPrice
-    const engravedCasingsPrice = prices.resourcePrices[6].sellPrice
-    // console.log('scrapMetalPrice', scrapMetalPrice);
-    // console.log('copperPrice', copperPrice);
-    // console.log('wiresPrice', wiresPrice);
-    // console.log('plasticPrice', plasticPrice);
-    // console.log('batteries', batteriesPrice);
-    // console.log('electronics', electronicsPrice);
-    // console.log('engravedCasings', engravedCasingsPrice);
-    // console.log('------------------------------');
-
     
     for (const item of calculateProfitRareComponents(this.allVehicleComponents[1] as IRareVehicleComponent[], this.allPrices)) {
-      console.log(item);
+      result.list.push(item)
     }
     for (const item of calculateProfitSpecialComponents(this.allVehicleComponents[2] as ISpecialVehicleComponent[], this.allPrices)) {
-      console.log(item);
+      result.list.push(item)
     }
     for (const item of calculateProfitEpicComponents(this.allVehicleComponents[3] as IEpicVehicleComponent[], this.allPrices)) {
-      console.log(item);
+      result.list.push(item)
     }
     for (const item of calculateProfitRareComponents(this.allVehicleComponents[5] as IRareVehicleComponent[], this.allPrices)) {
-      console.log(item);
+      result.list.push(item)
     }
     for (const item of calculateProfitSpecialComponents(this.allVehicleComponents[6] as ISpecialVehicleComponent[], this.allPrices)) {
-      console.log(item);
+      result.list.push(item)
     }
     for (const item of calculateProfitEpicComponents(this.allVehicleComponents[7] as IEpicVehicleComponent[], this.allPrices)) {
-      console.log(item);
+      result.list.push(item)
     }
     for (const item of calculateProfitRareComponents(this.allVehicleComponents[9] as IRareVehicleComponent[], this.allPrices)) {
-      console.log(item);
+      result.list.push(item)
     }
     for (const item of calculateProfitSpecialComponents(this.allVehicleComponents[10] as ISpecialVehicleComponent[], this.allPrices)) {
-      console.log(item);
+      result.list.push(item)
     }
     for (const item of calculateProfitEpicComponents(this.allVehicleComponents[11] as IEpicVehicleComponent[], this.allPrices)) {
-      console.log(item);
+      result.list.push(item)
     }
     for (const item of calculateProfitRareComponents(this.allVehicleComponents[13] as IRareVehicleComponent[], this.allPrices)) {
-      console.log(item);
+      result.list.push(item)
     }
     for (const item of calculateProfitSpecialComponents(this.allVehicleComponents[14] as ISpecialVehicleComponent[], this.allPrices)) {
-      console.log(item);
+      result.list.push(item)
     }
     for (const item of calculateProfitEpicComponents(this.allVehicleComponents[15] as IEpicVehicleComponent[], this.allPrices)) {
-      console.log(item);
+      result.list.push(item)
     }
     
+    result.list = result.list.sort((n1, n2) => {
+      if (n1.profitRatio < n2.profitRatio) {
+        return 1;
+      }
+      if (n1.profitRatio > n2.profitRatio) {
+        return -1;
+      }
+      return 0;
+    });
 
-    return prices
+    return result
 
 
     // this.intervalId = setInterval(async () => {

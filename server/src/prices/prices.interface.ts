@@ -133,3 +133,8 @@ export interface IListItem{
   name: string
   profitRatio: number
 }
+
+export interface IResponse{
+  list: IListItem[]
+  prices: IAllPrices
+}

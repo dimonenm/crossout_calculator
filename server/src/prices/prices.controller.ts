@@ -1,6 +1,6 @@
 import { Controller, Get } from '@nestjs/common';
 import axios from 'axios';
-import { IAllPrices } from './prices.interface';
+import { IAllPrices, IResponse } from './prices.interface';
 import { PricesService } from './prices.service';
 
 @Controller('prices')
@@ -8,7 +8,7 @@ export class PricesController {
   constructor(private readonly pricesService: PricesService) {}
 
   @Get('start')
-  startGettingPrices(): Promise<IAllPrices> {
+  startGettingPrices(): Promise<IResponse> {
     return this.pricesService.startGettingPrices()
   }
   @Get('stop')
